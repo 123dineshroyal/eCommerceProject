@@ -18,9 +18,14 @@ const Image = {
     topRight3:require('./topRight2.png'),
     topLeft4:require('./topLeft4.png'),
     bottomRight1:require('./bottomRight1.png'),
-    helloImage1:require('./hello1.png'),
-    helloImage2:require('./hello2.png'),
-    helloImage3:require('./hello3.png'),
+    profile1:require('./profile.png'),
+    icon1:require('./icon1.png'),
+    icon2:require('./icon2.png'),
+    viewed1:require('./viewed1.png'),
+    viewed2:require('./viewed2.png'),
+    viewed3:require('./viewed3.png'),
+    viewed4:require('./viewed4.png'),
+    viewed5:require('./viewed5.png'),
 }   
 
 export default Image;

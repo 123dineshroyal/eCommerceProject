@@ -57,7 +57,9 @@ const readyCard = () =>{
             <View style={styles.readyContainer}>
                 <Image source={Images.ready} style={styles.readyImage}/>
                 <View style={styles.readyTextContainer}>
-                    <Text style={styles.readyText}>Ready?</Text>
+                    <TouchableOpacity onPress={() => navigation.navigate('Profile-Screen')}>
+                     <Text style={styles.readyText}>Ready?</Text>
+                    </TouchableOpacity>
                     <Text style={styles.readySubText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
                 </View>
 
