@@ -12,6 +12,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { COLORS } from '../../constants/themes';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
+import { Button } from 'react-native-paper';
 
 const slide = [
     {
@@ -57,15 +58,20 @@ const readyCard = () =>{
             <View style={styles.readyContainer}>
                 <Image source={Images.ready} style={styles.readyImage}/>
                 <View style={styles.readyTextContainer}>
+
+                    
                     <TouchableOpacity onPress={() => navigation.navigate('Profile-Screen')}>
                      <Text style={styles.readyText}>Ready?</Text>
                     </TouchableOpacity>
                     <Text style={styles.readySubText}>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</Text>
                 </View>
 
-                <TouchableOpacity style={styles.startButton} onPress={() => navigation.navigate('HelloCard-Screen')}>
-                    <Text style={styles.startButtonText}>Let's Start</Text>
-                </TouchableOpacity>
+                <Button
+                    mode="contained"
+                    labelStyle={styles.startButtonText}
+                    onPress={() => navigation.navigate('HelloCard-Screen')}
+                    style={styles.startButton}
+            > Let's Start</Button>
             </View>
         </View>
     )
@@ -107,8 +113,9 @@ const readyCard = () =>{
 const styles = StyleSheet.create({
     mainContainer:{
         flex:1,
-        backgroundColor:COLORS.primaryColor,
-        paddingBottom:-30
+        backgroundColor:COLORS.background,
+        paddingBottom:-30,
+        color:COLORS.onBackground,
     },
     topLeft1:{
         position:'absolute',
@@ -137,10 +144,10 @@ const styles = StyleSheet.create({
         top:47,
         left:25,
         right:25,
-        shadowColor: COLORS.textColor1,
+        shadowColor: COLORS.shadow,
         shadowRadius: 5,
         elevation: 35,
-        backgroundColor:COLORS.textColor2,
+        backgroundColor:COLORS.background,
         borderRadius:30,
         overflow:'hidden'
     },
@@ -181,21 +188,21 @@ const styles = StyleSheet.create({
         height:20,
         width:20,
         borderRadius:10,
-        backgroundColor:COLORS.lightBlue,
+        backgroundColor:COLORS.primaryContainer,
         marginLeft:15,
     },
     bottomCircleActive:{
         height:20,
         width:20,
         borderRadius:10,
-        backgroundColor:COLORS.secondryColor,
+        backgroundColor:COLORS.primary,
         marginLeft:15,
     },
     startButton:{
         width:201,
         height:50,
         borderRadius:16,
-        backgroundColor:COLORS.secondryColor,
+        backgroundColor:COLORS.primary,
         justifyContent:'center',
         alignItems:'center',
         marginTop:35,
@@ -204,7 +211,7 @@ const styles = StyleSheet.create({
     startButtonText:{
         fontSize:22,
         fontWeight:'300',
-        color:COLORS.textColor2
+        color:COLORS.onPrimary
     }
 });
 export default readyCard;

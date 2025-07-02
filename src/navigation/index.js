@@ -15,6 +15,7 @@ import maximumAttempts from '../Screens/maximumAttempts';
 import helloCard from '../Screens/helloCard';
 import readyCard from '../Screens/readyCard';
 import profile from '../Screens/profile';
+import fullProfile from '../Screens/fullProfile';
 
 const Stack = createStackNavigator();
 
@@ -48,6 +49,8 @@ const RootNavigator = () =>{
                 <Stack.Screen name='ReadyCard-Screen' component={readyCard}/>
 
                 <Stack.Screen name='Profile-Screen' component={profile} />
+
+                <Stack.Screen name='full-Profile-Screen' component={fullProfile} />
                 
             </Stack.Navigator>
         </NavigationContainer>

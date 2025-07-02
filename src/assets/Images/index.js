@@ -26,6 +26,14 @@ const Image = {
     viewed3:require('./viewed3.png'),
     viewed4:require('./viewed4.png'),
     viewed5:require('./viewed5.png'),
+    story1:require('./story1.png'),
+    story2:require('./story2.png'),
+    story3:require('./story3.png'),
+    item1:require('./item1.png'),
+    item2:require('./item2.png'),
+    popular1:require('./popular1.png'),
+    popular2:require('./popular2.png'),
+    popular3:require('./popular3.png'),
 }   
 
 export default Image;

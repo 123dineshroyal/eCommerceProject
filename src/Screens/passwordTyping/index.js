@@ -1,117 +1,115 @@
-import {Text,
-        View,
-        StyleSheet,
-        TouchableOpacity,
-        Image,
-        SafeAreaView
+import {
+  Text,
+  View,
+  StyleSheet,
+  TouchableOpacity,
+  Image,
+  SafeAreaView,
 } from 'react-native';
 import themes, { COLORS } from '../../constants/themes';
 import Images from '../../assets/Images';
 import { useNavigation } from '@react-navigation/native';
 
-const passwordTyping = () =>{
+const passwordTyping = () => {
+  const navigation = useNavigation();
 
-    const navigation = useNavigation();
+  return (
+    <SafeAreaView style={styles.mainContainer}>
+      <Image source={Images.topLeft} style={styles.topLeftImage} />
+      <Image source={Images.topLeftBlue} style={styles.topLeftBlueImage} />
 
-    return(
-        <SafeAreaView style={styles.mainContainer}>
-            <Image source={Images.topLeft} style={styles.topLeftImage}/>
-            <Image source={Images.topLeftBlue} style={styles.topLeftBlueImage}/>
-
-            <View style={styles.profileContainer}>
-            <TouchableOpacity onPress={() => navigation.navigate('Wrong-Password-Screen')}>
-                <Image source={Images.profile} style={styles.userImage} />
-            </TouchableOpacity>    
-            <Text style={styles.userName}>Hello, Romina!!</Text>
-            <TouchableOpacity onPress={() => navigation.navigate('passwordScreen')}>
-                 <Text style={styles.passwordText}>Type your password</Text>
-            </TouchableOpacity>     
-            <View style={styles.passwordContainer}>
-                <Text style={styles.passwordAttemed}/>
-                <Text style={styles.passwordAttemed}/>
-                <Text style={styles.passwordAttemed}/>
-                <Text style={styles.passwordAttemed}/>
-                <Text style={styles.passwordAttemed}/>
-                <Text style={styles.passwordRemender}/>
-                <Text style={styles.passwordRemender}/>
-                <Text style={styles.passwordRemender}/>
-            </View>
-            </View>
-
-           
-        </SafeAreaView>
-    )
-}
+      <View style={styles.profileContainer}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('Wrong-Password-Screen')}
+        >
+          <Image source={Images.profile} style={styles.userImage} />
+        </TouchableOpacity>
+        <Text style={styles.userName}>Hello, Romina!!</Text>
+        <TouchableOpacity onPress={() => navigation.navigate('passwordScreen')}>
+          <Text style={styles.passwordText}>Type your password</Text>
+        </TouchableOpacity>
+        <View style={styles.passwordContainer}>
+          <Text style={styles.passwordAttemed} />
+          <Text style={styles.passwordAttemed} />
+          <Text style={styles.passwordAttemed} />
+          <Text style={styles.passwordAttemed} />
+          <Text style={styles.passwordAttemed} />
+          <Text style={styles.passwordRemender} />
+          <Text style={styles.passwordRemender} />
+          <Text style={styles.passwordRemender} />
+        </View>
+      </View>
+    </SafeAreaView>
+  );
+};
 
 const styles = StyleSheet.create({
-    mainContainer:{
-        flex:1,
-        backgroundColor:COLORS.primaryColor, 
-    },
-    topLeftImage:{
-        position:'absolute',
-        top:0,
-        left:0,
-        height:345,
-        width:300,
-       resizeMode:'stretch'
-    },
-    topLeftBlueImage:{
-        position:'absolute',
-        top:0,
-        left:0,
-        width:250,
-        height:280,
-        resizeMode:'stretch'
-        
-    },
-    profileContainer:{
-        flexDirection:'column',
-        justifyContent:'center',
-        alignItems:'center',
-        top:148
-    },
-    userImage:{
-        width:106,
-        height:106,
-        borderColor:COLORS.textColor2,
-        borderWidth:6,
-        borderRadius:50,
-        shadowColor:COLORS.darkBlack,
-        shadowRadius: 8,
-        elevation: 5,
-    },
-    userName:{
-        marginTop:35,
-        fontWeight:700,
-        fontSize:28
-    },
-    passwordText:{
-        marginTop:30,
-        fontSize:19,
-        fontWeight:'300'
-    },
-    passwordContainer:{
-        flexDirection:'row',
-        justifyContent:'center',
-        alignItems:'center',
-        marginTop:15,
-            
-    },
-    passwordAttemed:{
-        height:17,
-        width:17,
-        backgroundColor:COLORS.secondryColor,
-        borderRadius:10,
-        marginLeft:12
-    },
-    passwordRemender:{
-        height:17,
-        width:17,
-        backgroundColor:COLORS.white2,
-        borderRadius:10,
-        marginLeft:12
-    },
-    
-})
+  mainContainer: {
+    flex: 1,
+    backgroundColor: COLORS.background,
+    color: COLORS.onBackground,
+  },
+  topLeftImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    height: 345,
+    width: 300,
+    resizeMode: 'stretch',
+  },
+  topLeftBlueImage: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    width: 250,
+    height: 280,
+    resizeMode: 'stretch',
+  },
+  profileContainer: {
+    flexDirection: 'column',
+    justifyContent: 'center',
+    alignItems: 'center',
+    top: 148,
+  },
+  userImage: {
+    width: 106,
+    height: 106,
+    borderColor: COLORS.background,
+    borderWidth: 6,
+    borderRadius: 50,
+    shadowColor: COLORS.shadow,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  userName: {
+    marginTop: 35,
+    fontWeight: 700,
+    fontSize: 28,
+  },
+  passwordText: {
+    marginTop: 30,
+    fontSize: 19,
+    fontWeight: '300',
+  },
+  passwordContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 15,
+  },
+  passwordAttemed: {
+    height: 17,
+    width: 17,
+    backgroundColor: COLORS.primary,
+    borderRadius: 10,
+    marginLeft: 12,
+  },
+  passwordRemender: {
+    height: 17,
+    width: 17,
+    backgroundColor: COLORS.primaryContainer,
+    borderRadius: 10,
+    marginLeft: 12,
+  },
+});
 export default passwordTyping;
