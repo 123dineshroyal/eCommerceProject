@@ -6,6 +6,7 @@ import {
   TouchableOpacity,
   TextInput,
   Image,
+  ImageBackground,
 } from 'react-native';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -15,6 +16,7 @@ import Images from '../../assets/Images';
 import { useNavigation } from '@react-navigation/native';
 import themes, { COLORS, SIZES } from '../../constants/themes';
 import { Button } from 'react-native-paper';
+import { RouteName } from '../../navigation/RouteName';
 
 const CreateAccount = () => {
   const navigation = useNavigation();
@@ -25,12 +27,11 @@ const CreateAccount = () => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <View style={styles.topContainer}>
-        <Image source={Images.topLeft2} style={styles.topLeftImage} />
-
-        <Image source={Images.topRight3} style={styles.topRightImage} />
-
-        <Text style={styles.createAccountText}>Create Account</Text>
+      <ImageBackground
+        source={Images.loginBackground}
+        style={styles.backgroundImage}
+      >
+        <Text style={styles.createAccountText}>Create{'\n'}Account</Text>
 
         <TouchableOpacity style={styles.cameraContainer}>
           <MaterialCommunityIcons
@@ -39,53 +40,60 @@ const CreateAccount = () => {
             color={COLORS.primary}
           />
         </TouchableOpacity>
-      </View>
-      <View style={styles.formContainer}>
-        <TextInput
-          style={styles.inputStyle}
-          placeholder="Email"
-          placeholderTextColor={COLORS.surfaceVariant}
-          value={email}
-          onChangeText={setEmail}
-        />
 
-        <View style={styles.passwordContainer}>
+        <View style={styles.formContainer}>
           <TextInput
-            style={styles.passwordInput}
-            placeholder="Password"
+            style={styles.inputStyle}
+            placeholder="Email"
             placeholderTextColor={COLORS.surfaceVariant}
-            value={password}
-            onChangeText={setPassword}
+            value={email}
+            onChangeText={setEmail}
           />
-          <TouchableOpacity>
-            <Ionicons name="eye-off" size={15} />
-          </TouchableOpacity>
-        </View>
-        <View style={styles.countryContainer}>
-          <Image style={styles.countryImage} source={Images.country} />
-          <MaterialIcons name="keyboard-arrow-down" size={25} />
-          <Text style={styles.textCountery}>|</Text>
-          <TextInput
-            style={styles.passwordInput}
-            placeholder="Your Number"
-            placeholderTextColor={COLORS.surfaceVariant}
-            value={number}
-            onChangeText={setNumber}
-          />
-        </View>
-      </View>
 
-      <Button mode="contained"
-            labelStyle={styles.doneButtonText}
-            style={styles.doneButtonContainer}
-             onPress={() => navigation.navigate('loginScreen')}
-          >Done</Button>
+          <View style={styles.passwordContainer}>
+            <TextInput
+              style={styles.passwordInput}
+              placeholder="Password"
+              placeholderTextColor={COLORS.surfaceVariant}
+              value={password}
+              onChangeText={setPassword}
+            />
+            <TouchableOpacity>
+              <Ionicons name="eye-off" size={15} />
+            </TouchableOpacity>
+          </View>
+          <View style={styles.countryContainer}>
+            <Image style={styles.countryImage} source={Images.country} />
+            <MaterialIcons name="keyboard-arrow-down" size={25} />
+            <Text style={styles.textCountery}>|</Text>
+            <TextInput
+              style={styles.passwordInput}
+              placeholder="Your Number"
+              placeholderTextColor={COLORS.surfaceVariant}
+              value={number}
+              onChangeText={setNumber}
+            />
+          </View>
+        </View>
 
-       <Button mode="contained"
-            labelStyle={styles.cancelButtonText}
-            style={styles.cancelButtonContainer}
-            onPress={() => navigation.navigate('StartScreen')}
-          >Cancel</Button>
+        <Button
+          mode="contained"
+          labelStyle={styles.doneButtonText}
+          style={styles.doneButtonContainer}
+          onPress={() => navigation.navigate(RouteName.LOGIN_SCREEN)}
+        >
+          Done
+        </Button>
+
+        <Button
+          mode="contained"
+          labelStyle={styles.cancelButtonText}
+          style={styles.cancelButtonContainer}
+          onPress={() => navigation.navigate(RouteName.START_SCREEN)}
+        >
+          Cancel
+        </Button>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -94,39 +102,17 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
   },
-  topContainer: {
-    height: 504,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  backgroundImage: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'flex-end',
   },
-  topLeftImage: {
-    top: 0,
-    left: 0,
-    height: 230,
-    width: 231,
-    resizeMode: 'stretch',
-  },
-  topRightImage: {
-    right: 0,
-    top: 40,
-    height: 300,
-    width: 100,
-    resizeMode: 'stretch',
-  },
-
   createAccountText: {
-    top: 122,
     fontSize: 50,
     fontWeight: '700',
-    position: 'absolute',
-    left: 20,
-    width: 197,
   },
   cameraContainer: {
-    top: 284,
-    left: 30,
     height: 90,
     width: 90,
     borderColor: COLORS.primary,
@@ -135,21 +121,17 @@ const styles = StyleSheet.create({
     borderRadius: 45,
     justifyContent: 'center',
     alignItems: 'center',
-    position: 'absolute',
+    marginTop: 54,
   },
   formContainer: {
-    top: -105,
-    marginHorizontal: 20,
-    height: 175,
+    marginTop: 32,
   },
   inputStyle: {
     borderWidth: 1,
     borderColor: COLORS.surface,
     borderRadius: 20,
-    padding: 10,
     fontWeight: '500',
     fontSize: 14,
-    marginTop: 8,
     backgroundColor: COLORS.secondary,
     paddingLeft: 20,
     height: 55,
@@ -161,31 +143,26 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: COLORS.surface,
     borderRadius: 20,
-    padding: 10,
-    marginTop: 8,
     backgroundColor: COLORS.secondary,
-    paddingLeft: 20,
-    paddingVertical: -12,
+    paddingHorizontal: 20,
     height: 55,
+    marginTop: 7,
   },
   passwordInput: {
-    flex: 1,
     fontSize: 14,
     fontWeight: '500',
   },
   countryContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'flex-start',
     alignItems: 'center',
     borderWidth: 1,
     borderColor: COLORS.surface,
     borderRadius: 20,
-    padding: 10,
-    marginTop: 8,
     backgroundColor: COLORS.secondary,
     paddingLeft: 20,
-    paddingVertical: -12,
     height: 55,
+    marginTop: 7,
   },
   countryImage: {
     width: 29,
@@ -195,15 +172,8 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   doneButtonContainer: {
-    width: 335,
-    height: 61,
-    backgroundColor: COLORS.primary,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    left: 30,
-    marginRight: 20,
-    top: -35,
+    paddingVertical: 10,
+    marginTop: 52,
   },
   doneButtonText: {
     fontSize: 22,
@@ -212,7 +182,8 @@ const styles = StyleSheet.create({
   },
   cancelButtonContainer: {
     backgroundColor: COLORS.background,
-    top: -20,
+    marginBottom: 49,
+    marginTop: 20,
   },
   cancelButtonText: {
     fontSize: 15,

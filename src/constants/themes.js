@@ -31,7 +31,7 @@ export const COLORS = {
   shadow: 'rgb(0, 0, 0)',
   scrim: 'rgb(0, 0, 0)',
   inverseSurface: 'rgb(48, 48, 52)',
-  inverseOnSurface: 'rgb(243, 240, 244)',
+  inverseOnSurface: 'rgb(243, 243, 243)',
   inversePrimary: 'rgb(187, 195, 255)',
   elevation: {
     level0: 'transparent',

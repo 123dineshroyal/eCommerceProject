@@ -5,26 +5,28 @@ import {
   StyleSheet,
   Image,
   TouchableOpacity,
+  ImageBackground,
 } from 'react-native';
 import themes, { COLORS } from '../../constants/themes';
 import Images from '../../assets/Images';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
 import { Color } from 'react-native/types_generated/Libraries/Animated/AnimatedExports';
+import { RouteName } from '../../navigation/RouteName';
 
 const Password = () => {
   const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Image source={Images.topLeft} style={styles.topLeftImage} />
-      <Image source={Images.topLeftBlue} style={styles.topLeftBlueImage} />
-
-      <View style={styles.profileContainer}>
+      <ImageBackground
+        source={Images.loginBackground}
+        style={styles.backgroundImage}
+      >
         <TouchableOpacity
-          onPress={() => navigation.navigate('Password-Typing-Screen')}
+          onPress={() => navigation.navigate(RouteName.PASSWORD_TYPING_SCREEN)}
         >
-          <Image source={Images.profile} style={styles.userImage} />
+          <Image source={Images.profile} style={styles.userImage} />'
         </TouchableOpacity>
         <Text style={styles.userName}>Hello, Romina!!</Text>
         <Text style={styles.passwordText}>Type your password</Text>
@@ -39,12 +41,12 @@ const Password = () => {
           <Text style={styles.notYouText}>Not You?</Text>
           <TouchableOpacity
             style={styles.nextArrow}
-            onPress={() => navigation.navigate('loginScreen')}
+            onPress={() => navigation.navigate(RouteName.LOGIN_SCREEN)}
           >
             <Icon name="arrow-forward" size={20} color={COLORS.background} />
           </TouchableOpacity>
         </View>
-      </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -54,29 +56,12 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
   },
-  topLeftImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    height: 345,
-    width: 300,
-    resizeMode: 'stretch',
-  },
-  topLeftBlueImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: 250,
-    height: 280,
-    resizeMode: 'stretch',
-  },
-  profileContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
+  backgroundImage: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    top: 148,
   },
   userImage: {
     width: 106,
@@ -100,9 +85,6 @@ const styles = StyleSheet.create({
   },
   passwordContainer: {
     flexDirection: 'row',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 23,
   },
   passwordBox: {
     height: 50,
@@ -110,12 +92,14 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.secondary,
     borderRadius: 10,
     marginLeft: 5,
+    marginTop: 23,
   },
   buttonContainer: {
-    top: 230,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 49,
+    marginTop: 256,
   },
   notYouText: {
     fontSize: 15,
@@ -131,6 +115,5 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     borderRadius: 30,
     marginLeft: 15,
-    marginBottom: 8,
   },
 });

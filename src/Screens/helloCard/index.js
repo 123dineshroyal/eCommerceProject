@@ -11,6 +11,7 @@ import Images from '../../assets/Images';
 import { useNavigation } from '@react-navigation/native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
+import { RouteName } from '../../navigation/RouteName';
 
 const slide = [
   {
@@ -60,13 +61,15 @@ const HelloCard = () => {
         <Image source={item.image} style={styles.helloImage} />
         <View style={styles.helloTextContainer}>
           <TouchableOpacity
-            onPress={() => navigation.navigate('ReadyCard-Screen')}
+            onPress={() => navigation.navigate(RouteName.READY_CARD_SCREEN)}
           >
             <Text style={styles.helloText}>{item.title}</Text>
           </TouchableOpacity>
 
           <TouchableOpacity
-            onPress={() => navigation.navigate('Maximum-Attempts-Screen')}
+            onPress={() =>
+              navigation.navigate(RouteName.MAXIMUM_ATTEMPTS_SCREEN)
+            }
           >
             <Text style={styles.helloSubText}>{item.description}</Text>
           </TouchableOpacity>

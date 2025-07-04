@@ -5,21 +5,23 @@ import {
   TouchableOpacity,
   Image,
   SafeAreaView,
+  ImageBackground,
 } from 'react-native';
 import themes, { COLORS, SIZES } from '../../constants/themes';
 import Images from '../../assets/Images';
 import { useNavigation } from '@react-navigation/native';
 import { Button } from 'react-native-paper';
+import { RouteName } from '../../navigation/RouteName';
 
 const passwordRecoveryCode = () => {
   const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Image source={Images.topRight1} style={styles.topRightImage} />
-      <Image source={Images.topRight2} style={styles.topRightBlueImage} />
-
-      <View style={styles.passwordContainer}>
+      <ImageBackground
+        source={Images.loginBackground}
+        style={styles.backgroundImage}
+      >
         <TouchableOpacity>
           <Image source={Images.profile} style={styles.userImage} />
         </TouchableOpacity>
@@ -35,20 +37,27 @@ const passwordRecoveryCode = () => {
           <Text style={styles.smsCodeNumber} />
         </View>
 
-       
-          <Button
-              mode="contained"
-              labelStyle={styles.sendAgainButtonText}
-              onPress={() => navigation.navigate('New-Password-Screen')}
-              style={styles.sendAgainButtonContainer}
-            > Send Again</Button>
-         <Button
-              mode="contained"
-              labelStyle={styles.cancelButtonText}
-               onPress={() => navigation.navigate('Password-Recovery-Screen')}
-              style={styles.cancelButtonContainer}
-            > Cancel</Button>
-      </View>
+        <Button
+          mode="contained"
+          labelStyle={styles.sendAgainButtonText}
+          onPress={() => navigation.navigate(RouteName.NEW_PASSWORD_SCREEN)}
+          style={styles.sendAgainButtonContainer}
+        >
+          {' '}
+          Send Again
+        </Button>
+        <Button
+          mode="contained"
+          labelStyle={styles.cancelButtonText}
+          onPress={() =>
+            navigation.navigate(RouteName.PASSWORD_RECOVERY_SCREEN)
+          }
+          style={styles.cancelButtonContainer}
+        >
+          {' '}
+          Cancel
+        </Button>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -57,30 +66,12 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
   },
-  topRightImage: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    resizeMode: 'stretch',
-    height: 200,
-    width: '100%',
-    left: 50,
-  },
-  topRightBlueImage: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    resizeMode: 'stretch',
-    height: 130,
-    width: 280,
-  },
-  passwordContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
+  backgroundImage: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    top: 148,
   },
   userImage: {
     width: 106,
@@ -95,8 +86,8 @@ const styles = StyleSheet.create({
   passwordRcovery: {
     fontSize: 21,
     fontWeight: '700',
-    marginTop: 17,
-    marginBottom: 5,
+    marginTop: 19,
+    marginBottom: 7,
   },
   passwordText: {
     fontSize: 19,
@@ -105,7 +96,7 @@ const styles = StyleSheet.create({
   mobileNumber: {
     fontSize: 16,
     fontWeight: '700',
-    marginTop: 13,
+    marginTop: 15,
   },
   smsCodeContainer: {
     flexDirection: 'row',
@@ -121,29 +112,26 @@ const styles = StyleSheet.create({
     borderRadius: 9,
   },
   sendAgainButtonContainer: {
-    width: 201,
-    height: 61,
+    paddingVertical: 10,
     backgroundColor: COLORS.tertiary,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 199,
-   // paddingBottom:4
+    width: 201,
+    marginTop: 199,
   },
   sendAgainButtonText: {
-    fontSize: 20,
+    fontSize: 18,
+
     color: COLORS.background,
     fontWeight: '300',
   },
   cancelButtonContainer: {
-    top: 195,
-    marginTop: 24,
-    backgroundColor:COLORS.background
+    marginTop: 20,
+    backgroundColor: COLORS.background,
+    marginBottom: 49,
   },
   cancelButtonText: {
     fontSize: 15,
     fontWeight: 300,
-    color:COLORS.onBackground
+    color: COLORS.onBackground,
   },
 });
 

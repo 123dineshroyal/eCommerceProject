@@ -224,20 +224,156 @@ const FullProfile = () => {
               </View>
             </View>
 
-            <View style={styles.popularContainer}>
-              <Image source={Images.popular1} style={styles.popularImage} />
-              <View style={styles.popularCardContainer}>
-                <View style={styles.popularCard}>
-                  <Text style={styles.popularCardPrice}>1780</Text>
-                  <Icon name="heart" color={COLORS.primary} size={10} />
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {popular.map(item => (
+                <View style={styles.popularContainer}>
+                  <TouchableOpacity>
+                    <Image source={item.image} style={styles.popularImage} />
+                    <View style={styles.popularCardContainer}>
+                      <View style={styles.popularCard}>
+                        <Text style={styles.popularCardPrice}>
+                          {item.price}
+                        </Text>
+                        <Icon name="heart" color={COLORS.primary} size={10} />
+                      </View>
+                      <Text style={styles.popularCardNew}>{item.status}</Text>
+                    </View>
+                  </TouchableOpacity>
                 </View>
-                <Text style={styles.popularCardNew}>New</Text>
+              ))}
+            </ScrollView>
+          </View>
+
+          <View style={styles.categoriesMainContainer}>
+            <View style={styles.newItemContainer}>
+              <Text style={styles.newItemText}>Categories</Text>
+              <View style={styles.seeAllContainer}>
+                <Text style={styles.seeAllText}>See All</Text>
+                <TouchableOpacity style={styles.arrowContainer1}>
+                  <MaterialCommunityIcons
+                    name="arrow-right"
+                    size={22}
+                    color={COLORS.onPrimary}
+                  />
+                </TouchableOpacity>
+              </View>
+            </View>
+
+            <View style={styles.categoriesContainer}>
+              <View style={styles.categoriesContainerItems}>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Image
+                    source={Images.clothing1}
+                    style={styles.categoriesImage}
+                  />
+                  <Image
+                    source={Images.clothing2}
+                    style={styles.categoriesImage}
+                  />
+                </View>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Image
+                    source={Images.clothing3}
+                    style={styles.categoriesImage}
+                  />
+                  <Image
+                    source={Images.clothing4}
+                    style={styles.categoriesImage}
+                  />
+                </View>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Text style={styles.categoriesText}>Clothing</Text>
+                  <Text style={styles.categoriesText1}>109</Text>
+                </View>
+              </View>
+
+              <View style={styles.categoriesContainerItems}>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Image
+                    source={Images.shoes1}
+                    style={styles.categoriesImage}
+                  />
+                  <Image
+                    source={Images.shoes2}
+                    style={styles.categoriesImage}
+                  />
+                </View>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Image
+                    source={Images.shoes3}
+                    style={styles.categoriesImage}
+                  />
+                  <Image
+                    source={Images.shoes4}
+                    style={styles.categoriesImage}
+                  />
+                </View>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Text style={styles.categoriesText}>Shoes</Text>
+                  <Text style={styles.categoriesText1}>530</Text>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.categoriesContainer}>
+              <View style={styles.categoriesContainerItems}>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Image
+                    source={Images.bages1}
+                    style={styles.categoriesImage}
+                  />
+                  <Image
+                    source={Images.bages2}
+                    style={styles.categoriesImage}
+                  />
+                </View>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Image
+                    source={Images.bages3}
+                    style={styles.categoriesImage}
+                  />
+                  <Image
+                    source={Images.bages4}
+                    style={styles.categoriesImage}
+                  />
+                </View>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Text style={styles.categoriesText}>Bages</Text>
+                  <Text style={styles.categoriesText1}>87</Text>
+                </View>
+              </View>
+
+              <View style={styles.categoriesContainerItems}>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Image
+                    source={Images.lingerie1}
+                    style={styles.categoriesImage}
+                  />
+                  <Image
+                    source={Images.lingerie2}
+                    style={styles.categoriesImage}
+                  />
+                </View>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Image
+                    source={Images.lingerie3}
+                    style={styles.categoriesImage}
+                  />
+                  <Image
+                    source={Images.lingerie4}
+                    style={styles.categoriesImage}
+                  />
+                </View>
+                <View style={styles.categoriesContainerItemsData}>
+                  <Text style={styles.categoriesText}>Lingerie</Text>
+                  <Text style={styles.categoriesText1}>218</Text>
+                </View>
               </View>
             </View>
           </View>
         </View>
       </ScrollView>
-      <View style={styles.footerContainer}>
+      {/* <View style={styles.footerContainer}>
         <TouchableOpacity>
           <Feather name="home" size={24} color={COLORS.primary} />
         </TouchableOpacity>
@@ -253,7 +389,7 @@ const FullProfile = () => {
         <TouchableOpacity>
           <Icon name="person-outline" size={24} color={COLORS.onBackground} />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </SafeAreaView>
   );
 };
@@ -502,12 +638,14 @@ const styles = StyleSheet.create({
     marginTop: 15,
     width: 104,
     height: 140,
-    //justifyContent:'center',
+    justifyContent: 'space-evenly',
     //alignItems:'center',
     borderWidth: 4,
     borderRadius: 10,
     borderColor: COLORS.background,
     backgroundColor: COLORS.background,
+    right: 10,
+    marginLeft: 10,
   },
   popularImage: {
     width: 93,
@@ -531,5 +669,45 @@ const styles = StyleSheet.create({
   popularCardNew: {
     fontSize: 13,
     fontWeight: '500',
+  },
+  categoriesMainContainer: {
+    marginTop: -6,
+  },
+  categoriesContainer: {
+    marginTop: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  categoriesContainerItems: {
+    height: 192,
+    backgroundColor: COLORS.background,
+    borderRadius: 10,
+    width: '48%',
+    shadowColor: COLORS.shadow,
+    shadowRadius: 8,
+    elevation: 5,
+    justifyContent: 'space-around',
+    paddingHorizontal: 7,
+  },
+  categoriesContainerItemsData: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  categoriesImage: {
+    height: 75,
+    width: 75,
+  },
+  categoriesText: {
+    fontSize: 17,
+    fontWeight: '700',
+  },
+  categoriesText1: {
+    backgroundColor: COLORS.inverseOnSurface,
+    paddingHorizontal: 10,
+    borderRadius: 10,
+    fontSize: 12,
+    fontWeight: '700',
   },
 });

@@ -9,38 +9,41 @@ import {
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Images from '../../assets/Images';
 import { useNavigation } from '@react-navigation/native';
-import themes, { COLORS, SIZES } from '../../constants/themes';
+import { COLORS } from '../../constants/themes';
 import { Button } from 'react-native-paper';
+import { RouteName } from '../../navigation/RouteName';
 
 const Start = () => {
   const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.container}>
-      <View style={styles.mainContainer}>
+      <View style={styles.contain}>
         <View style={styles.imageContainer}>
           <Image source={Images.shoppe} style={styles.shoppeImage} />
         </View>
-        <View style={styles.shoppeContainer}>
-          <Text style={styles.shoppeText}>Shoppe</Text>
-          <Text style={styles.shoppeSubText}>
-            Beautiful eCommerce UI Kit {'\n'} for your online store
-          </Text>
-        </View>
-       
-          <Button mode="contained"
-            labelStyle={styles.staredButtonText}
-            style={styles.startedButton}
-             onPress={() => navigation.navigate('createAccountScreen')}
-          >Let's get started</Button>
+      </View>
+      <View style={styles.shoppeContainer}>
+        <Text style={styles.shoppeText}>Shoppe</Text>
+        <Text style={styles.shoppeSubText}>
+          Beautiful eCommerce UI Kit{'\n'} for your online store
+        </Text>
+      </View>
 
-        <View style={styles.existContainer}>
-          <Text style={styles.accountExistText}>I already have an account</Text>
-          <TouchableOpacity style={styles.nextArrow}>
-            <Icon name="arrow-forward" size={20} color={COLORS.background} />
-          </TouchableOpacity>
-        </View>
-        {/* <Text style={styles.bottomBar}/> */}
+      <Button
+        mode="contained"
+        labelStyle={styles.staredButtonText}
+        style={styles.startedButton}
+        onPress={() => navigation.navigate(RouteName.CREATE_ACCOUNT_SCREEN)}
+      >
+        Let's get started
+      </Button>
+
+      <View style={styles.existContainer}>
+        <Text style={styles.accountExistText}>I already have an account</Text>
+        <TouchableOpacity style={styles.nextArrow}>
+          <Icon name="arrow-forward" size={20} color={COLORS.background} />
+        </TouchableOpacity>
       </View>
     </SafeAreaView>
   );
@@ -50,16 +53,16 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
+    justifyContent: 'flex-end',
+    padding: 20,
   },
-  mainContainer: {
-    alignItems: 'center',
+  contain: {
     justifyContent: 'center',
+    alignItems: 'center',
   },
   imageContainer: {
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 200,
     height: 134,
     width: 134,
     borderColor: COLORS.background,
@@ -77,40 +80,34 @@ const styles = StyleSheet.create({
   shoppeContainer: {
     marginTop: 24,
     justifyContent: 'center',
-    textAlign: 'center',
+    alignItems: 'center',
   },
   shoppeText: {
     fontSize: 52,
     fontWeight: '700',
-    left: 28,
   },
   shoppeSubText: {
     fontSize: 19,
     fontWeight: '300',
     lineHeight: 33,
-    left: 10,
+    textAlign: 'center',
     marginTop: 10,
   },
   startedButton: {
-    width: 335,
-    height: 61,
-    backgroundColor: COLORS.primary,
-    borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 140,
+    paddingVertical: 10,
+    marginTop: 106,
   },
   staredButtonText: {
-    fontSize: 22,
+    fontSize: 18,
     color: COLORS.onPrimary,
     fontWeight: '300',
-    paddingBottom:4
   },
   existContainer: {
-    marginTop: 18,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    marginBottom: 49,
+    marginTop: 20,
   },
   accountExistText: {
     fontSize: 15,
@@ -126,13 +123,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     borderRadius: 30,
     marginLeft: 12,
-  },
-  bottomBar: {
-    width: 134,
-    height: 5,
-    backgroundColor: COLORS.background,
-    marginTop: 28,
-    borderRadius: 4,
   },
 });
 

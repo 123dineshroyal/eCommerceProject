@@ -14,6 +14,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Icon from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
 
 const storyData = [
   {
@@ -48,7 +49,7 @@ const Profile = () => {
           <Image source={Images.profile1} style={styles.profileImage} />
           <TouchableOpacity
             style={styles.myActivityContainer}
-            onPress={() => navigation.navigate('ReadyCard-Screen')}
+            onPress={() => navigation.navigate(RouteName.READY_CARD_SCREEN)}
           >
             <Text style={styles.myActivityText}>My Activity</Text>
           </TouchableOpacity>
@@ -77,7 +78,7 @@ const Profile = () => {
           </View>
           <TouchableOpacity
             style={styles.arrowContainer}
-            onPress={() => navigation.navigate('full-Profile-Screen')}
+            onPress={() => navigation.navigate(RouteName.FULL_PROFILE_SCREEN)}
           >
             <MaterialCommunityIcons
               name="arrow-right"
@@ -122,7 +123,7 @@ const Profile = () => {
           ))}
         </ScrollView>
       </View>
-
+{/* 
       <View style={styles.footerContainer}>
         <TouchableOpacity>
           <Feather name="home" size={24} color={COLORS.primary} />
@@ -139,7 +140,7 @@ const Profile = () => {
         <TouchableOpacity>
           <Icon name="person-outline" size={24} color={COLORS.onBackground} />
         </TouchableOpacity>
-      </View>
+      </View> */}
     </SafeAreaView>
   );
 };
@@ -150,11 +151,11 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
   },
   container: {
-    marginLeft: 20,
-    marginRight: 20,
+    //marginLeft: 20,
+    //marginRight: 20,
+    paddingHorizontal:20
   },
   activityContainer: {
     marginTop: 30,
@@ -283,13 +284,14 @@ const styles = StyleSheet.create({
     elevation: 25,
   },
   listNotification: {
-    position: 'absolute',
+    position: 'relative',
     height: 8,
     width: 8,
     backgroundColor: COLORS.primary,
     borderRadius: 4,
-    top: 35,
-    left: 283,
+    //top: 35,
+    bottom:30,
+    left: 286,
   },
   story: {
     fontSize: 21,

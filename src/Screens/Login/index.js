@@ -5,13 +5,15 @@ import {
   SafeAreaView,
   Image,
   TouchableOpacity,
+  ImageBackground,
+  TextInput,
 } from 'react-native';
 import themes, { COLORS, SIZES } from '../../constants/themes';
 import { useNavigation } from '@react-navigation/native';
 import Images from '../../assets/Images';
-import { TextInput } from 'react-native-gesture-handler';
 import { useState } from 'react';
 import { Button } from 'react-native-paper';
+import { RouteName } from '../../navigation/RouteName';
 
 const Login = () => {
   const navigation = useNavigation();
@@ -19,14 +21,11 @@ const Login = () => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <View>
-        <Image source={Images.topLeft} style={styles.topLeftImage} />
-        <Image source={Images.topLeftBlue} style={styles.topLeftBlueImage} />
-
-        <Image source={Images.topLeft4} style={styles.topRightImage} />
-        <Image source={Images.bottomRight1} style={styles.bottomRightImage} />
-
-        <View style={styles.loginContainer}>
+      <ImageBackground
+        source={Images.loginBackground}
+        style={styles.backgroundImage}
+      >
+        <View>
           <Text style={styles.loginText}>Login</Text>
           <Text style={styles.textLogin}>
             Good to see you back!{' '}
@@ -44,19 +43,24 @@ const Login = () => {
           <Button
             mode="contained"
             labelStyle={styles.nextButtonText}
-            onPress={() => navigation.navigate('passwordScreen')}
+            onPress={() => navigation.navigate(RouteName.PASSWORD_SCREEN)}
             style={styles.nextButtonContainer}
-          > Next</Button>
+          >
+            {' '}
+            Next
+          </Button>
 
-           <Button
+          <Button
             mode="contained"
             labelStyle={styles.cancelButtonText}
-           onPress={() => navigation.navigate('createAccountScreen')}
+            onPress={() => navigation.navigate(RouteName.CREATE_ACCOUNT_SCREEN)}
             style={styles.cancelButtonContainer}
-          > Cancel</Button>
-
+          >
+            {' '}
+            Cancel
+          </Button>
         </View>
-      </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -64,45 +68,13 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
   },
-  topLeftImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    height: 345,
-    width: 300,
-    resizeMode: 'stretch',
+  backgroundImage: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'flex-end',
   },
-  topLeftBlueImage: {
-    //position:'absolute',
-    top: 0,
-    left: 0,
-    width: 250,
-    height: 280,
-    resizeMode: 'stretch',
-  },
-  topRightImage: {
-    position: 'absolute',
-    height: 180,
-    width: 90,
-    resizeMode: 'stretch',
-    right: 0,
-    top: 240,
-  },
-  bottomRightImage: {
-    position: 'relative',
-    height: 300,
-    width: 250,
-    resizeMode: 'stretch',
-    bottom: -233,
-    right: -140,
-  },
-  loginContainer: {
-    position: 'absolute',
-    top: 438,
-    left: 20,
-  },
+
   loginText: {
     fontSize: 52,
     fontWeight: 700,
@@ -116,7 +88,7 @@ const styles = StyleSheet.create({
     height: 15,
   },
   emailInput: {
-    marginTop: 26,
+    marginTop: 17,
     borderWidth: 1,
     borderColor: COLORS.surface,
     borderRadius: 59,
@@ -124,20 +96,13 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     fontSize: 14,
     backgroundColor: COLORS.secondary,
-    paddingLeft: 20,
     height: 55,
-    marginLeft: 1,
-    width: 334,
+    paddingLeft: 20,
   },
   nextButtonContainer: {
-    height: 61,
-    borderRadius:20,
-    justifyContent: 'center',
-    alignItems: 'center',
-
-    //marginRight: 20,
-    left:10,
-    top: 32,
+    borderRadius: 20,
+    paddingVertical: 10,
+    marginTop: 36,
   },
   nextButtonText: {
     fontSize: 22,
@@ -145,8 +110,9 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
   cancelButtonContainer: {
-    top: 47,
-    backgroundColor:COLORS.background
+    backgroundColor: COLORS.background,
+    marginTop: 20,
+    marginBottom: 49,
   },
   cancelButtonText: {
     fontSize: 15,

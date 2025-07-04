@@ -6,12 +6,14 @@ import {
   SafeAreaView,
   Image,
   TextInput,
+  ImageBackground,
 } from 'react-native';
 import themes, { COLORS, SIZES } from '../../constants/themes';
 import Images from '../../assets/Images';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { Button } from 'react-native-paper';
+import { RouteName } from '../../navigation/RouteName';
 
 const NewPassword = () => {
   const navigation = useNavigation();
@@ -21,18 +23,20 @@ const NewPassword = () => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Image source={Images.topRight1} style={styles.topRightImage} />
-      <Image source={Images.topRight2} style={styles.topRightBlueImage} />
+    
 
-      <View style={styles.passwordContainer}>
-        <TouchableOpacity>
-          <Image source={Images.profile} style={styles.userImage} />
-        </TouchableOpacity>
-        <Text style={styles.passwordRcovery}>Setup New Password</Text>
-        <Text style={styles.passwordText}>
-          Please, setup a new password for
-        </Text>
-        <Text style={styles.passwordText}>your account</Text>
+      <ImageBackground source={Images.loginBackground} style={styles.backgroundImage}>
+          <View style={styles.profile1}>
+            <TouchableOpacity>
+              <Image source={Images.profile} style={styles.userImage} />
+          
+              </TouchableOpacity>
+              <Text style={styles.passwordRcovery}>Setup New Password</Text>
+              <Text style={styles.passwordText}>
+                Please, setup a new password for
+              </Text>
+              <Text style={styles.passwordText}>your account</Text>
+          </View>    
 
         <View style={styles.passwordSetupContainer}>
           <TextInput
@@ -51,27 +55,28 @@ const NewPassword = () => {
           />
         </View>
 
-        {/* <TouchableOpacity
+        <Button
+          mode="contained"
+          labelStyle={styles.saveButtonText}
+          onPress={() => navigation.navigate(RouteName.MAXIMUM_ATTEMPTS_SCREEN)}
           style={styles.saveButtonContainer}
-          onPress={() => navigation.navigate('Maximum-Attempts-Screen')}
         >
-          <Text style={styles.saveButtonText}>Save</Text>
-        </TouchableOpacity> */}
+          {' '}
+          Save
+        </Button>
 
         <Button
-              mode="contained"
-              labelStyle={styles.saveButtonText}
-               onPress={() => navigation.navigate('Maximum-Attempts-Screen')}
-              style={styles.saveButtonContainer}
-            > Save</Button>
-
-         <Button
-            mode="contained"
-            labelStyle={styles.cancelButtonText}
-            onPress={() => navigation.navigate('Password-Recovery-Code-Screen')}
-            style={styles.cancelButtonContainer}
-          > Cancel</Button>
-      </View>
+          mode="contained"
+          labelStyle={styles.cancelButtonText}
+          onPress={() =>
+            navigation.navigate(RouteName.PASSWORD_RECOVERY_CODE_SCREEN)
+          }
+          style={styles.cancelButtonContainer}
+        >
+          {' '}
+          Cancel
+        </Button>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -80,30 +85,15 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
   },
-  topRightImage: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    resizeMode: 'stretch',
-    height: 200,
-    width: '100%',
-    left: 50,
+  backgroundImage: {
+    flex:1,
+    padding:20,
+    justifyContent:'flex-end',
   },
-  topRightBlueImage: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    resizeMode: 'stretch',
-    height: 130,
-    width: 280,
-  },
-  passwordContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 148,
+  profile1:{
+    justifyContent:'center',
+    alignItems:'center'
   },
   userImage: {
     width: 106,
@@ -118,19 +108,17 @@ const styles = StyleSheet.create({
   passwordRcovery: {
     fontSize: 21,
     fontWeight: '700',
-    marginTop: 17,
-    marginBottom: 5,
+    marginTop: 19,
+    marginBottom: 7,
   },
   passwordText: {
     fontSize: 19,
     fontWeight: '300',
   },
   passwordSetupContainer: {
-    marginTop: 13,
+    marginTop: 15,
   },
   newPasswordInput: {
-    width: 335,
-    height: 50,
     backgroundColor: COLORS.secondary,
     borderRadius: 9,
     marginTop: 10,
@@ -140,13 +128,9 @@ const styles = StyleSheet.create({
     fontFamily: 'Raleway',
   },
   saveButtonContainer: {
-    width: 335,
-    height: 61,
+    paddingVertical:10,
     backgroundColor: COLORS.primary,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 143,
+    marginTop:143,
   },
   saveButtonText: {
     fontSize: 22,
@@ -154,14 +138,14 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
   cancelButtonContainer: {
-    top: 139,
-    marginTop: 24,
-    backgroundColor:COLORS.background
+    marginTop: 20,
+    backgroundColor: COLORS.background,
+    marginBottom:49
   },
   cancelButtonText: {
     fontSize: 15,
     fontWeight: 300,
-    color:COLORS.onBackground
+    color: COLORS.onBackground,
   },
 });
 

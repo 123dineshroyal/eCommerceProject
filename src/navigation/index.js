@@ -16,6 +16,7 @@ import helloCard from '../Screens/helloCard';
 import readyCard from '../Screens/readyCard';
 import profile from '../Screens/profile';
 import fullProfile from '../Screens/fullProfile';
+import { RouteName } from './RouteName';
 
 const Stack = createStackNavigator();
 
@@ -24,33 +25,33 @@ const RootNavigator = () =>{
         <NavigationContainer>
             <Stack.Navigator screenOptions={{headerShown:false}}>
                 
-                <Stack.Screen name='StartScreen' component={start}/>
+                <Stack.Screen name={RouteName.START_SCREEN} component={start}/>
 
-                <Stack.Screen name='createAccountScreen' component={createAccount}/>
+                <Stack.Screen name={RouteName.CREATE_ACCOUNT_SCREEN} component={createAccount}/>
 
-                <Stack.Screen name='loginScreen' component={Login}/>
+                <Stack.Screen name={RouteName.LOGIN_SCREEN} component={Login}/>
 
-                <Stack.Screen name='passwordScreen' component={Password}/>
+                <Stack.Screen name={RouteName.PASSWORD_SCREEN} component={Password}/>
 
-                <Stack.Screen name='Password-Typing-Screen' component={passwordTyping}/>
+                <Stack.Screen name={RouteName.PASSWORD_TYPING_SCREEN} component={passwordTyping}/>
 
-                <Stack.Screen name='Wrong-Password-Screen' component={wrongPassword}/>
+                <Stack.Screen name={RouteName.WRONG_PASSWORD_SCREEN} component={wrongPassword}/>
 
-                <Stack.Screen name='Password-Recovery-Screen' component={passwordRecovery}/>
+                <Stack.Screen name={RouteName.PASSWORD_RECOVERY_SCREEN} component={passwordRecovery}/>
 
-                <Stack.Screen name='Password-Recovery-Code-Screen' component={passwordRecoveryCode}/>
+                <Stack.Screen name={RouteName.PASSWORD_RECOVERY_CODE_SCREEN} component={passwordRecoveryCode}/>
 
-                <Stack.Screen name='New-Password-Screen' component={newPassord}/>
+                <Stack.Screen name={RouteName.NEW_PASSWORD_SCREEN} component={newPassord}/>
 
-                <Stack.Screen name='Maximum-Attempts-Screen' component={maximumAttempts}/>
+                <Stack.Screen name={RouteName.MAXIMUM_ATTEMPTS_SCREEN} component={maximumAttempts}/>
 
-                <Stack.Screen name='HelloCard-Screen' component={helloCard}/>
+                <Stack.Screen name={RouteName.HELLO_CARD_SCREEN} component={helloCard}/>
 
-                <Stack.Screen name='ReadyCard-Screen' component={readyCard}/>
+                <Stack.Screen name={RouteName.READY_CARD_SCREEN} component={readyCard}/>
 
-                <Stack.Screen name='Profile-Screen' component={profile} />
+                <Stack.Screen name={RouteName.PROFILE_SCREEN} component={profile} />
 
-                <Stack.Screen name='full-Profile-Screen' component={fullProfile} />
+                <Stack.Screen name={RouteName.FULL_PROFILE_SCREEN} component={fullProfile} />
                 
             </Stack.Navigator>
         </NavigationContainer>

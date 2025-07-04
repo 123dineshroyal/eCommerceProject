@@ -6,6 +6,7 @@ import {
   SafeAreaView,
   Image,
   Modal,
+  ImageBackground,
 } from 'react-native';
 import themes, { COLORS, SIZES } from '../../constants/themes';
 import Images from '../../assets/Images';
@@ -24,48 +25,47 @@ const MaximumAttempts = () => {
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <View>
-        <View>
-          <Image source={Images.topRight1} style={styles.topRightImage} />
-          <Image source={Images.topRight2} style={styles.topRightBlueImage} />
+      <ImageBackground
+        source={Images.loginBackground}
+        style={styles.backgroundImage}
+      >
+        <TouchableOpacity
+          onPress={() => navigation.navigate('HelloCard-Screen')}
+        >
+          <Image source={Images.profile} style={styles.userImage} />
+        </TouchableOpacity>
+        <Text style={styles.passwordRcovery}>Password Recovery</Text>
+        <Text style={styles.passwordText}>Enter 4-digits code we sent you</Text>
+        <Text style={styles.passwordText}>on your phone number</Text>
+        <Text style={styles.mobileNumber}>+98*******00</Text>
+
+        <View style={styles.smsCodeContainer}>
+          <Text style={styles.smsCodeNumber} />
+          <Text style={styles.smsCodeNumber} />
+          <Text style={styles.smsCodeNumber} />
+          <Text style={styles.smsCodeNumber} />
         </View>
 
-        <View style={styles.passwordContainer}>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('HelloCard-Screen')}
-          >
-            <Image source={Images.profile} style={styles.userImage} />
-          </TouchableOpacity>
-          <Text style={styles.passwordRcovery}>Password Recovery</Text>
-          <Text style={styles.passwordText}>
-            Enter 4-digits code we sent you
-          </Text>
-          <Text style={styles.passwordText}>on your phone number</Text>
-          <Text style={styles.mobileNumber}>+98*******00</Text>
+        <Button
+          mode="contained"
+          labelStyle={styles.sendAgainButtonText}
+          onPress={handleSendAgain}
+          style={styles.sendAgainButtonContainer}
+        >
+          {' '}
+          Send Again
+        </Button>
 
-          <View style={styles.smsCodeContainer}>
-            <Text style={styles.smsCodeNumber} />
-            <Text style={styles.smsCodeNumber} />
-            <Text style={styles.smsCodeNumber} />
-            <Text style={styles.smsCodeNumber} />
-          </View>
-
-
-          <Button
-              mode="contained"
-              labelStyle={styles.sendAgainButtonText}
-               onPress={handleSendAgain}
-              style={styles.sendAgainButtonContainer}
-            > Send Again</Button>
-
-          <Button
-            mode="contained"
-            labelStyle={styles.cancelButtonText}
-            onPress={() => navigation.navigate('New-Password-Screen')}
-            style={styles.cancelButtonContainer}
-          > Cancel</Button>
-        </View>
-      </View>
+        <Button
+          mode="contained"
+          labelStyle={styles.cancelButtonText}
+          onPress={() => navigation.navigate('New-Password-Screen')}
+          style={styles.cancelButtonContainer}
+        >
+          {' '}
+          Cancel
+        </Button>
+      </ImageBackground>
 
       <Modal
         animationType="fade"
@@ -82,9 +82,12 @@ const MaximumAttempts = () => {
             <Button
               mode="contained"
               labelStyle={styles.okayButton}
-               onPress={() => setModalVisible(false)}
+              onPress={() => setModalVisible(false)}
               style={styles.okayButtonContainer}
-            > Send Again</Button>
+            >
+              {' '}
+              Okay
+            </Button>
           </View>
 
           <View style={styles.outsideContainer}>
@@ -104,30 +107,12 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
   },
-  topRightImage: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    resizeMode: 'stretch',
-    height: 200,
-    width: '100%',
-    left: 50,
-  },
-  topRightBlueImage: {
-    position: 'absolute',
-    right: 0,
-    top: 0,
-    resizeMode: 'stretch',
-    height: 130,
-    width: 280,
-  },
-  passwordContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
+  backgroundImage: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    top: 148,
   },
   userImage: {
     width: 106,
@@ -142,8 +127,8 @@ const styles = StyleSheet.create({
   passwordRcovery: {
     fontSize: 21,
     fontWeight: '700',
-    marginTop: 17,
-    marginBottom: 5,
+    marginTop: 19,
+    marginBottom: 7,
   },
   passwordText: {
     fontSize: 19,
@@ -152,7 +137,7 @@ const styles = StyleSheet.create({
   mobileNumber: {
     fontSize: 16,
     fontWeight: '700',
-    marginTop: 13,
+    marginTop: 15,
   },
   smsCodeContainer: {
     flexDirection: 'row',
@@ -168,37 +153,32 @@ const styles = StyleSheet.create({
     borderRadius: 9,
   },
   sendAgainButtonContainer: {
-    width: 201,
-    height: 61,
     backgroundColor: COLORS.onBackground,
-    borderRadius: 20,
-    justifyContent: 'center',
-    alignItems: 'center',
-    top: 199,
-    paddingBottom:4
+    paddingVertical: 10,
+    width: 201,
+    marginTop: 199,
   },
   sendAgainButtonText: {
-    fontSize: 20,
+    fontSize: 18,
     color: COLORS.background,
     fontWeight: '300',
   },
   cancelButtonContainer: {
-    top: 195,
-    marginTop: 24,
-    backgroundColor:COLORS.background
+    marginTop: 20,
+    backgroundColor: COLORS.background,
+    marginBottom: 49,
   },
   cancelButtonText: {
     fontSize: 15,
     fontWeight: 300,
-    color:COLORS.onBackground
+    color: COLORS.onBackground,
   },
   modalBackground: {
     flex: 1,
     backgroundColor: COLORS.backdrop,
+    justifyContent: 'center',
   },
   passwordLimitContainer: {
-    top: 313,
-    height: 225,
     backgroundColor: COLORS.background,
     justifyContent: 'center',
     alignItems: 'center',
@@ -208,7 +188,9 @@ const styles = StyleSheet.create({
     shadowColor: COLORS.shadow,
     shadowRadius: 8,
     elevation: 5,
-    paddingTop: 20,
+    paddingVertical: 10,
+    paddingTop: 57,
+    marginTop: 20,
   },
   passwordText1: {
     fontSize: 18,
@@ -217,15 +199,12 @@ const styles = StyleSheet.create({
   },
   okayButtonContainer: {
     width: 201,
-    height: 50,
     backgroundColor: COLORS.onBackground,
     borderRadius: 16,
-    justifyContent: 'center',
-    alignItems: 'center',
     marginTop: 25,
   },
   okayButton: {
-    fontSize: 20,
+    fontSize: 18,
     fontWeight: '300',
     color: COLORS.background,
   },
@@ -240,8 +219,8 @@ const styles = StyleSheet.create({
     shadowColor: COLORS.shadow,
     shadowRadius: 8,
     elevation: 5,
-    top: 275,
-    left: 148,
+    marginBottom: 175,
+    marginLeft: 150,
   },
   middleContainer: {
     height: 50,

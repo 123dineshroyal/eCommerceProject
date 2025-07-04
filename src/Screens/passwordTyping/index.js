@@ -1,31 +1,35 @@
 import {
   Text,
-  View,
   StyleSheet,
   TouchableOpacity,
   Image,
   SafeAreaView,
+  ImageBackground,
+  View,
 } from 'react-native';
-import themes, { COLORS } from '../../constants/themes';
+import { COLORS } from '../../constants/themes';
 import Images from '../../assets/Images';
 import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
 
 const passwordTyping = () => {
   const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Image source={Images.topLeft} style={styles.topLeftImage} />
-      <Image source={Images.topLeftBlue} style={styles.topLeftBlueImage} />
-
-      <View style={styles.profileContainer}>
+      <ImageBackground
+        source={Images.loginBackground}
+        style={styles.backgroundImage}
+      >
         <TouchableOpacity
-          onPress={() => navigation.navigate('Wrong-Password-Screen')}
+          onPress={() => navigation.navigate(RouteName.WRONG_PASSWORD_SCREEN)}
         >
           <Image source={Images.profile} style={styles.userImage} />
         </TouchableOpacity>
         <Text style={styles.userName}>Hello, Romina!!</Text>
-        <TouchableOpacity onPress={() => navigation.navigate('passwordScreen')}>
+        <TouchableOpacity
+          onPress={() => navigation.navigate(RouteName.PASSWORD_SCREEN)}
+        >
           <Text style={styles.passwordText}>Type your password</Text>
         </TouchableOpacity>
         <View style={styles.passwordContainer}>
@@ -38,7 +42,7 @@ const passwordTyping = () => {
           <Text style={styles.passwordRemender} />
           <Text style={styles.passwordRemender} />
         </View>
-      </View>
+      </ImageBackground>
     </SafeAreaView>
   );
 };
@@ -47,29 +51,12 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
   },
-  topLeftImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    height: 345,
-    width: 300,
-    resizeMode: 'stretch',
-  },
-  topLeftBlueImage: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: 250,
-    height: 280,
-    resizeMode: 'stretch',
-  },
-  profileContainer: {
-    flexDirection: 'column',
-    justifyContent: 'center',
+  backgroundImage: {
+    flex: 1,
+    padding: 20,
+    justifyContent: 'flex-end',
     alignItems: 'center',
-    top: 148,
   },
   userImage: {
     width: 106,
@@ -95,7 +82,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginTop: 15,
+    marginTop: 10,
+    marginBottom: 405,
   },
   passwordAttemed: {
     height: 17,
