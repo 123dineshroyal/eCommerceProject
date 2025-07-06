@@ -5,6 +5,7 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  ImageBackground,
 } from 'react-native';
 import themes, { SIZES } from '../../constants/themes';
 import Images from '../../assets/Images';
@@ -73,8 +74,8 @@ const readyCard = () => {
           labelStyle={styles.startButtonText}
           onPress={() => navigation.navigate(RouteName.HELLO_CARD_SCREEN)}
           style={styles.startButton}
+          contentStyle={{ paddingVertical: 5 }}
         >
-          {' '}
           Let's Start
         </Button>
       </View>
@@ -82,10 +83,10 @@ const readyCard = () => {
   );
 
   return (
-    <SafeAreaView style={styles.mainContainer}>
-      <Image source={Images.topLeft1} style={styles.topLeft1} />
-      <Image source={Images.bottomRight} style={styles.bottomRight} />
-
+    <ImageBackground
+      source={Images.loginBackground}
+      style={styles.backgroundImage}
+    >
       <FlatList
         data={slide}
         horizontal
@@ -107,59 +108,34 @@ const readyCard = () => {
           />
         ))}
       </View>
-    </SafeAreaView>
+    </ImageBackground>
   );
 };
 const styles = StyleSheet.create({
-  mainContainer: {
+  backgroundImage: {
     flex: 1,
-    backgroundColor: COLORS.background,
-    paddingBottom: -30,
-    color: COLORS.onBackground,
-  },
-  topLeft1: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: 250,
-    height: 312,
-  },
-  bottomRight: {
-    position: 'absolute',
-    height: 400,
-    width: 240,
-    bottom: 25,
-    right: 0,
-    resizeMode: 'stretch',
+    padding: 20,
   },
   slide: {
-    width: SIZES.width,
-    height: SIZES.height,
+    width: SIZES.width - 40,
+    height: SIZES.height - 40,
     justifyContent: 'center',
     alignItems: 'center',
   },
   readyContainer: {
-    position: 'absolute',
-    height: 624,
-    top: 47,
-    left: 25,
-    right: 25,
     shadowColor: COLORS.shadow,
     shadowRadius: 5,
-    elevation: 35,
+    elevation: 5,
     backgroundColor: COLORS.background,
     borderRadius: 30,
-    overflow: 'hidden',
   },
   readyImage: {
     height: 338,
     width: 'auto',
     borderTopLeftRadius: 30,
     borderTopRightRadius: 30,
-    resizeMode: 'stretch',
   },
   readyTextContainer: {
-    justifyContent: 'center',
     alignItems: 'center',
     marginTop: 46,
   },
@@ -171,18 +147,14 @@ const styles = StyleSheet.create({
     marginTop: 12,
     fontSize: 19,
     fontWeight: 300,
-    marginLeft: 45,
-    marginRight: 45,
+    marginHorizontal: 45,
     lineHeight: 27,
   },
   bottomCircleContainer: {
-    position: 'absolute',
     flexDirection: 'row',
     justifyContent: 'center',
     textAlign: 'center',
-    top: 685,
-    marginTop: 35,
-    left: 115,
+    marginBottom: 40,
   },
   bottomCircle: {
     height: 20,
@@ -200,13 +172,10 @@ const styles = StyleSheet.create({
   },
   startButton: {
     width: 201,
-    height: 50,
-    borderRadius: 16,
     backgroundColor: COLORS.primary,
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 35,
+    marginTop: 30,
     marginHorizontal: 62,
+    marginBottom: 30,
   },
   startButtonText: {
     fontSize: 22,

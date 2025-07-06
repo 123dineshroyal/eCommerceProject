@@ -7,11 +7,11 @@ import {
   TouchableOpacity,
   ImageBackground,
 } from 'react-native';
-import themes, { COLORS } from '../../constants/themes';
+import { COLORS } from '../../constants/themes';
 import Images from '../../assets/Images';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { useNavigation } from '@react-navigation/native';
-import { Color } from 'react-native/types_generated/Libraries/Animated/AnimatedExports';
+//import { Color } from 'react-native/types_generated/Libraries/Animated/AnimatedExports';
 import { RouteName } from '../../navigation/RouteName';
 
 const Password = () => {
@@ -26,7 +26,7 @@ const Password = () => {
         <TouchableOpacity
           onPress={() => navigation.navigate(RouteName.PASSWORD_TYPING_SCREEN)}
         >
-          <Image source={Images.profile} style={styles.userImage} />'
+          <Image source={Images.profile} style={styles.userImage} />
         </TouchableOpacity>
         <Text style={styles.userName}>Hello, Romina!!</Text>
         <Text style={styles.passwordText}>Type your password</Text>

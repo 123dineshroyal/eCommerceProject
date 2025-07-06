@@ -5,11 +5,12 @@ import {
   StyleSheet,
   Image,
   FlatList,
+  ImageBackground,
 } from 'react-native';
 import themes, { COLORS, SIZES } from '../../constants/themes';
 import Images from '../../assets/Images';
 import { useNavigation } from '@react-navigation/native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+//import { SafeAreaView } from 'react-native-safe-area-context';
 import { useRef, useState } from 'react';
 import { RouteName } from '../../navigation/RouteName';
 
@@ -79,9 +80,8 @@ const HelloCard = () => {
   );
 
   return (
-    <SafeAreaView style={styles.mainContainer}>
-      <Image source={Images.bottomCenter} style={styles.bottomCenter} />
-      <Image source={Images.topLeft1} style={styles.topLeft1} />
+    
+     <ImageBackground source={Images.loginBackground} style={styles.backgroundImage}>
 
       <FlatList
         data={slide}
@@ -104,49 +104,28 @@ const HelloCard = () => {
           />
         ))}
       </View>
-    </SafeAreaView>
+      </ImageBackground>
+    
   );
 };
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    backgroundColor: COLORS.background,
-    padding: -50,
-    color: COLORS.onBackground,
-  },
-  topLeft1: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: 250,
-    height: 312,
-  },
-  bottomCenter: {
-    position: 'absolute',
-    height: 420,
-    width: 350,
-    left: 0,
-    top: 270,
-  },
+ backgroundImage:{
+  flex:1,
+  padding:20,
+ },
   slide: {
-    width: SIZES.width,
-    height: SIZES.height,
+    width: SIZES.width-40,
+    height: SIZES.height-40,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  helloContainer: {
-    position: 'absolute',
-    height: 624,
-    top: 75,
-    left: 25,
-    right: 25,
+  helloContainer:{
     shadowColor: COLORS.shadow,
     shadowRadius: 5,
-    elevation: 35,
+    elevation: 3,
     backgroundColor: COLORS.background,
     borderRadius: 30,
-    overflow: 'hidden',
   },
   helloImage: {
     height: 338,
@@ -163,23 +142,20 @@ const styles = StyleSheet.create({
     marginTop: 12,
     fontSize: 19,
     fontWeight: 300,
-    marginLeft: 45,
-    marginRight: 45,
+    marginHorizontal:35,
     lineHeight: 27,
   },
   helloTextContainer: {
     justifyContent: 'center',
-    alignItems: 'center',
-    marginTop: 46,
+    alignItems:'center',
+    marginTop: 10,
+    padding:16,
+    marginBottom:40,
   },
   bottomCircleContainer: {
-    position: 'absolute',
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    top: 685,
-    marginTop: 35,
-    left: 115,
   },
   bottomCircle: {
     height: 20,
@@ -187,6 +163,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: COLORS.primaryContainer,
     marginLeft: 15,
+    marginBottom:49
   },
   bottomCircleActive: {
     height: 20,
@@ -195,6 +172,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.primary,
     marginLeft: 15,
   },
-});
+}
+);
 
 export default HelloCard;

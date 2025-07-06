@@ -17,6 +17,7 @@ import readyCard from '../Screens/readyCard';
 import profile from '../Screens/profile';
 import fullProfile from '../Screens/fullProfile';
 import { RouteName } from './RouteName';
+import shop from '../Screens/shop';
 
 const Stack = createStackNavigator();
 
@@ -24,6 +25,8 @@ const RootNavigator = () =>{
     return(
         <NavigationContainer>
             <Stack.Navigator screenOptions={{headerShown:false}}>
+
+                
                 
                 <Stack.Screen name={RouteName.START_SCREEN} component={start}/>
 
@@ -51,7 +54,16 @@ const RootNavigator = () =>{
 
                 <Stack.Screen name={RouteName.PROFILE_SCREEN} component={profile} />
 
-                <Stack.Screen name={RouteName.FULL_PROFILE_SCREEN} component={fullProfile} />
+                
+                 <Stack.Screen name={RouteName.FULL_PROFILE_SCREEN} component={fullProfile} /> 
+
+                 <Stack.Screen name={RouteName.SHOP_SCREEN} component={shop}/>
+               
+
+                {/* react native image slider show */}
+
+               {/* react native snap carousel */}
+                
                 
             </Stack.Navigator>
         </NavigationContainer>

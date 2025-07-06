@@ -35,6 +35,7 @@ const Start = () => {
         labelStyle={styles.staredButtonText}
         style={styles.startedButton}
         onPress={() => navigation.navigate(RouteName.CREATE_ACCOUNT_SCREEN)}
+        contentStyle={{paddingVertical: 10}}
       >
         Let's get started
       </Button>
@@ -94,7 +95,6 @@ const styles = StyleSheet.create({
     marginTop: 10,
   },
   startedButton: {
-    paddingVertical: 10,
     marginTop: 106,
   },
   staredButtonText: {

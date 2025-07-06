@@ -60,20 +60,18 @@ const NewPassword = () => {
           labelStyle={styles.saveButtonText}
           onPress={() => navigation.navigate(RouteName.MAXIMUM_ATTEMPTS_SCREEN)}
           style={styles.saveButtonContainer}
+          contentStyle={{paddingVertical:10}}
         >
-          {' '}
           Save
         </Button>
 
         <Button
-          mode="contained"
           labelStyle={styles.cancelButtonText}
           onPress={() =>
             navigation.navigate(RouteName.PASSWORD_RECOVERY_CODE_SCREEN)
           }
           style={styles.cancelButtonContainer}
         >
-          {' '}
           Cancel
         </Button>
       </ImageBackground>
@@ -128,7 +126,6 @@ const styles = StyleSheet.create({
     fontFamily: 'Raleway',
   },
   saveButtonContainer: {
-    paddingVertical:10,
     backgroundColor: COLORS.primary,
     marginTop:143,
   },
@@ -139,7 +136,6 @@ const styles = StyleSheet.create({
   },
   cancelButtonContainer: {
     marginTop: 20,
-    backgroundColor: COLORS.background,
     marginBottom:49
   },
   cancelButtonText: {

@@ -81,12 +81,12 @@ const CreateAccount = () => {
           labelStyle={styles.doneButtonText}
           style={styles.doneButtonContainer}
           onPress={() => navigation.navigate(RouteName.LOGIN_SCREEN)}
+          contentStyle={{paddingVertical:10}}
         >
           Done
         </Button>
 
         <Button
-          mode="contained"
           labelStyle={styles.cancelButtonText}
           style={styles.cancelButtonContainer}
           onPress={() => navigation.navigate(RouteName.START_SCREEN)}
@@ -172,7 +172,6 @@ const styles = StyleSheet.create({
     fontSize: 25,
   },
   doneButtonContainer: {
-    paddingVertical: 10,
     marginTop: 52,
   },
   doneButtonText: {
@@ -181,7 +180,6 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
   cancelButtonContainer: {
-    backgroundColor: COLORS.background,
     marginBottom: 49,
     marginTop: 20,
   },

@@ -13,6 +13,7 @@ import Images from '../../assets/Images';
 import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import { Button } from 'react-native-paper';
+import { RouteName } from '../../navigation/RouteName';
 
 const MaximumAttempts = () => {
   const navigation = useNavigation();
@@ -30,7 +31,7 @@ const MaximumAttempts = () => {
         style={styles.backgroundImage}
       >
         <TouchableOpacity
-          onPress={() => navigation.navigate('HelloCard-Screen')}
+          onPress={() => navigation.navigate(RouteName.HELLO_CARD_SCREEN)}
         >
           <Image source={Images.profile} style={styles.userImage} />
         </TouchableOpacity>
@@ -51,18 +52,16 @@ const MaximumAttempts = () => {
           labelStyle={styles.sendAgainButtonText}
           onPress={handleSendAgain}
           style={styles.sendAgainButtonContainer}
+          contentStyle={{paddingVertical:10}}
         >
-          {' '}
           Send Again
         </Button>
 
         <Button
-          mode="contained"
           labelStyle={styles.cancelButtonText}
-          onPress={() => navigation.navigate('New-Password-Screen')}
+          onPress={() => navigation.navigate(RouteName.NEW_PASSWORD_SCREEN)}
           style={styles.cancelButtonContainer}
         >
-          {' '}
           Cancel
         </Button>
       </ImageBackground>
@@ -85,7 +84,6 @@ const MaximumAttempts = () => {
               onPress={() => setModalVisible(false)}
               style={styles.okayButtonContainer}
             >
-              {' '}
               Okay
             </Button>
           </View>
@@ -154,7 +152,6 @@ const styles = StyleSheet.create({
   },
   sendAgainButtonContainer: {
     backgroundColor: COLORS.onBackground,
-    paddingVertical: 10,
     width: 201,
     marginTop: 199,
   },
@@ -165,7 +162,6 @@ const styles = StyleSheet.create({
   },
   cancelButtonContainer: {
     marginTop: 20,
-    backgroundColor: COLORS.background,
     marginBottom: 49,
   },
   cancelButtonText: {

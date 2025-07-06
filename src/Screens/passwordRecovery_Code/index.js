@@ -42,19 +42,17 @@ const passwordRecoveryCode = () => {
           labelStyle={styles.sendAgainButtonText}
           onPress={() => navigation.navigate(RouteName.NEW_PASSWORD_SCREEN)}
           style={styles.sendAgainButtonContainer}
+          contentStyle={{ paddingVertical: 10 }}
         >
-          {' '}
           Send Again
         </Button>
         <Button
-          mode="contained"
           labelStyle={styles.cancelButtonText}
           onPress={() =>
             navigation.navigate(RouteName.PASSWORD_RECOVERY_SCREEN)
           }
           style={styles.cancelButtonContainer}
         >
-          {' '}
           Cancel
         </Button>
       </ImageBackground>
@@ -112,20 +110,17 @@ const styles = StyleSheet.create({
     borderRadius: 9,
   },
   sendAgainButtonContainer: {
-    paddingVertical: 10,
     backgroundColor: COLORS.tertiary,
     width: 201,
     marginTop: 199,
   },
   sendAgainButtonText: {
     fontSize: 18,
-
     color: COLORS.background,
     fontWeight: '300',
   },
   cancelButtonContainer: {
     marginTop: 20,
-    backgroundColor: COLORS.background,
     marginBottom: 49,
   },
   cancelButtonText: {

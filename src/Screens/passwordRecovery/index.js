@@ -53,18 +53,16 @@ const PasswordRecovery = () => {
             navigation.navigate(RouteName.PASSWORD_RECOVERY_CODE_SCREEN)
           }
           style={styles.nextButtonContainer}
+          contentStyle={{paddingVertical:10}}
         >
-          {' '}
           Next
         </Button>
 
         <Button
-          mode="contained"
           labelStyle={styles.cancelButtonText}
           onPress={() => navigation.navigate(RouteName.WRONG_PASSWORD_SCREEN)}
           style={styles.cancelButtonContainer}
         >
-          {' '}
           Cancel
         </Button>
       </ImageBackground>
@@ -159,7 +157,6 @@ const styles = StyleSheet.create({
     left: 65,
   },
   nextButtonContainer: {
-    paddingVertical: 10,
     backgroundColor: COLORS.primary,
     marginTop: 158,
   },
@@ -170,7 +167,6 @@ const styles = StyleSheet.create({
   },
   cancelButtonContainer: {
     marginTop: 20,
-    backgroundColor: COLORS.background,
     marginBottom: 49,
   },
   cancelButtonText: {

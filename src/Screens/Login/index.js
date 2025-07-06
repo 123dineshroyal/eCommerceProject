@@ -45,18 +45,16 @@ const Login = () => {
             labelStyle={styles.nextButtonText}
             onPress={() => navigation.navigate(RouteName.PASSWORD_SCREEN)}
             style={styles.nextButtonContainer}
+            contentStyle={{ paddingVertical: 10 }}
           >
-            {' '}
             Next
           </Button>
 
           <Button
-            mode="contained"
             labelStyle={styles.cancelButtonText}
             onPress={() => navigation.navigate(RouteName.CREATE_ACCOUNT_SCREEN)}
             style={styles.cancelButtonContainer}
           >
-            {' '}
             Cancel
           </Button>
         </View>
@@ -101,7 +99,6 @@ const styles = StyleSheet.create({
   },
   nextButtonContainer: {
     borderRadius: 20,
-    paddingVertical: 10,
     marginTop: 36,
   },
   nextButtonText: {
@@ -110,7 +107,6 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
   cancelButtonContainer: {
-    backgroundColor: COLORS.background,
     marginTop: 20,
     marginBottom: 49,
   },

@@ -14,6 +14,38 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Icon from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+
+const viewed = [
+  {
+    image: Images.viewed1,
+  },
+  {
+    image: Images.viewed2,
+  },
+  {
+    image: Images.viewed3,
+  },
+  {
+    image: Images.viewed4,
+  },
+  {
+    image: Images.viewed5,
+  },
+  {
+    image: Images.viewed1,
+  },
+  {
+    image: Images.viewed2,
+  },
+  {
+    image: Images.viewed3,
+  },
+  {
+    image: Images.viewed4,
+  },
+];
 
 const storyData = [
   {
@@ -94,6 +126,36 @@ const popular = [
   },
 ];
 
+const product = [
+  {
+    image:Images.product1,
+  },
+  {
+    image:Images.product2,
+  },
+  {
+    image:Images.product3,
+  },
+  {
+    image:Images.product4,
+  },
+  {
+    image:Images.product5,
+  },
+  {
+    image:Images.product1,
+  },
+  {
+    image:Images.product2,
+  },
+  {
+    image:Images.product3,
+  },
+  {
+    image:Images.product4,
+  },
+]
+
 const FullProfile = () => {
   const navigation = useNavigation();
 
@@ -105,7 +167,7 @@ const FullProfile = () => {
             <Image source={Images.profile1} style={styles.profileImage} />
             <TouchableOpacity
               style={styles.myActivityContainer}
-              onPress={() => navigation.navigate('ReadyCard-Screen')}
+              onPress={() => navigation.navigate(RouteName.PROFILE_SCREEN)}
             >
               <Text style={styles.myActivityText}>My Activity</Text>
             </TouchableOpacity>
@@ -138,7 +200,7 @@ const FullProfile = () => {
             </View>
             <TouchableOpacity
               style={styles.arrowContainer}
-              onPress={() => navigation.navigate('full-Profile-Screen')}
+              onPress={() => navigation.navigate(RouteName.SHOP_SCREEN)}
             >
               <MaterialCommunityIcons
                 name="arrow-right"
@@ -150,13 +212,13 @@ const FullProfile = () => {
 
           <Text style={styles.viewedText}>Recently viewed</Text>
 
-          <View style={styles.viewedContainer}>
-            <Image source={Images.viewed1} style={styles.viewedImage} />
-            <Image source={Images.viewed2} style={styles.viewedImage} />
-            <Image source={Images.viewed3} style={styles.viewedImage} />
-            <Image source={Images.viewed4} style={styles.viewedImage} />
-            <Image source={Images.viewed5} style={styles.viewedImage} />
-          </View>
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {viewed.map((item, index) => (
+              <TouchableOpacity style={styles.viewedContainer}>
+                <Image source={item.image} style={styles.viewedImage} />
+              </TouchableOpacity>
+            ))}
+          </ScrollView>
 
           <Text style={styles.orderText}>My Orders</Text>
 
@@ -371,6 +433,96 @@ const FullProfile = () => {
               </View>
             </View>
           </View>
+
+          <View style={styles.flashSaleMainContainer}>
+            <View style={styles.flashSaleTextContainer}>
+              <Text style={styles.flashSaleText}>Flash Sale</Text>
+              <View style={styles.flashSaleTimeContainer}>
+                <Fontisto name="stopwatch" color={COLORS.primary} size={19} />
+                <Text style={styles.time}>00</Text>
+                <Text style={styles.time}>36</Text>
+                <Text style={styles.time}>58</Text>
+              </View>
+            </View>
+
+            <View style={styles.flashSale}>
+              <View style={styles.flashContain}>
+                <Image source={Images.flash1} style={styles.flashImage} />
+                <Image source={Images.flash2} style={styles.flashImage} />
+                <Image source={Images.flash3} style={styles.flashImage} />
+              </View>
+              <View style={styles.flashContain}>
+                <Image source={Images.flash4} style={styles.flashImage} />
+                <Image source={Images.flash5} style={styles.flashImage} />
+                <Image source={Images.flash6} style={styles.flashImage} />
+              </View>
+              <Text style={styles.salePercent1}>-20%</Text>
+              <Text style={styles.salePercent2}>-20%</Text>
+              <Text style={styles.salePercent3}>-20%</Text>
+              <Text style={styles.salePercent4}>-20%</Text>
+              <Text style={styles.salePercent5}>-20%</Text>
+              <Text style={styles.salePercent6}>-20%</Text>
+            </View>
+          </View>
+
+          <View style={styles.topProductMainContainer}>
+            <Text style={styles.productext}>Top Products</Text>
+           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {product.map((item,index) =>(
+                <TouchableOpacity  style={styles.topProductContainer}>
+                  <Image source={item.image} style={styles.productImage} />
+                </TouchableOpacity>
+              ))
+            
+             }
+            </ScrollView>
+          </View>
+
+          <View style={styles.justForYouMainContainer}>
+             <Text style={styles.justForYouText}>Just For You <Icon name='star' color={COLORS.primary} size={14}/></Text>
+
+             <View style={styles.justForYou}>
+              <TouchableOpacity style={styles.justForYouContainer}>
+                <Image source={Images.just1} style={styles.justImage}/>
+                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Text style={styles.justPrice}>$17,00</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.justForYouContainer}>
+                <Image source={Images.just2} style={styles.justImage}/>
+                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Text style={styles.justPrice}>$17,00</Text>
+              </TouchableOpacity>
+            </View>  
+
+            <View style={styles.justForYou}>
+              <TouchableOpacity style={styles.justForYouContainer}>
+                <Image source={Images.just3} style={styles.justImage}/>
+                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Text style={styles.justPrice}>$17,00</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.justForYouContainer}>
+                <Image source={Images.just4} style={styles.justImage}/>
+                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Text style={styles.justPrice}>$17,00</Text>
+              </TouchableOpacity>
+            </View>  
+
+            <View style={styles.justForYou}>
+              <TouchableOpacity style={styles.justForYouContainer}>
+                <Image source={Images.just5} style={styles.justImage}/>
+                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Text style={styles.justPrice}>$17,00</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.justForYouContainer}>
+                <Image source={Images.just6} style={styles.justImage}/>
+                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Text style={styles.justPrice}>$17,00</Text>
+              </TouchableOpacity>
+            </View>  
+          </View>
         </View>
       </ScrollView>
       {/* <View style={styles.footerContainer}>
@@ -400,7 +552,6 @@ const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     backgroundColor: COLORS.background,
-    color: COLORS.onBackground,
   },
   container: {
     marginLeft: 20,
@@ -487,8 +638,7 @@ const styles = StyleSheet.create({
   },
   viewedContainer: {
     marginTop: 12,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    marginLeft: 19,
   },
   viewedImage: {
     height: 50,
@@ -496,6 +646,9 @@ const styles = StyleSheet.create({
     borderWidth: 4,
     borderColor: COLORS.background,
     borderRadius: 25,
+    shadowColor: COLORS.shadow,
+    shadowRadius: 8,
+    elevation: 5,
   },
   orderText: {
     marginTop: 25,
@@ -710,4 +863,196 @@ const styles = StyleSheet.create({
     fontSize: 12,
     fontWeight: '700',
   },
+  flashSaleMainContainer: {
+    marginTop: 28,
+  },
+  flashSaleTextContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
+  flashSaleText: {
+    fontSize: 21,
+    fontWeight: '700',
+  },
+  flashSaleTimeContainer: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  time: {
+    fontSize: 17,
+    fontWeight: '700',
+    paddingLeft: 7,
+    backgroundColor: COLORS.inverseOnSurface,
+    marginLeft: 7,
+    borderRadius: 3,
+  },
+  flashSale: {
+    marginTop: 6,
+  },
+  flashContain: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 10,
+  },
+  flashImage: {
+    width: 99,
+    height: 103,
+    borderRadius: 9,
+    borderWidth: 5,
+    borderColor: COLORS.background,
+    shadowColor: COLORS.shadow,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  salePercent1: {
+    position: 'absolute',
+    fontSize: 13,
+    fontWeight: '700',
+    backgroundColor: COLORS.tertiary,
+    width: 39,
+    height: 18,
+    color: COLORS.background,
+    padding: 2,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    borderBottomLeftRadius: 6,
+    marginTop: 15,
+    marginLeft: 55,
+  },
+  salePercent2: {
+    position: 'absolute',
+    fontSize: 13,
+    fontWeight: '700',
+    backgroundColor: COLORS.tertiary,
+    width: 39,
+    height: 18,
+    color: COLORS.background,
+    padding: 2,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    borderBottomLeftRadius: 6,
+    marginLeft: 182,
+    marginTop: 15,
+  },
+  salePercent3: {
+    position: 'absolute',
+    fontSize: 13,
+    fontWeight: '700',
+    backgroundColor: COLORS.tertiary,
+    width: 39,
+    height: 18,
+    color: COLORS.background,
+    padding: 2,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    borderBottomLeftRadius: 6,
+    marginLeft: 309,
+    marginTop: 15,
+  },
+  salePercent4: {
+    position: 'absolute',
+    fontSize: 13,
+    fontWeight: '700',
+    backgroundColor: COLORS.tertiary,
+    width: 39,
+    height: 18,
+    color: COLORS.background,
+    padding: 2,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    borderBottomLeftRadius: 6,
+    marginTop: 128,
+    marginLeft: 55,
+  },
+  salePercent5: {
+    position: 'absolute',
+    fontSize: 13,
+    fontWeight: '700',
+    backgroundColor: COLORS.tertiary,
+    width: 39,
+    height: 18,
+    color: COLORS.background,
+    padding: 2,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    borderBottomLeftRadius: 6,
+    marginLeft: 182,
+    marginTop: 128,
+  },
+  salePercent6: {
+    position: 'absolute',
+    fontSize: 13,
+    fontWeight: '700',
+    backgroundColor: COLORS.tertiary,
+    width: 39,
+    height: 18,
+    color: COLORS.background,
+    padding: 2,
+    borderTopLeftRadius: 6,
+    borderTopRightRadius: 6,
+    borderBottomLeftRadius: 6,
+    marginLeft: 309,
+    marginTop: 128,
+  },
+  topProductMainContainer:{
+    marginTop:35,
+  },
+  productext:{
+    fontSize:21,
+    fontWeight:'700',
+  },
+  topProductContainer:{
+    marginTop:10,
+    paddingHorizontal:10,
+    
+  },
+  productImage:{
+    height:50,
+    width:50,
+    borderRadius:25,
+    borderWidth: 4,
+    borderColor: COLORS.background,
+    shadowColor: COLORS.shadow,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  justForYouMainContainer:{
+    marginTop:34,
+  },
+  justForYouText:{
+    fontSize:21,
+    fontWeight:'700',
+  },
+  justForYouContainer:{
+    marginTop:15,
+  },
+  justImage:{
+    width:168,
+    height:177,
+    borderRadius:9,
+    borderColor:COLORS.background,
+    borderWidth:5,
+    shadowColor: COLORS.shadow,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  justsubText:{
+    marginTop:7,
+    fontSize:12,
+    fontWeight:'400',
+  },
+  justPrice:{
+    marginTop:3,
+    fontSize:17,
+    fontWeight:'700'
+  },
+  justForYou:{
+    flexDirection:'row',
+    justifyContent:'space-between',
+    alignItems:'center'
+    
+  }
 });

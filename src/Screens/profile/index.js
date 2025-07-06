@@ -16,6 +16,38 @@ import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
 
+
+const viewed = [
+  {
+    image:Images.viewed1
+  },
+  {
+    image:Images.viewed2
+  },
+  {
+    image:Images.viewed3
+  },
+  {
+    image:Images.viewed4
+  },
+  {
+    image:Images.viewed5
+  },
+  {
+    image:Images.viewed1
+  },
+  {
+    image:Images.viewed2
+  },
+  {
+    image:Images.viewed3
+  },
+  {
+    image:Images.viewed4
+  },
+  
+]
+
 const storyData = [
   {
     image: Images.story1,
@@ -90,13 +122,15 @@ const Profile = () => {
 
         <Text style={styles.viewedText}>Recently viewed</Text>
 
-        <View style={styles.viewedContainer}>
-          <Image source={Images.viewed1} style={styles.viewedImage} />
-          <Image source={Images.viewed2} style={styles.viewedImage} />
-          <Image source={Images.viewed3} style={styles.viewedImage} />
-          <Image source={Images.viewed4} style={styles.viewedImage} />
-          <Image source={Images.viewed5} style={styles.viewedImage} />
-        </View>
+        <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+          {viewed.map((item,index) =>(
+            <TouchableOpacity  style={styles.viewedContainer}>
+                 <Image source={item.image} style={styles.viewedImage} />
+            </TouchableOpacity>
+          ))
+
+          }
+        </ScrollView>
 
         <Text style={styles.orderText}>My Orders</Text>
 
@@ -153,8 +187,6 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   container: {
-    //marginLeft: 20,
-    //marginRight: 20,
     paddingHorizontal:20
   },
   activityContainer: {
@@ -237,8 +269,7 @@ const styles = StyleSheet.create({
   },
   viewedContainer: {
     marginTop: 12,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+    marginLeft:19,
   },
   viewedImage: {
     height: 50,
@@ -258,7 +289,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
   },
   orderNameContainer: {
-    //width:118,
     height: 35,
     backgroundColor: COLORS.primaryContainer,
     borderRadius: 25,
@@ -289,7 +319,6 @@ const styles = StyleSheet.create({
     width: 8,
     backgroundColor: COLORS.primary,
     borderRadius: 4,
-    //top: 35,
     bottom:30,
     left: 286,
   },
