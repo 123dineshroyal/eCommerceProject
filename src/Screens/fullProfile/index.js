@@ -128,33 +128,33 @@ const popular = [
 
 const product = [
   {
-    image:Images.product1,
+    image: Images.product1,
   },
   {
-    image:Images.product2,
+    image: Images.product2,
   },
   {
-    image:Images.product3,
+    image: Images.product3,
   },
   {
-    image:Images.product4,
+    image: Images.product4,
   },
   {
-    image:Images.product5,
+    image: Images.product5,
   },
   {
-    image:Images.product1,
+    image: Images.product1,
   },
   {
-    image:Images.product2,
+    image: Images.product2,
   },
   {
-    image:Images.product3,
+    image: Images.product3,
   },
   {
-    image:Images.product4,
+    image: Images.product4,
   },
-]
+];
 
 const FullProfile = () => {
   const navigation = useNavigation();
@@ -447,81 +447,105 @@ const FullProfile = () => {
 
             <View style={styles.flashSale}>
               <View style={styles.flashContain}>
-                <Image source={Images.flash1} style={styles.flashImage} />
-                <Image source={Images.flash2} style={styles.flashImage} />
-                <Image source={Images.flash3} style={styles.flashImage} />
+                <View>
+                  <Image source={Images.flash1} style={styles.flashImage} />
+                  <Text style={styles.salePercent}>-20%</Text>
+                </View>
+                <View>
+                  <Image source={Images.flash2} style={styles.flashImage} />
+                  <Text style={styles.salePercent}>-20%</Text>
+                </View>
+                <View>
+                  <Image source={Images.flash3} style={styles.flashImage} />
+                  <Text style={styles.salePercent}>-20%</Text>
+                </View>
               </View>
               <View style={styles.flashContain}>
-                <Image source={Images.flash4} style={styles.flashImage} />
-                <Image source={Images.flash5} style={styles.flashImage} />
-                <Image source={Images.flash6} style={styles.flashImage} />
+                <View>
+                  <Image source={Images.flash4} style={styles.flashImage} />
+                  <Text style={styles.salePercent}>-20%</Text>
+                </View>
+                <View>
+                  <Image source={Images.flash5} style={styles.flashImage} />
+                  <Text style={styles.salePercent}>-20%</Text>
+                </View>
+                <View>
+                  <Image source={Images.flash6} style={styles.flashImage} />
+                  <Text style={styles.salePercent}>-20%</Text>
+                </View>
               </View>
-              <Text style={styles.salePercent1}>-20%</Text>
-              <Text style={styles.salePercent2}>-20%</Text>
-              <Text style={styles.salePercent3}>-20%</Text>
-              <Text style={styles.salePercent4}>-20%</Text>
-              <Text style={styles.salePercent5}>-20%</Text>
-              <Text style={styles.salePercent6}>-20%</Text>
             </View>
           </View>
 
           <View style={styles.topProductMainContainer}>
             <Text style={styles.productext}>Top Products</Text>
-           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {product.map((item,index) =>(
-                <TouchableOpacity  style={styles.topProductContainer}>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {product.map((item, index) => (
+                <TouchableOpacity style={styles.topProductContainer}>
                   <Image source={item.image} style={styles.productImage} />
                 </TouchableOpacity>
-              ))
-            
-             }
+              ))}
             </ScrollView>
           </View>
 
           <View style={styles.justForYouMainContainer}>
-             <Text style={styles.justForYouText}>Just For You <Icon name='star' color={COLORS.primary} size={14}/></Text>
-
-             <View style={styles.justForYou}>
-              <TouchableOpacity style={styles.justForYouContainer}>
-                <Image source={Images.just1} style={styles.justImage}/>
-                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
-                <Text style={styles.justPrice}>$17,00</Text>
-              </TouchableOpacity>
-
-              <TouchableOpacity style={styles.justForYouContainer}>
-                <Image source={Images.just2} style={styles.justImage}/>
-                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
-                <Text style={styles.justPrice}>$17,00</Text>
-              </TouchableOpacity>
-            </View>  
+            <Text style={styles.justForYouText}>
+              Just For You <Icon name="star" color={COLORS.primary} size={14} />
+            </Text>
 
             <View style={styles.justForYou}>
               <TouchableOpacity style={styles.justForYouContainer}>
-                <Image source={Images.just3} style={styles.justImage}/>
-                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Image source={Images.just1} style={styles.justImage} />
+                <Text style={styles.justsubText}>
+                  Lorem ipsum dolor sit {'\n'}amet consectetur
+                </Text>
                 <Text style={styles.justPrice}>$17,00</Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.justForYouContainer}>
-                <Image source={Images.just4} style={styles.justImage}/>
-                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Image source={Images.just2} style={styles.justImage} />
+                <Text style={styles.justsubText}>
+                  Lorem ipsum dolor sit {'\n'}amet consectetur
+                </Text>
                 <Text style={styles.justPrice}>$17,00</Text>
               </TouchableOpacity>
-            </View>  
+            </View>
 
             <View style={styles.justForYou}>
               <TouchableOpacity style={styles.justForYouContainer}>
-                <Image source={Images.just5} style={styles.justImage}/>
-                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Image source={Images.just3} style={styles.justImage} />
+                <Text style={styles.justsubText}>
+                  Lorem ipsum dolor sit {'\n'}amet consectetur
+                </Text>
                 <Text style={styles.justPrice}>$17,00</Text>
               </TouchableOpacity>
 
               <TouchableOpacity style={styles.justForYouContainer}>
-                <Image source={Images.just6} style={styles.justImage}/>
-                <Text style={styles.justsubText}>Lorem ipsum dolor sit {'\n'} amet consectetur</Text>
+                <Image source={Images.just4} style={styles.justImage} />
+                <Text style={styles.justsubText}>
+                  Lorem ipsum dolor sit {'\n'}amet consectetur
+                </Text>
                 <Text style={styles.justPrice}>$17,00</Text>
               </TouchableOpacity>
-            </View>  
+            </View>
+
+            <View style={styles.justForYou}>
+              <TouchableOpacity style={styles.justForYouContainer}>
+                <Image source={Images.just5} style={styles.justImage} />
+                <Text style={styles.justsubText}>
+                  Lorem ipsum dolor sit {'\n'}amet consectetur
+                </Text>
+                <Text style={styles.justPrice}>$17,00</Text>
+              </TouchableOpacity>
+
+              <TouchableOpacity style={styles.justForYouContainer}>
+                <Image source={Images.just6} style={styles.justImage} />
+                <Text style={styles.justsubText}>
+                  Lorem ipsum dolor sit {'\n'}amet consectetur
+                </Text>
+                <Text style={styles.justPrice}>$17,00</Text>
+              </TouchableOpacity>
+            </View>
           </View>
         </View>
       </ScrollView>
@@ -907,7 +931,7 @@ const styles = StyleSheet.create({
     shadowRadius: 8,
     elevation: 5,
   },
-  salePercent1: {
+  salePercent: {
     position: 'absolute',
     fontSize: 13,
     fontWeight: '700',
@@ -919,140 +943,63 @@ const styles = StyleSheet.create({
     borderTopLeftRadius: 6,
     borderTopRightRadius: 6,
     borderBottomLeftRadius: 6,
-    marginTop: 15,
+    marginTop: 5,
     marginLeft: 55,
   },
-  salePercent2: {
-    position: 'absolute',
-    fontSize: 13,
+  topProductMainContainer: {
+    marginTop: 35,
+  },
+  productext: {
+    fontSize: 21,
     fontWeight: '700',
-    backgroundColor: COLORS.tertiary,
-    width: 39,
-    height: 18,
-    color: COLORS.background,
-    padding: 2,
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    borderBottomLeftRadius: 6,
-    marginLeft: 182,
-    marginTop: 15,
   },
-  salePercent3: {
-    position: 'absolute',
-    fontSize: 13,
-    fontWeight: '700',
-    backgroundColor: COLORS.tertiary,
-    width: 39,
-    height: 18,
-    color: COLORS.background,
-    padding: 2,
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    borderBottomLeftRadius: 6,
-    marginLeft: 309,
-    marginTop: 15,
+  topProductContainer: {
+    marginTop: 10,
+    paddingHorizontal: 10,
   },
-  salePercent4: {
-    position: 'absolute',
-    fontSize: 13,
-    fontWeight: '700',
-    backgroundColor: COLORS.tertiary,
-    width: 39,
-    height: 18,
-    color: COLORS.background,
-    padding: 2,
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    borderBottomLeftRadius: 6,
-    marginTop: 128,
-    marginLeft: 55,
-  },
-  salePercent5: {
-    position: 'absolute',
-    fontSize: 13,
-    fontWeight: '700',
-    backgroundColor: COLORS.tertiary,
-    width: 39,
-    height: 18,
-    color: COLORS.background,
-    padding: 2,
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    borderBottomLeftRadius: 6,
-    marginLeft: 182,
-    marginTop: 128,
-  },
-  salePercent6: {
-    position: 'absolute',
-    fontSize: 13,
-    fontWeight: '700',
-    backgroundColor: COLORS.tertiary,
-    width: 39,
-    height: 18,
-    color: COLORS.background,
-    padding: 2,
-    borderTopLeftRadius: 6,
-    borderTopRightRadius: 6,
-    borderBottomLeftRadius: 6,
-    marginLeft: 309,
-    marginTop: 128,
-  },
-  topProductMainContainer:{
-    marginTop:35,
-  },
-  productext:{
-    fontSize:21,
-    fontWeight:'700',
-  },
-  topProductContainer:{
-    marginTop:10,
-    paddingHorizontal:10,
-    
-  },
-  productImage:{
-    height:50,
-    width:50,
-    borderRadius:25,
+  productImage: {
+    height: 50,
+    width: 50,
+    borderRadius: 25,
     borderWidth: 4,
     borderColor: COLORS.background,
     shadowColor: COLORS.shadow,
     shadowRadius: 8,
     elevation: 5,
   },
-  justForYouMainContainer:{
-    marginTop:34,
+  justForYouMainContainer: {
+    marginTop: 34,
   },
-  justForYouText:{
-    fontSize:21,
-    fontWeight:'700',
+  justForYouText: {
+    fontSize: 21,
+    fontWeight: '700',
   },
-  justForYouContainer:{
-    marginTop:15,
+  justForYouContainer: {
+    marginTop: 15,
   },
-  justImage:{
-    width:168,
-    height:177,
-    borderRadius:9,
-    borderColor:COLORS.background,
-    borderWidth:5,
+  justImage: {
+    width: 168,
+    height: 177,
+    borderRadius: 9,
+    borderColor: COLORS.background,
+    borderWidth: 5,
     shadowColor: COLORS.shadow,
     shadowRadius: 8,
     elevation: 5,
   },
-  justsubText:{
-    marginTop:7,
-    fontSize:12,
-    fontWeight:'400',
+  justsubText: {
+    marginTop: 7,
+    fontSize: 12,
+    fontWeight: '400',
   },
-  justPrice:{
-    marginTop:3,
-    fontSize:17,
-    fontWeight:'700'
+  justPrice: {
+    marginTop: 3,
+    fontSize: 17,
+    fontWeight: '700',
   },
-  justForYou:{
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center'
-    
-  }
+  justForYou: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+  },
 });

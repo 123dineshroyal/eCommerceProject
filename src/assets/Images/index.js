@@ -77,6 +77,18 @@ const Image = {
   hoodies2: require('./hoodies2.png'),
   hoodies3: require('./hoodies2.png'),
   hoodies4: require('./hoodies4.png'),
+  flashSaleBackground: require('./flashSaleBackground.png'),
+  flashImage: require('./flashImage.png'),
+  discount1: require('./discount1.png'),
+  bigSale: require('./bigSale.png'),
+  popular4: require('./popular5.png'),
+  sale1: require('./sale1.png'),
+  sale2: require('./sale2.png'),
+  sale3: require('./sale3.png'),
+  sale4: require('./sale4.png'),
+  sale5: require('./sale5.png'),
+  sale6: require('./sale6.png'),
+  live1: require('./live1.png'),
 };
 
 export default Image;
