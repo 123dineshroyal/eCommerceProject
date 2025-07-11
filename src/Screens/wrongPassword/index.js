@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
     fontSize: 15,
     fontWeight: '300',
     marginTop: 38,
-    marginBottom:341,
+    marginBottom:305,
   },
 });
 

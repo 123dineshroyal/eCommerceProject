@@ -15,6 +15,7 @@ import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 import { useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
+import TabNavigator from '../../navigation/TabNavigator';
 
 const FlashSaleLive = () => {
   const navigation = useNavigation();
@@ -57,11 +58,8 @@ const FlashSaleLive = () => {
 
         <View style={styles.liveProductContainer}>
           <Image source={Images.flashImage} style={styles.flashSaleImage} />
-          <TouchableOpacity
-            onPress={() => navigation.navigate(RouteName.FLASH_SALE_SCREEN)}
-          >
-            <Text style={styles.liveTag}>Live</Text>
-          </TouchableOpacity>
+
+          <Text style={styles.liveTag}>Live</Text>
 
           <MaterialIcons
             name="play-arrow"
@@ -74,7 +72,10 @@ const FlashSaleLive = () => {
         <View style={styles.discountContainer1}>
           <View style={styles.discountContain}>
             <Text style={styles.discountText}>20% Discount</Text>
-            <TouchableOpacity style={styles.sliderIcon}>
+            <TouchableOpacity
+              style={styles.sliderIcon}
+              onPress={() => navigation.navigate(RouteName.FLASH_SALE_SCREEN)}
+            >
               <FontAwesome6 name="sliders" size={18} color="black" />
             </TouchableOpacity>
           </View>
@@ -129,6 +130,7 @@ const FlashSaleLive = () => {
           </View>
         </View>
       </ScrollView>
+      {/* <TabNavigator/> */}
     </ImageBackground>
   );
 };

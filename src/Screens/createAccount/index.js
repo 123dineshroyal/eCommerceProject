@@ -180,7 +180,7 @@ const styles = StyleSheet.create({
     fontWeight: '300',
   },
   cancelButtonContainer: {
-    marginBottom: 49,
+    //marginBottom: 30,
     marginTop: 20,
   },
   cancelButtonText: {

@@ -18,6 +18,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
+import TabNavigator from '../../navigation/TabNavigator';
 
 const bigSaleSlider = [
   {
@@ -99,6 +100,39 @@ const items = [
   },
 ];
 
+const popular = [
+  {
+    image: Images.sale2,
+    price: '1780',
+    status: 'New',
+  },
+  {
+    image: Images.sale1,
+    price: '1780',
+    status: 'Sale',
+  },
+  {
+    image: Images.popular4,
+    price: '1780',
+    status: 'Hot',
+  },
+  {
+    image: Images.sale2,
+    price: '1780',
+    status: 'New',
+  },
+  {
+    image: Images.sale1,
+    price: '1780',
+    status: 'Sale',
+  },
+  {
+    image: Images.popular4,
+    price: '1780',
+    status: 'Hot',
+  },
+];
+
 const Shop = () => {
   const navigation = useNavigation();
   const [search, setSearch] = useState('');
@@ -132,16 +166,16 @@ const Shop = () => {
         <FlatList
           data={bigSaleSlider}
           horizontal
-          //pagingEnabled
+          pagingEnabled
           //keyExtractor={item => item.id}
           //showsHorizontalScrollIndicator={false}
 
           renderItem={({ item }) => (
-            <TouchableOpacity>
+            
               <ImageBackground
                 source={item.image}
                 style={styles.bigSaleContainer}
-                imageStyle={{ borderRadius: 20 }}
+              //  imageStyle={{ borderRadius: 20 }}
               >
                 <View>
                   <Text style={styles.bigSaleText}>{item.heading}</Text>
@@ -151,25 +185,31 @@ const Shop = () => {
                   </Text>
                 </View>
               </ImageBackground>
-            </TouchableOpacity>
+          
           )}
         />
+
+         <View style={styles.dotContainer}>
+            <Text style={styles.dotActive}/>
+            <Text style={styles.dotDeactive}/>
+            <Text style={styles.dotDeactive}/>
+            <Text style={styles.dotDeactive}/>
+            <Text style={styles.dotDeactive}/>
+         </View>
 
         <View style={styles.categoriesMainContainer}>
           <View style={styles.newItemContainer}>
             <Text style={styles.newItemText}>Categories</Text>
             <View style={styles.seeAllContainer}>
               <Text style={styles.seeAllText}>See All</Text>
-              <TouchableOpacity
-                style={styles.arrowContainer1}
-                onPress={() =>
-                  navigation.navigate(RouteName.FLASH_SALE_LIVE_SCREEN)
-                }
-              >
+              <TouchableOpacity style={styles.arrowContainer1}>
                 <MaterialCommunityIcons
                   name="arrow-right"
                   size={22}
                   color={COLORS.onPrimary}
+                  onPress={() =>
+                    navigation.navigate(RouteName.FLASH_SALE_LIVE_SCREEN)
+                  }
                 />
               </TouchableOpacity>
             </View>
@@ -388,6 +428,39 @@ const Shop = () => {
           </View>
         </View>
 
+        <View style={styles.populatMainContainer}>
+          <View style={styles.newItemContainer}>
+            <Text style={styles.newItemText}>Most Popular</Text>
+            <View style={styles.seeAllContainer}>
+              <Text style={styles.seeAllText}>See All</Text>
+              <TouchableOpacity style={styles.arrowContainer1}>
+                <MaterialCommunityIcons
+                  name="arrow-right"
+                  size={22}
+                  color={COLORS.onPrimary}
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+
+          <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+            {popular.map(item => (
+              <View style={styles.popularContainer}>
+                <TouchableOpacity>
+                  <Image source={item.image} style={styles.popularImage} />
+                  <View style={styles.popularCardContainer}>
+                    <View style={styles.popularCard}>
+                      <Text style={styles.popularCardPrice}>{item.price}</Text>
+                      <Icon name="heart" color={COLORS.primary} size={10} />
+                    </View>
+                    <Text style={styles.popularCardNew}>{item.status}</Text>
+                  </View>
+                </TouchableOpacity>
+              </View>
+            ))}
+          </ScrollView>
+        </View>
+
         <View style={styles.justForYouMainContainer}>
           <Text style={styles.justForYouText}>
             Just For You <Icon name="star" color={COLORS.primary} size={14} />
@@ -448,6 +521,7 @@ const Shop = () => {
           </View>
         </View>
       </ScrollView>
+      {/* <TabNavigator/> */}
     </SafeAreaView>
   );
 };
@@ -702,7 +776,7 @@ const styles = StyleSheet.create({
     borderRadius: 3,
   },
   justForYouMainContainer: {
-    marginTop: 34,
+    marginTop: 25,
   },
   justForYouText: {
     fontSize: 21,
@@ -735,5 +809,65 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
+  },
+  popularContainer: {
+    marginTop: 15,
+    width: 104,
+    height: 140,
+    justifyContent: 'space-evenly',
+    //alignItems:'center',
+    borderWidth: 4,
+    borderRadius: 10,
+    borderColor: COLORS.background,
+    backgroundColor: COLORS.background,
+    right: 10,
+    marginLeft: 10,
+    shadowColor: COLORS.shadow,
+    shadowRadius: 8,
+    elevation: 5,
+  },
+  popularImage: {
+    width: 93,
+    height: 103,
+  },
+  popularCardContainer: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    marginTop: 6,
+  },
+  popularCard: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  popularCardPrice: {
+    fontSize: 15,
+    fontWeight: '700',
+  },
+  popularCardNew: {
+    fontSize: 13,
+    fontWeight: '500',
+  },
+   dotContainer: {
+    //marginTop: 20,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    //marginBottom: 84,
+  },
+  dotDeactive: {
+    height: 10,
+    width: 10,
+    backgroundColor: COLORS.primaryContainer,
+    borderRadius: 5,
+    marginLeft: 15,
+  },
+  dotActive: {
+    height: 10,
+    width: 40,
+    backgroundColor: COLORS.primary,
+    marginLeft: 15,
+    borderRadius: 5,
   },
 });

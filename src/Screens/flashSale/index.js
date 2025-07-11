@@ -13,7 +13,7 @@ import Fontisto from 'react-native-vector-icons/Fontisto';
 import { COLORS, SIZES } from '../../constants/themes';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
-import { useNavigation } from '@react-navigation/native';
+import { TabActions, useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
 
 const FlashSale = () => {
@@ -120,6 +120,7 @@ const FlashSale = () => {
           </View>
         </View>
       </ScrollView>
+      {/* <TabActions/> */}
     </ImageBackground>
   );
 };

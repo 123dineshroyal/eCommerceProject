@@ -158,7 +158,7 @@ const styles = StyleSheet.create({
   },
   nextButtonContainer: {
     backgroundColor: COLORS.primary,
-    marginTop: 158,
+    marginTop: 194,
   },
   nextButtonText: {
     fontSize: 22,
@@ -167,7 +167,7 @@ const styles = StyleSheet.create({
   },
   cancelButtonContainer: {
     marginTop: 20,
-    marginBottom: 49,
+    //marginBottom: 49,
   },
   cancelButtonText: {
     fontSize: 15,

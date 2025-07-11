@@ -60,7 +60,7 @@ const readyCard = () => {
         <Image source={Images.ready} style={styles.readyImage} />
         <View style={styles.readyTextContainer}>
           <TouchableOpacity
-            onPress={() => navigation.navigate(RouteName.PROFILE_SCREEN)}
+            onPress={() => navigation.navigate(RouteName.HOME_TAB)}
           >
             <Text style={styles.readyText}>Ready?</Text>
           </TouchableOpacity>
@@ -154,7 +154,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     textAlign: 'center',
-    marginBottom: 40,
+    //  marginBottom: 40,
   },
   bottomCircle: {
     height: 20,

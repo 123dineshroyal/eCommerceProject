@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
   sendAgainButtonContainer: {
     backgroundColor: COLORS.onBackground,
     width: 201,
-    marginTop: 199,
+    marginTop: 235,
   },
   sendAgainButtonText: {
     fontSize: 18,
@@ -162,7 +162,7 @@ const styles = StyleSheet.create({
   },
   cancelButtonContainer: {
     marginTop: 20,
-    marginBottom: 49,
+   // marginBottom: 49,
   },
   cancelButtonText: {
     fontSize: 15,

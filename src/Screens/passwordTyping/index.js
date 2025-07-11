@@ -83,7 +83,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 10,
-    marginBottom: 405,
+    marginBottom: 369,
   },
   passwordAttemed: {
     height: 17,

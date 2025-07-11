@@ -4,6 +4,7 @@ import {
   SafeAreaView,
   ImageBackground,
   StyleSheet,
+  TouchableOpacity,
   Image,
 } from 'react-native';
 import Images from '../../assets/Images';
@@ -12,8 +13,9 @@ import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import { Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
-import { TouchableOpacity } from 'react-native/types_generated/index';
+//import { TouchableOpacity } from 'react-native/types_generated/index';
 import { RouteName } from '../../navigation/RouteName';
+import TabNavigator from '../../navigation/TabNavigator';
 
 const Live = () => {
   const navigation = useNavigation();
@@ -39,10 +41,12 @@ const Live = () => {
           mode="contained"
           labelStyle={styles.shopButtonText}
           style={styles.shopButtonContainer}
+          onPress={() => navigation.navigate(RouteName.STORY_DOTS_SCREEN)}
         >
           Shop
         </Button>
       </View>
+      {/* <TabNavigator/> */}
     </SafeAreaView>
   );
 };
@@ -66,7 +70,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 27,
-    marginBottom: 94,
+    marginBottom: 50,
   },
   liveTag: {
     flexDirection: 'row',

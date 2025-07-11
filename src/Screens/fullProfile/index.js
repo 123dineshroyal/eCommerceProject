@@ -16,6 +16,7 @@ import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
 import Fontisto from 'react-native-vector-icons/Fontisto';
+import TabNavigator from '../../navigation/TabNavigator';
 
 const viewed = [
   {
@@ -549,23 +550,7 @@ const FullProfile = () => {
           </View>
         </View>
       </ScrollView>
-      {/* <View style={styles.footerContainer}>
-        <TouchableOpacity>
-          <Feather name="home" size={24} color={COLORS.primary} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name="heart-outline" size={24} color={COLORS.primary} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name="list-outline" size={24} color={COLORS.primary} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Feather name="shopping-bag" size={24} color={COLORS.primary} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name="person-outline" size={24} color={COLORS.onBackground} />
-        </TouchableOpacity>
-      </View> */}
+      {/* <TabNavigator/> */}
     </SafeAreaView>
   );
 };

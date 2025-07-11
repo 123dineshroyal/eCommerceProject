@@ -15,38 +15,37 @@ import Icon from 'react-native-vector-icons/Ionicons';
 import Feather from 'react-native-vector-icons/Feather';
 import { useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
-
+import TabNavigator from '../../navigation/TabNavigator';
 
 const viewed = [
   {
-    image:Images.viewed1
+    image: Images.viewed1,
   },
   {
-    image:Images.viewed2
+    image: Images.viewed2,
   },
   {
-    image:Images.viewed3
+    image: Images.viewed3,
   },
   {
-    image:Images.viewed4
+    image: Images.viewed4,
   },
   {
-    image:Images.viewed5
+    image: Images.viewed5,
   },
   {
-    image:Images.viewed1
+    image: Images.viewed1,
   },
   {
-    image:Images.viewed2
+    image: Images.viewed2,
   },
   {
-    image:Images.viewed3
+    image: Images.viewed3,
   },
   {
-    image:Images.viewed4
+    image: Images.viewed4,
   },
-  
-]
+];
 
 const storyData = [
   {
@@ -123,13 +122,11 @@ const Profile = () => {
         <Text style={styles.viewedText}>Recently viewed</Text>
 
         <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-          {viewed.map((item,index) =>(
-            <TouchableOpacity  style={styles.viewedContainer}>
-                 <Image source={item.image} style={styles.viewedImage} />
+          {viewed.map((item, index) => (
+            <TouchableOpacity style={styles.viewedContainer}>
+              <Image source={item.image} style={styles.viewedImage} />
             </TouchableOpacity>
-          ))
-
-          }
+          ))}
         </ScrollView>
 
         <Text style={styles.orderText}>My Orders</Text>
@@ -157,24 +154,8 @@ const Profile = () => {
           ))}
         </ScrollView>
       </View>
-{/* 
-      <View style={styles.footerContainer}>
-        <TouchableOpacity>
-          <Feather name="home" size={24} color={COLORS.primary} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name="heart-outline" size={24} color={COLORS.primary} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name="list-outline" size={24} color={COLORS.primary} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Feather name="shopping-bag" size={24} color={COLORS.primary} />
-        </TouchableOpacity>
-        <TouchableOpacity>
-          <Icon name="person-outline" size={24} color={COLORS.onBackground} />
-        </TouchableOpacity>
-      </View> */}
+
+      {/* <TabNavigator /> */}
     </SafeAreaView>
   );
 };
@@ -187,7 +168,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
   },
   container: {
-    paddingHorizontal:20
+    paddingHorizontal: 20,
   },
   activityContainer: {
     marginTop: 30,
@@ -269,7 +250,7 @@ const styles = StyleSheet.create({
   },
   viewedContainer: {
     marginTop: 12,
-    marginLeft:19,
+    marginLeft: 19,
   },
   viewedImage: {
     height: 50,
@@ -319,7 +300,7 @@ const styles = StyleSheet.create({
     width: 8,
     backgroundColor: COLORS.primary,
     borderRadius: 4,
-    bottom:30,
+    bottom: 30,
     left: 286,
   },
   story: {

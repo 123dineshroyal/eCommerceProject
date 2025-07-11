@@ -163,7 +163,7 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     backgroundColor: COLORS.primaryContainer,
     marginLeft: 15,
-    marginBottom:49
+   // marginBottom:49
   },
   bottomCircleActive: {
     height: 20,

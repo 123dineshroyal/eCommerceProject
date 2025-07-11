@@ -17,6 +17,7 @@ import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityI
 import Icon from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
+import TabNavigator from '../../navigation/TabNavigator';
 
 const popular = [
   {
@@ -244,6 +245,7 @@ const FlashSaleFull = () => {
           </ScrollView>
         </View>
       </ScrollView>
+      {/* <TabNavigator/> */}
     </ImageBackground>
   );
 };

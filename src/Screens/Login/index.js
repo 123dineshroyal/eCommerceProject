@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
   },
   cancelButtonContainer: {
     marginTop: 20,
-    marginBottom: 49,
   },
   cancelButtonText: {
     fontSize: 15,

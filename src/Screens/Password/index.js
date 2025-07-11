@@ -98,8 +98,8 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 49,
-    marginTop: 256,
+    // marginBottom: 49,
+    marginTop: 292,
   },
   notYouText: {
     fontSize: 15,

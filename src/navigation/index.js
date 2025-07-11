@@ -18,10 +18,22 @@ import profile from '../Screens/profile';
 import fullProfile from '../Screens/fullProfile';
 import { RouteName } from './RouteName';
 import shop from '../Screens/shop';
-import flashSaleLive from '../Screens/flashSaleLive';
+import flashsaleLive from '../Screens/flashSaleLive';
 import flashSale from '../Screens/flashSale';
 import flashSaleFull from '../Screens/flashSaleFull';
 import live from '../Screens/live';
+import storyProductStyle01 from '../Screens/storyProductStyle01';
+import storyDots from '../Screens/storyDots';
+import storyDotsTab from '../Screens/storyDotsTab';
+import storyProductStyle02 from '../Screens/storyProductStyle02';
+import storyBanner from '../Screens/storyBanner';
+import TabNavigator from './TabNavigator';
+import ShopClothing from '../Screens/shopClothing';
+import ShopClothingOnScroll from '../Screens/shopClothingOnScroll';
+import CategoriesFilter from '../Screens/categoriesFilter';
+import Search from '../Screens/search';
+import SearchResult from '../Screens/searchResult';
+import ImageSearch from '../Screens/imageSearch';
 
 const Stack = createStackNavigator();
 
@@ -29,6 +41,9 @@ const RootNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+
+      
+
         <Stack.Screen name={RouteName.START_SCREEN} component={start} />
 
         <Stack.Screen
@@ -80,6 +95,8 @@ const RootNavigator = () => {
           component={readyCard}
         />
 
+          <Stack.Screen name={RouteName.HOME_TAB} component={TabNavigator} />
+
         <Stack.Screen name={RouteName.PROFILE_SCREEN} component={profile} />
 
         <Stack.Screen
@@ -87,11 +104,11 @@ const RootNavigator = () => {
           component={fullProfile}
         />
 
-        <Stack.Screen name={RouteName.SHOP_SCREEN} component={shop} />
+        {/* <Stack.Screen name={RouteName.SHOP_SCREEN} component={shop} /> */}
 
         <Stack.Screen
           name={RouteName.FLASH_SALE_LIVE_SCREEN}
-          component={flashSaleLive}
+          component={flashsaleLive}
         />
 
         <Stack.Screen
@@ -99,13 +116,65 @@ const RootNavigator = () => {
           component={flashSale}
         />
 
-        <Stack.Screen
+        {/* <Stack.Screen 
           name={RouteName.FLASH_SALE_FULL_SCREEN}
           component={flashSaleFull}
-        />
+        /> */}
 
         <Stack.Screen name={RouteName.LIVE_SCREEN} component={live} />
 
+        <Stack.Screen
+          name={RouteName.STORY_DOTS_SCREEN}
+          component={storyDots}
+        />
+
+        <Stack.Screen
+          name={RouteName.STORY_DOTS_TAB_SCREEN}
+          component={storyDotsTab}
+        />
+
+        <Stack.Screen
+          name={RouteName.STORY_PRODUCT_STYLE01_SCREEN}
+          component={storyProductStyle01}
+        />
+
+        <Stack.Screen
+          name={RouteName.STORY_BANNER_SCREEN}
+          component={storyBanner}
+        />
+
+        <Stack.Screen
+          name={RouteName.STORY_PRODUCT_STYLE02_SCREEN}
+          component={storyProductStyle02}
+        />
+
+        <Stack.Screen
+          name={RouteName.SHOP_CLOTHING_SCREEN}
+          component={ShopClothing}
+        />
+
+        <Stack.Screen
+          name={RouteName.SHOP_CLOTHING_ON_SCROLL_SCREEN}
+          component={ShopClothingOnScroll}
+        />
+
+        <Stack.Screen
+          name={RouteName.CATEGORIES_FILTER_SCREEN}
+          component={CategoriesFilter}
+        />
+
+        <Stack.Screen name={RouteName.SEARCH_SCREEN} component={Search} />
+
+        <Stack.Screen
+          name={RouteName.SEARCH_RESULT_SCREEN}
+          component={SearchResult}
+        />
+
+        <Stack.Screen
+          name={RouteName.IMAGE_SEARCH_SCREEN}
+          component={ImageSearch}
+        />
+        
         {/* react native image slider show */}
 
         {/* react native snap carousel */}
