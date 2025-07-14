@@ -31,9 +31,7 @@ const Live = () => {
           <Text style={styles.liveTagText}>Live</Text>
         </View>
 
-        <TouchableOpacity
-          onPress={() => navigation.navigate(RouteName.FLASH_SALE_FULL_SCREEN)}
-        >
+        <TouchableOpacity>
           <FontAwesome5 name="forward" size={24} color={COLORS.primary} />
         </TouchableOpacity>
 
@@ -41,7 +39,7 @@ const Live = () => {
           mode="contained"
           labelStyle={styles.shopButtonText}
           style={styles.shopButtonContainer}
-          onPress={() => navigation.navigate(RouteName.STORY_DOTS_SCREEN)}
+          onPress={()=>navigation.navigate(RouteName.FLASH_SALE_LIVE_SCREEN)}
         >
           Shop
         </Button>
@@ -70,7 +68,7 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     alignItems: 'center',
     paddingHorizontal: 27,
-    marginBottom: 50,
+    marginBottom: 10,
   },
   liveTag: {
     flexDirection: 'row',

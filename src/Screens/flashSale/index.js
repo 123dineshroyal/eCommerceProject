@@ -63,7 +63,7 @@ const FlashSale = () => {
             <TouchableOpacity
               style={styles.sliderIcon}
               onPress={() =>
-                navigation.navigate(RouteName.FLASH_SALE_FULL_SCREEN)
+                navigation.navigate(RouteName.STORY_DOTS_TAB_SCREEN)
               }
             >
               <FontAwesome6 name="sliders" size={18} color="black" />

@@ -57,9 +57,7 @@ const StoryDots = () => {
         data={story}
         onScroll={handleOnScroll}
         renderItem={({ item }) => (
-          <TouchableOpacity
-            onPress={() => navigation.navigate(RouteName.STORY_DOTS_TAB_SCREEN)}
-          >
+          <TouchableOpacity>
             <ImageBackground source={item.image} style={styles.storyImage} />
           </TouchableOpacity>
         )}
@@ -108,7 +106,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 84,
+    //marginBottom: 84,
   },
   dotDeactive: {
     height: 10,
@@ -132,7 +130,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.primary,
     borderWidth: 2,
     borderRadius: 11,
-    marginBottom: 350,
+    marginBottom: 250,
     marginLeft: 35,
   },
   dot2: {
@@ -143,12 +141,12 @@ const styles = StyleSheet.create({
     borderColor: COLORS.background,
     borderWidth: 2,
     borderRadius: 11,
-    marginBottom: 515,
+    marginBottom: 415,
     marginRight: 255,
   },
   backgroundBottom: {
     position: 'absolute',
-    height: 240,
+    height: 100,
     width: 340,
     backgroundColor: COLORS.elevation.level4,
     opacity: 0.7,

@@ -107,7 +107,7 @@ const styles = StyleSheet.create({
   storyImage: {
     resizeMode: 'contain',
     width: SIZES.width - 40,
-    height: SIZES.height - 170,
+    height: SIZES.height - 130,
     borderRadius: 50,
   },
   dotContainer: {
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 84,
+    marginBottom: 10,
   },
   dotDeactive: {
     height: 10,
@@ -139,7 +139,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.primary,
     borderWidth: 2,
     borderRadius: 11,
-    marginBottom: 400,
+    marginBottom: 320,
     marginLeft: 135,
   },
   dot2: {
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     borderColor: COLORS.background,
     borderWidth: 2,
     borderRadius: 11,
-    marginBottom: 515,
+    marginBottom: 455,
     marginRight: 255,
   },
   buttonContainer: {
@@ -159,7 +159,7 @@ const styles = StyleSheet.create({
     width: 147,
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom: 208,
+    marginBottom: 128,
     backgroundColor: COLORS.background,
     borderRadius: 15,
   },

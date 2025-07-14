@@ -151,9 +151,7 @@ const Shop = () => {
               style={styles.searchInput}
             />
 
-            <TouchableOpacity
-              onPress={() => navigation.navigate(RouteName.FULL_PROFILE_SCREEN)}
-            >
+            <TouchableOpacity>
               <MaterialCommunityIcons
                 name="camera-outline"
                 size={20}
@@ -171,31 +169,29 @@ const Shop = () => {
           //showsHorizontalScrollIndicator={false}
 
           renderItem={({ item }) => (
-            
-              <ImageBackground
-                source={item.image}
-                style={styles.bigSaleContainer}
+            <ImageBackground
+              source={item.image}
+              style={styles.bigSaleContainer}
               //  imageStyle={{ borderRadius: 20 }}
-              >
-                <View>
-                  <Text style={styles.bigSaleText}>{item.heading}</Text>
-                  <Text style={styles.bigSalePersent}>{item.percent}</Text>
-                  <Text style={styles.saleText1}>
-                    {item.title} {'\n'} {item.title1}
-                  </Text>
-                </View>
-              </ImageBackground>
-          
+            >
+              <View>
+                <Text style={styles.bigSaleText}>{item.heading}</Text>
+                <Text style={styles.bigSalePersent}>{item.percent}</Text>
+                <Text style={styles.saleText1}>
+                  {item.title} {'\n'} {item.title1}
+                </Text>
+              </View>
+            </ImageBackground>
           )}
         />
 
-         <View style={styles.dotContainer}>
-            <Text style={styles.dotActive}/>
-            <Text style={styles.dotDeactive}/>
-            <Text style={styles.dotDeactive}/>
-            <Text style={styles.dotDeactive}/>
-            <Text style={styles.dotDeactive}/>
-         </View>
+        <View style={styles.dotContainer}>
+          <Text style={styles.dotActive} />
+          <Text style={styles.dotDeactive} />
+          <Text style={styles.dotDeactive} />
+          <Text style={styles.dotDeactive} />
+          <Text style={styles.dotDeactive} />
+        </View>
 
         <View style={styles.categoriesMainContainer}>
           <View style={styles.newItemContainer}>
@@ -207,9 +203,6 @@ const Shop = () => {
                   name="arrow-right"
                   size={22}
                   color={COLORS.onPrimary}
-                  onPress={() =>
-                    navigation.navigate(RouteName.FLASH_SALE_LIVE_SCREEN)
-                  }
                 />
               </TouchableOpacity>
             </View>
@@ -534,7 +527,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     paddingHorizontal: 20,
     paddingVertical: 20,
-    marginBottom: 100,
+    //  marginBottom: 100,
   },
   shopText: {
     fontSize: 28,
@@ -849,7 +842,7 @@ const styles = StyleSheet.create({
     fontSize: 13,
     fontWeight: '500',
   },
-   dotContainer: {
+  dotContainer: {
     //marginTop: 20,
     flexDirection: 'row',
     justifyContent: 'center',

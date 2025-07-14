@@ -64,9 +64,7 @@ const FlashSaleFull = () => {
         <View style={styles.flashSaleTimerContainer}>
           <Text style={styles.flashSaleText}>Flash Sale</Text>
           <View style={styles.flashSaleTimeContainer}>
-            <TouchableOpacity
-              onPress={() => navigation.navigate(RouteName.FLASH_SALE_SCREEN)}
-            >
+            <TouchableOpacity>
               <Fontisto name="stopwatch" color={COLORS.background} size={19} />
             </TouchableOpacity>
             <Text style={styles.time}>00</Text>
@@ -94,10 +92,7 @@ const FlashSaleFull = () => {
         <View style={styles.discountContainer1}>
           <View style={styles.discountContain}>
             <Text style={styles.discountText}>20% Discount</Text>
-            <TouchableOpacity
-              style={styles.sliderIcon}
-              onPress={() => navigation.navigate(RouteName.LIVE_SCREEN)}
-            >
+            <TouchableOpacity style={styles.sliderIcon}>
               <FontAwesome6 name="sliders" size={18} color="black" />
             </TouchableOpacity>
           </View>
@@ -256,7 +251,7 @@ const styles = StyleSheet.create({
   backgroundImage: {
     flex: 1,
     padding: 20,
-    paddingBottom: 100,
+    // paddingBottom: 100,
   },
   flashSaleTimerContainer: {
     flexDirection: 'row',

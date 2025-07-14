@@ -166,10 +166,7 @@ const FullProfile = () => {
         <View style={styles.container}>
           <View style={styles.activityContainer}>
             <Image source={Images.profile1} style={styles.profileImage} />
-            <TouchableOpacity
-              style={styles.myActivityContainer}
-              onPress={() => navigation.navigate(RouteName.PROFILE_SCREEN)}
-            >
+            <TouchableOpacity style={styles.myActivityContainer}>
               <Text style={styles.myActivityText}>My Activity</Text>
             </TouchableOpacity>
 
@@ -199,10 +196,7 @@ const FullProfile = () => {
                 Maecenas hendrerit luctus libero ac vulputate.
               </Text>
             </View>
-            <TouchableOpacity
-              style={styles.arrowContainer}
-              onPress={() => navigation.navigate(RouteName.SHOP_SCREEN)}
-            >
+            <TouchableOpacity style={styles.arrowContainer}>
               <MaterialCommunityIcons
                 name="arrow-right"
                 size={22}
@@ -565,7 +559,7 @@ const styles = StyleSheet.create({
   container: {
     marginLeft: 20,
     marginRight: 20,
-    marginBottom: 400,
+    // marginBottom: 400,
   },
   activityContainer: {
     marginTop: 30,
