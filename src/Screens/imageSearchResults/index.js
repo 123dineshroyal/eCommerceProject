@@ -27,7 +27,7 @@ const ImageSearchResults = () => {
           </TouchableOpacity>
         </View>
 
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
           <View style={styles.shoesContain}>
             <Text style={styles.shoesText}>Shoes</Text>
             <Text style={styles.meanText}>Is this what you meant?</Text>

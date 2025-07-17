@@ -10,8 +10,12 @@ import {
 import Images from '../../assets/Images';
 import { COLORS } from '../../constants/themes';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
 
 const Reviews = () => {
+  const navigation = useNavigation();
+
   return (
     <SafeAreaView style={styles.mainContainer}>
       <Text style={styles.reviewText}>Reviews</Text>
@@ -21,7 +25,10 @@ const Reviews = () => {
           <Image source={Images.rating2} style={styles.ratingImage} />
           <View style={styles.ratingContain}>
             <Text style={styles.name}>Veronika</Text>
-            <View style={styles.starContainer1}>
+            <TouchableOpacity
+              style={styles.starContainer1}
+              onPress={() => navigation.navigate(RouteName.WISHLIST_SCREEN)}
+            >
               <Entypo name="star" size={20} color={COLORS.onErrorContainer} />
               <Entypo name="star" size={20} color={COLORS.onErrorContainer} />
               <Entypo name="star" size={20} color={COLORS.onErrorContainer} />
@@ -31,7 +38,7 @@ const Reviews = () => {
                 size={20}
                 color={COLORS.onErrorContainer}
               />
-            </View>
+            </TouchableOpacity>
             <Text style={styles.ratingDescription}>
               Lorem ipsum dolor sit amet, consetetur sadipscing{'\n'}elitr, sed
               diam nonumy eirmod tempor invidunt ut{'\n'}labore et dolore magna

@@ -98,7 +98,7 @@ const ProductVariations = () => {
             labelStyle={styles.buyNowButtonText}
             style={styles.buyNowButtonContainer}
             // contentStyle={{ paddingVertical: 2 }}
-            onPress={() => navigation.navigate(RouteName.PRODUCT_SALE_SCREEN)}
+            onPress={() => navigation.navigate(RouteName.REVIEWS_SCREEN)}
           >
             Buy now
           </Button>

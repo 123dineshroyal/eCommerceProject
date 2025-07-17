@@ -50,7 +50,7 @@ const ShopClothingOnScroll = () => {
           <FontAwesome6 name="sliders" size={18} color="black" />
         </TouchableOpacity>
       </View>
-      <ScrollView>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.discountContainer1}>
           <View style={styles.discount}>
             <TouchableOpacity style={styles.discountProduct}>
@@ -139,6 +139,7 @@ const styles = StyleSheet.create({
   shopingSearchContainer: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems:'center'
   },
   searchInput: {
     fontWeight: '500',

@@ -2,77 +2,42 @@ import {
   View,
   Text,
   StyleSheet,
+  Image,
   TouchableOpacity,
   SafeAreaView,
-  Image,
-  TextInput,
   ScrollView,
 } from 'react-native';
 import Images from '../../assets/Images';
 import { COLORS } from '../../constants/themes';
-import TabNavigator from '../../navigation/TabNavigator';
-import { useState } from 'react';
+import Entypo from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Entypo from 'react-native-vector-icons/Entypo';
-import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 
-const SearchResult = () => {
+const RecentlyViewedDateChosen = () => {
+
   const navigation = useNavigation();
-  const [search, setSearch] = useState('Socks');
+
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <View style={styles.shopingSearchContainer}>
-        <Text style={styles.shopText}>Shop</Text>
-        <View style={styles.searchContainer}>
-          <View style={styles.crossContainer}>
-            <TextInput
-              placeholder="Search"
-              value={search}
-              onChangeText={setSearch}
-              placeholderTextColor={COLORS.surfaceVariant}
-              style={styles.searchInput}
-            />
-            <Entypo name="cross" size={20} color={COLORS.primary} />
-          </View>
-          <TouchableOpacity
-            onPress={() => navigation.navigate(RouteName.FULL_PROFILE_SCREEN)}
-          >
-            <MaterialCommunityIcons
-              name="camera-outline"
-              size={20}
-              color={COLORS.primary}
-            />
+      <Text style={styles.recentlyText}>Recently viewed</Text>
+
+      <View style={styles.dayContainer}>
+        <View style={styles.yesterdayContain}>
+          <Text style={styles.yesterdayText}>Yesterday</Text>
+        </View>
+        <View style={styles.todayContain}>
+          <Text style={styles.todayText}>April,18</Text>
+          <TouchableOpacity style={styles.checkedIcon}>
+            <Entypo name="check" size={15} color={COLORS.background} />
           </TouchableOpacity>
         </View>
-        <TouchableOpacity
-          style={styles.sliderIcon}
-          onPress={() => navigation.navigate(RouteName.IMAGE_SEARCH_RESULTS)}
-        >
-          <FontAwesome6 name="sliders" size={18} color="black" />
+        <TouchableOpacity style={styles.arrowDown} onPress={() => navigation.navigate(RouteName.CART_SCREEN)}>
+          <Entypo name="chevron-down" size={25} color={COLORS.background} />
         </TouchableOpacity>
       </View>
+
       <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.discountContainer1}>
-          <View style={styles.discount}>
-            <TouchableOpacity style={styles.discountProduct}>
-              <Image source={Images.just5} style={styles.discountImage} />
-              <Text style={styles.discountText1}>
-                Lorem ipsum dolor sit {'\n'}amet consectetur
-              </Text>
-              <Text style={styles.discountPrice}>$17,00</Text>
-            </TouchableOpacity>
-
-            <TouchableOpacity style={styles.discountProduct}>
-              <Image source={Images.just1} style={styles.discountImage} />
-              <Text style={styles.discountText1}>
-                Lorem ipsum dolor sit {'\n'}amet consectetur
-              </Text>
-              <Text style={styles.discountPrice}>$17,00</Text>
-            </TouchableOpacity>
-          </View>
-
           <View style={styles.discount}>
             <TouchableOpacity style={styles.discountProduct}>
               <Image source={Images.discount1} style={styles.discountImage} />
@@ -83,7 +48,7 @@ const SearchResult = () => {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.discountProduct}>
-              <Image source={Images.just6} style={styles.discountImage} />
+              <Image source={Images.just2} style={styles.discountImage} />
               <Text style={styles.discountText1}>
                 Lorem ipsum dolor sit {'\n'}amet consectetur
               </Text>
@@ -93,7 +58,7 @@ const SearchResult = () => {
 
           <View style={styles.discount}>
             <TouchableOpacity style={styles.discountProduct}>
-              <Image source={Images.item2} style={styles.discountImage} />
+              <Image source={Images.sale1} style={styles.discountImage} />
               <Text style={styles.discountText1}>
                 Lorem ipsum dolor sit {'\n'}amet consectetur
               </Text>
@@ -101,7 +66,25 @@ const SearchResult = () => {
             </TouchableOpacity>
 
             <TouchableOpacity style={styles.discountProduct}>
-              <Image source={Images.sale1} style={styles.discountImage} />
+              <Image source={Images.sale2} style={styles.discountImage} />
+              <Text style={styles.discountText1}>
+                Lorem ipsum dolor sit {'\n'}amet consectetur
+              </Text>
+              <Text style={styles.discountPrice}>$17,00</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.discount}>
+            <TouchableOpacity style={styles.discountProduct}>
+              <Image source={Images.popular4} style={styles.discountImage} />
+              <Text style={styles.discountText1}>
+                Lorem ipsum dolor sit {'\n'}amet consectetur
+              </Text>
+              <Text style={styles.discountPrice}>$17,00</Text>
+            </TouchableOpacity>
+
+            <TouchableOpacity style={styles.discountProduct}>
+              <Image source={Images.just3} style={styles.discountImage} />
               <Text style={styles.discountText1}>
                 Lorem ipsum dolor sit {'\n'}amet consectetur
               </Text>
@@ -113,49 +96,71 @@ const SearchResult = () => {
     </SafeAreaView>
   );
 };
-
-export default SearchResult;
+export default RecentlyViewedDateChosen;
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    backgroundColor: COLORS.background,
     padding: 20,
+    backgroundColor: COLORS.background,
   },
-  shopText: {
+  recentlyText: {
     fontSize: 28,
     fontWeight: '700',
-    marginBottom: 20,
   },
-  searchContainer: {
+  dayContainer: {
+    marginTop: 11,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    borderWidth: 1,
-    borderColor: COLORS.primaryContainer,
-    borderRadius: 20,
-    backgroundColor: COLORS.inverseOnSurface,
-    paddingHorizontal: 10,
-    height: 40,
-    width: '60%',
   },
-  shopingSearchContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems:'center',
-  },
-  searchInput: {
-    fontWeight: '500',
-    fontSize: 16,
-    color: COLORS.primary,
-  },
-  crossContainer: {
+  todayContain: {
+    backgroundColor: COLORS.primaryContainer,
     flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
+    paddingLeft: 45,
+    paddingRight: 3,
+    paddingVertical: 4,
+    borderRadius: 20,
+  },
+  todayText: {
+    fontSize: 15,
+    fontWeight: '700',
+    color: COLORS.primary,
+    paddingRight: 20,
+  },
+  yesterdayContain: {
+    backgroundColor: COLORS.secondary,
+    paddingHorizontal: 40,
+    paddingVertical: 4,
+    borderRadius: 20,
+  },
+  yesterdayText: {
+    fontSize: 15,
+    fontWeight: '500',
+  },
+  arrowDown: {
+    height: 30,
+    width: 30,
+    backgroundColor: COLORS.primary,
+    borderRadius: 15,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginRight:5
+  },
+  checkedIcon: {
+    height: 22,
+    width: 22,
+    borderRadius: 11,
+    borderWidth: 2,
+    backgroundColor: COLORS.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderColor: COLORS.background,
   },
   discountContainer1: {
-    marginTop: -55,
+    // marginTop: 20,
   },
   sliderIcon: {
     transform: [{ rotate: '-90deg' }],
@@ -179,7 +184,7 @@ const styles = StyleSheet.create({
     shadowColor: COLORS.shadow,
     shadowRadius: 8,
     elevation: 5,
-    //resizeMode:'contain'
+    //resizeMode:'stretch'
   },
   discountText1: {
     marginTop: 7,

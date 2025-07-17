@@ -2,91 +2,81 @@ import {
   View,
   Text,
   TouchableOpacity,
-  StyleSheet,
-  SafeAreaView,
-  ScrollView,
   Image,
+  SafeAreaView,
+  StyleSheet,
+  ScrollView,
 } from 'react-native';
+import Images from '../../assets/Images';
 import { COLORS } from '../../constants/themes';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
-import Images from '../../assets/Images';
+import { Button } from 'react-native-paper';
 import { useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
 
-const viewed = [
-  {
-    image: Images.viewed1,
-  },
-  {
-    image: Images.viewed2,
-  },
-  {
-    image: Images.viewed3,
-  },
-  {
-    image: Images.viewed4,
-  },
-  {
-    image: Images.viewed5,
-  },
-  {
-    image: Images.viewed1,
-  },
-  {
-    image: Images.viewed2,
-  },
-  {
-    image: Images.viewed3,
-  },
-  {
-    image: Images.viewed4,
-  },
-];
-
-const WishList = () => {
+const CartEmptyShownFromWishList = () => {
   const navigation = useNavigation();
 
   return (
     <SafeAreaView style={styles.mainContainer}>
-      <Text style={styles.wishListText}>Wishlist</Text>
-
-      <View style={styles.recentlyContainer}>
-        <Text style={styles.recentlyText}>Recently viewed</Text>
-        <TouchableOpacity
-          style={styles.arrowContainer1}
-          onPress={() => navigation.navigate(RouteName.WISHLIST_EMPTY_SCREEN)}
-        >
-          <MaterialCommunityIcons
-            name="arrow-right"
-            size={22}
-            color={COLORS.onPrimary}
-          />
-        </TouchableOpacity>
-      </View>
-      <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-        {viewed.map((item, index) => (
-          <TouchableOpacity style={styles.viewedContainer}>
-            <Image source={item.image} style={styles.viewedImage} />
-          </TouchableOpacity>
-        ))}
-      </ScrollView>
-
       <ScrollView showsVerticalScrollIndicator={false}>
+        <View style={styles.cartContainer}>
+          <Text style={styles.cartText}>Cart</Text>
+
+          <View style={styles.selectedCount}>
+            <Text style={styles.cartNumber}>0</Text>
+          </View>
+        </View>
+
+        <View style={styles.shippingContain}>
+          <View>
+            <Text style={styles.shippingText}>Shipping Address</Text>
+            <Text style={styles.shippingDescription}>
+              26, Duong So 2, Thao Dien Ward, An Phu, District 2,{'\n'} Ho Chi
+              Minh city
+            </Text>
+          </View>
+          <TouchableOpacity
+            style={styles.editIcon}
+            onPress={() =>
+              navigation.navigate(
+                RouteName.CART_EMPTY_SHOWN_FROM_POPULAR_SCREEN,
+              )
+            }
+          >
+            <MaterialCommunityIcons
+              name="pencil"
+              size={20}
+              color={COLORS.background}
+            />
+          </TouchableOpacity>
+        </View>
+
+        <View style={styles.Emptycontain}>
+          <View style={styles.imageContainer}>
+            <Image source={Images.cart4} style={styles.emptyImage} />
+          </View>
+        </View>
+
+        <View style={styles.fromContainer}>
+          <Text style={styles.fromText}>From Your Wishlist</Text>
+        </View>
+
         <View style={styles.itemContainer}>
-          <Image source={Images.just3} style={styles.itemImage} />
-          <View style={styles.itemData}>
+          <Image source={Images.sale1} style={styles.itemImage} />
+          <View>
             <Text style={styles.itemDescription}>
               Lorem ipsum dolor sit amet{'\n'}consectetur.
             </Text>
             <Text style={styles.itemPrice}>$17,00</Text>
             <View style={styles.itemSize}>
               <Text style={styles.color}>Pink</Text>
-              <Text style={styles.size}>M</Text>
+              <Text style={styles.size1}>M</Text>
             </View>
           </View>
           <Image source={Images.wish1} style={styles.wishImage} />
 
-          <TouchableOpacity style={styles.deleteIcon}>
+          <TouchableOpacity style={styles.deleteIcon1}>
             <MaterialCommunityIcons
               name="delete"
               color={COLORS.tertiary}
@@ -96,20 +86,20 @@ const WishList = () => {
         </View>
 
         <View style={styles.itemContainer}>
-          <Image source={Images.just1} style={styles.itemImage} />
-          <View style={styles.itemData}>
+          <Image source={Images.cart3} style={styles.itemImage} />
+          <View>
             <Text style={styles.itemDescription}>
               Lorem ipsum dolor sit amet{'\n'}consectetur.
             </Text>
             <Text style={styles.itemPrice}>$17,00</Text>
             <View style={styles.itemSize}>
               <Text style={styles.color}>Pink</Text>
-              <Text style={styles.size}>M</Text>
+              <Text style={styles.size1}>M</Text>
             </View>
           </View>
           <Image source={Images.wish1} style={styles.wishImage} />
 
-          <TouchableOpacity style={styles.deleteIcon}>
+          <TouchableOpacity style={styles.deleteIcon1}>
             <MaterialCommunityIcons
               name="delete"
               color={COLORS.tertiary}
@@ -119,20 +109,20 @@ const WishList = () => {
         </View>
 
         <View style={styles.itemContainer}>
-          <Image source={Images.flash2} style={styles.itemImage} />
-          <View style={styles.itemData}>
+          <Image source={Images.item1} style={styles.itemImage} />
+          <View>
             <Text style={styles.itemDescription}>
               Lorem ipsum dolor sit amet{'\n'}consectetur.
             </Text>
             <Text style={styles.itemPrice}>$17,00</Text>
             <View style={styles.itemSize}>
               <Text style={styles.color}>Pink</Text>
-              <Text style={styles.size}>M</Text>
+              <Text style={styles.size1}>M</Text>
             </View>
           </View>
           <Image source={Images.wish1} style={styles.wishImage} />
 
-          <TouchableOpacity style={styles.deleteIcon}>
+          <TouchableOpacity style={styles.deleteIcon1}>
             <MaterialCommunityIcons
               name="delete"
               color={COLORS.tertiary}
@@ -142,43 +132,20 @@ const WishList = () => {
         </View>
 
         <View style={styles.itemContainer}>
-          <Image source={Images.just2} style={styles.itemImage} />
-          <View style={styles.itemData}>
+          <Image source={Images.sale6} style={styles.itemImage} />
+          <View>
             <Text style={styles.itemDescription}>
               Lorem ipsum dolor sit amet{'\n'}consectetur.
             </Text>
             <Text style={styles.itemPrice}>$17,00</Text>
             <View style={styles.itemSize}>
               <Text style={styles.color}>Pink</Text>
-              <Text style={styles.size}>M</Text>
+              <Text style={styles.size1}>M</Text>
             </View>
           </View>
           <Image source={Images.wish1} style={styles.wishImage} />
 
-          <TouchableOpacity style={styles.deleteIcon}>
-            <MaterialCommunityIcons
-              name="delete"
-              color={COLORS.tertiary}
-              size={23}
-            />
-          </TouchableOpacity>
-        </View>
-
-        <View style={styles.itemContainer}>
-          <Image source={Images.item2} style={styles.itemImage} />
-          <View style={styles.itemData}>
-            <Text style={styles.itemDescription}>
-              Lorem ipsum dolor sit amet{'\n'}consectetur.
-            </Text>
-            <Text style={styles.itemPrice}>$17,00</Text>
-            <View style={styles.itemSize}>
-              <Text style={styles.color}>Pink</Text>
-              <Text style={styles.size}>M</Text>
-            </View>
-          </View>
-          <Image source={Images.wish1} style={styles.wishImage} />
-
-          <TouchableOpacity style={styles.deleteIcon}>
+          <TouchableOpacity style={styles.deleteIcon1}>
             <MaterialCommunityIcons
               name="delete"
               color={COLORS.tertiary}
@@ -187,65 +154,124 @@ const WishList = () => {
           </TouchableOpacity>
         </View>
       </ScrollView>
+
+      <View style={styles.checkoutContainer}>
+        <View style={styles.totalContain}>
+          <Text style={styles.totalText}>Total</Text>
+          <Text style={styles.amount}>$0,00</Text>
+        </View>
+        <Button
+          mode="contained"
+          labelStyle={styles.checkoutButtonText}
+          style={styles.checkoutButtonContainer}
+          // contentStyle={{ paddingVertical: 3 }}
+          onPress={() => navigation.navigate(RouteName.PRODUCT_SCREEN)}
+        >
+          Checkout
+        </Button>
+      </View>
     </SafeAreaView>
   );
 };
-export default WishList;
+export default CartEmptyShownFromWishList;
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     padding: 20,
     backgroundColor: COLORS.background,
-    justifyContent: 'flex-end',
   },
-  wishListText: {
+  cartContainer: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  cartText: {
     fontSize: 28,
     fontWeight: '700',
   },
-  recentlyContainer: {
-    marginTop: 13,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  recentlyText: {
-    fontSize: 21,
+  cartNumber: {
+    fontSize: 18,
     fontWeight: '700',
+
+    //padding:10,
   },
-  arrowContainer1: {
+  selectedCount: {
+    width: 30,
+    height: 30,
+    backgroundColor: COLORS.primaryContainer,
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginLeft: 10,
+    borderRadius: 15,
+  },
+  shippingDescription: {
+    fontSize: 10,
+    fontWeight: '400',
+    paddingBottom: 9,
+  },
+  shippingContain: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    alignItems: 'center',
+    backgroundColor: COLORS.secondary,
+    borderRadius: 10,
+    borderWidth: 2,
+    borderColor: COLORS.secondary,
+    marginTop: 15,
+  },
+  editIcon: {
     height: 30,
     width: 30,
     backgroundColor: COLORS.primary,
     borderRadius: 15,
     justifyContent: 'center',
     alignItems: 'center',
+    marginTop: 35,
   },
-  viewedContainer: {
-    marginTop: 20,
-    marginBottom: 25,
+  totalCartContainer: {
+    marginTop: 14,
+    //borderWidth: 2,
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
   },
-  viewedImage: {
-    height: 50,
-    width: 50,
-    borderWidth: 4,
+  Emptycontain: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 60,
+  },
+  imageContainer: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    height: 134,
+    width: 134,
     borderColor: COLORS.background,
-    borderRadius: 25,
+    borderWidth: 1,
+    borderRadius: 100,
+    backgroundColor: COLORS.background,
     shadowColor: COLORS.shadow,
     shadowRadius: 8,
     elevation: 5,
-    marginRight: 25,
+  },
+  emptyImage: {
+    height: 61,
+    width: 58,
+  },
+  fromContainer: {
+    marginTop: 75,
+  },
+  fromText: {
+    fontSize: 22,
+    fontWeight: '700',
+    marginBottom: 20,
   },
   itemContainer: {
-    // marginTop:14,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
-    // borderWidth: 2,
     paddingLeft: 5,
     paddingTop: 4,
     paddingBottom: 17,
-    //height:123
   },
 
   itemImage: {
@@ -257,10 +283,6 @@ const styles = StyleSheet.create({
     shadowColor: COLORS.shadow,
     shadowRadius: 10,
     elevation: 5,
-    resizeMode: 'stretch',
-  },
-  itemData: {
-    //marginLeft:13
   },
   itemDescription: {
     fontSize: 12,
@@ -284,7 +306,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 15,
     borderRadius: 4,
   },
-  size: {
+  size1: {
     fontSize: 14,
     fontWeight: '500',
     backgroundColor: COLORS.primaryContainer,
@@ -298,7 +320,43 @@ const styles = StyleSheet.create({
     height: 25,
     marginTop: 76,
   },
-  deleteIcon: {
+  checkoutContainer: {
+    position: 'absolute',
+    height: 60,
+    backgroundColor: COLORS.inverseOnSurface,
+    bottom: 0,
+    left: 0,
+    right: 0,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    paddingHorizontal: 20,
+    alignItems: 'center',
+  },
+  totalContain: {
+    flexDirection: 'row',
+    justifyContent: 'flex-start',
+    alignItems: 'center',
+  },
+  totalText: {
+    fontSize: 20,
+    fontWeight: '800',
+  },
+  amount: {
+    fontSize: 18,
+    fontWeight: '700',
+    marginLeft: 10,
+  },
+  checkoutButtonContainer: {
+    borderRadius: 15,
+    backgroundColor: COLORS.background,
+  },
+  checkoutButtonText: {
+    fontSize: 16,
+    color: COLORS.onBackground,
+    fontWeight: '300',
+    paddingHorizontal: 20,
+  },
+  deleteIcon1: {
     position: 'absolute',
     height: 35,
     width: 35,
@@ -308,5 +366,10 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.background,
     marginLeft: 20,
     marginTop: 42,
+  },
+  shippingText: {
+    fontSize: 14,
+    fontWeight: '700',
+    paddingBottom: 5,
   },
 });

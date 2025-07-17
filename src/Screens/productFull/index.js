@@ -17,6 +17,8 @@ import Entypo from 'react-native-vector-icons/Entypo';
 import { Button } from 'react-native-paper';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import Icon from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
 
 const productSlider = [
   Images.productImg5,
@@ -60,6 +62,9 @@ const popular = [
 ];
 
 const ProductFull = () => {
+
+  const navigation = useNavigation();
+
   const [activeIndex, setActiveIndex] = useState(0);
   const flatListRef = useRef(null);
 
@@ -362,6 +367,7 @@ const ProductFull = () => {
           labelStyle={styles.buyNowButtonText}
           style={styles.buyNowButtonContainer}
           // contentStyle={{ paddingVertical: 2 }}
+           onPress={() => navigation.navigate(RouteName.PRODUCT_VARIATIONS_SCREEN)}
         >
           Buy now
         </Button>

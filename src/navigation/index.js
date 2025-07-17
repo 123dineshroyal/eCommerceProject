@@ -42,6 +42,16 @@ import ProductFull from '../Screens/productFull';
 import ProductVariations from '../Screens/productVariations';
 import Reviews from '../Screens/Reviews';
 import WishList from '../Screens/wishlist';
+import WishListEmpty from '../Screens/wishListEmpty';
+import RecentlyViewed from '../Screens/recentlyViewed';
+import RecentlyViewedDateChosen from '../Screens/recentlyViewedDateChosen';
+import RecentlyViewedDate from '../Screens/recentlyViewedDate';
+import Cart from '../Screens/Cart';
+import CartEmptyShownFromWishList from '../Screens/cartEmptyshownFromWishlist';
+import CartEmptyShownFromPopular from '../Screens/cartEmptyShownFromPopular';
+import Payment from '../Screens/payment';
+import AddVoucher from '../Screens/addVoucher';
+import VoucherAdded from '../Screens/voucherAdded';
 
 const Stack = createStackNavigator();
 
@@ -49,35 +59,7 @@ const RootNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-
-        <Stack.Screen name={RouteName.WISHLIST_SCREEN} component={WishList} />
-
-        <Stack.Screen name={RouteName.REVIEWS_SCREEN} component={Reviews}/>
-
-        <Stack.Screen
-          name={RouteName.PRODUCT_VARIATIONS_SCREEN}
-          component={ProductVariations}
-        />
-
-        <Stack.Screen
-          name={RouteName.PRODUCT_FULL_SCREEN}
-          component={ProductFull}
-        />
-
-        <Stack.Screen
-          name={RouteName.IMAGE_SEARCH_RESULTS}
-          component={ImageSearchResults}
-        />
-
-        <Stack.Screen name={RouteName.FILTER_SCREEN} component={Filter} />
-
-        <Stack.Screen name={RouteName.PRODUCT_SCREEN} component={Product} />
-
-        <Stack.Screen
-          name={RouteName.PRODUCT_SALE_SCREEN}
-          component={ProductSale}
-        />
-
+        
         <Stack.Screen name={RouteName.START_SCREEN} component={start} />
 
         <Stack.Screen
@@ -208,6 +190,78 @@ const RootNavigator = () => {
           name={RouteName.IMAGE_SEARCH_SCREEN}
           component={ImageSearch}
         /> */}
+
+        <Stack.Screen
+          name={RouteName.IMAGE_SEARCH_RESULTS}
+          component={ImageSearchResults}
+        />
+
+        <Stack.Screen name={RouteName.FILTER_SCREEN} component={Filter} />
+
+        <Stack.Screen name={RouteName.PRODUCT_SCREEN} component={Product} />
+
+        <Stack.Screen
+          name={RouteName.PRODUCT_SALE_SCREEN}
+          component={ProductSale}
+        />
+
+        <Stack.Screen
+          name={RouteName.PRODUCT_FULL_SCREEN}
+          component={ProductFull}
+        />
+
+        <Stack.Screen
+          name={RouteName.PRODUCT_VARIATIONS_SCREEN}
+          component={ProductVariations}
+        />
+
+        <Stack.Screen name={RouteName.REVIEWS_SCREEN} component={Reviews} />
+
+        <Stack.Screen name={RouteName.WISHLIST_SCREEN} component={WishList} />
+
+        <Stack.Screen
+          name={RouteName.WISHLIST_EMPTY_SCREEN}
+          component={WishListEmpty}
+        />
+
+        <Stack.Screen
+          name={RouteName.RECENTLY_VIEWED_SCREEN}
+          component={RecentlyViewed}
+        />
+
+        <Stack.Screen
+          name={RouteName.RECENTLY_VIEWED_DATE_SCREEN}
+          component={RecentlyViewedDate}
+        />
+
+        <Stack.Screen
+          name={RouteName.RECENTLY_VIEWED_DATE_CHOSEN_SCREEN}
+          component={RecentlyViewedDateChosen}
+        />
+
+        <Stack.Screen name={RouteName.CART_SCREEN} component={Cart} />
+
+        <Stack.Screen
+          name={RouteName.CART_EMPTY_SHOWN_FROM_WISHLIST_SCREEN}
+          component={CartEmptyShownFromWishList}
+        />
+
+        <Stack.Screen
+          name={RouteName.CART_EMPTY_SHOWN_FROM_POPULAR_SCREEN}
+          component={CartEmptyShownFromPopular}
+        />
+
+        <Stack.Screen name={RouteName.PAYMENT_SCREEN} component={Payment} />
+
+        <Stack.Screen
+          name={RouteName.ADD_VOUCHER_SCREEN}
+          component={AddVoucher}
+        />
+
+        <Stack.Screen
+          name={RouteName.VOUCHER_ADDED_SCREEN}
+          component={VoucherAdded}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
