@@ -70,17 +70,17 @@ const storyData = [
   },
 ];
 
-const Profile = () => {
+const ProfileToReceiveNotification = () => {
   const navigation = useNavigation();
 
   return (
     <SafeAreaView>
       <View style={styles.container}>
         <View style={styles.activityContainer}>
-          <Image source={Images.profile1} style={styles.profileImage} />
+          <Image source={Images.receive1} style={styles.profileImage} />
           <TouchableOpacity
             style={styles.myActivityContainer}
-            onPress={() => navigation.navigate(RouteName.READY_CARD_SCREEN)}
+            //onPress={() => navigation.navigate(RouteName.READY_CARD_SCREEN)}
           >
             <Text style={styles.myActivityText}>My Activity</Text>
           </TouchableOpacity>
@@ -93,7 +93,7 @@ const Profile = () => {
             <Image source={Images.icon2} style={styles.iconImage} />
           </TouchableOpacity>
 
-          <TouchableOpacity style={styles.iconContainer}>
+          <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate(RouteName.DELIVERED_SCREEN)}>
             <SimpleLineIcons name="settings" size={18} color={COLORS.primary} />
           </TouchableOpacity>
         </View>
@@ -109,7 +109,7 @@ const Profile = () => {
           </View>
           <TouchableOpacity
             style={styles.arrowContainer}
-            onPress={() => navigation.navigate(RouteName.FULL_PROFILE_SCREEN)}
+           // onPress={() => navigation.navigate(RouteName.FULL_PROFILE_SCREEN)}
           >
             <MaterialCommunityIcons
               name="arrow-right"
@@ -161,7 +161,7 @@ const Profile = () => {
   );
 };
 
-export default Profile;
+export default ProfileToReceiveNotification;
 
 const styles = StyleSheet.create({
   mainContainer: {
@@ -210,7 +210,7 @@ const styles = StyleSheet.create({
   },
   iconImage: {
     height: 15,
-    width: 15,
+    width: 17,
   },
   userName: {
     marginTop: 22,
@@ -287,7 +287,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     height: 14,
     width: 14,
-    backgroundColor: COLORS.outline,
+    backgroundColor: COLORS.error,
     borderRadius: 7,
     left: 214,
     borderColor: COLORS.background,

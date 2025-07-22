@@ -46,7 +46,29 @@ export const RouteName = {
     'Cart_Empty_Shown_From_WishList_Screen',
   CART_EMPTY_SHOWN_FROM_POPULAR_SCREEN: 'Cart_Empty_Shown_From_Popular_Screen',
   PAYMENT_SCREEN: 'Payment_Screen',
-  ADD_VOUCHER_SCREEN:'Add_Voucher_Screen',
-  VOUCHER_ADDED_SCREEN:'Voucher_Added_Screen',
+  ADD_VOUCHER_SCREEN: 'Add_Voucher_Screen',
+  VOUCHER_ADDED_SCREEN: 'Voucher_Added_Screen',
+  EDIT_SHIPPING_ADDRESS_SCREEN: 'Edit_Shipping_Address_Screen',
+  CHOOSE_PAYMENT_METHOD_1_CARD_SCREEN: 'Choose_Payment_Method_1_Card_Screen',
+  CHOOSE_PAYMENT_METHOD_2_CARD_SCREEN: 'Choose_Payment_Method_2_Card_Screen',
+  COULD_NOT_PROCEED_PAYMENT_SCREEN: 'Could_Not_Proceed_Payment_Screen',
+  YOUR_CARD_BEEN_CHARGED_SCREEN: 'Your_Card_Been_Charged_Screen',
+  PAYMENT_IN_PROGRESS_SCREEN: 'Payment_In_Progress_Screen',
+  REVIEW_OPTION_SCREEN: 'Review_Option_Screen',
+  PROFILE_TO_RECEIVE_NOTIFICATION_SCREEN:
+    'Profile_To_Receive_Notification_Screen',
+  TO_RECEIVE_SCREEN: 'To_Receive_Screen',
+  TO_RECEIVE_PROGRESS_SCREEN: 'To_Receive_Progress_Screen',
+  TO_RECEIVE_ATTEMPT_IS_NOT_SUCCESSFUL_SCREEN:
+    'To_Receive_Attempt_Is_Not_Successful_Screen',
+  DELIVERY_ATTEMPT_NOTIFICATION_SCREEN: 'Delivery_Attempt_Notification_Screen',
+  DELIVERED_SCREEN: 'Delivered_Screen',
+  MY_ACTIVITY_SCREEN: 'My_Activity_Screen',
+  HISTORY_SCREEN: 'History_Screen',
+  REVIEW_SCREEN: 'Review_Screen',
+  REVIEW_DONE_SCREEN: 'Review_Done_Screen',
+  CHAT_STARTING_QUESTION1: 'Chat_Starting_Question1',
+
+
   HOME_TAB: 'Home_Tab',
 };

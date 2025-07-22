@@ -7,24 +7,23 @@ import {
   Image,
   TouchableOpacity,
   Modal,
+  ActivityIndicator,
 } from 'react-native';
 import Images from '../../assets/Images';
-import { COLORS, SIZES } from '../../constants/themes';
+import { COLORS } from '../../constants/themes';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Button } from 'react-native-paper';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { useNavigation } from '@react-navigation/native';
 import { RouteName } from '../../navigation/RouteName';
 import { useState } from 'react';
-import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
-import FontAwesome6 from 'react-native-vector-icons/FontAwesome6';
 
-const AddVoucher = () => {
+const YourCardBeenCharged = () => {
   const navigation = useNavigation();
 
   const [modalVisible, setModalVisible] = useState(false);
 
-  const addVoucher = () => {
+  const paymentProgress = () => {
     setModalVisible(true);
   };
 
@@ -42,7 +41,7 @@ const AddVoucher = () => {
         </View>
         <TouchableOpacity
           style={styles.editIcon}
-          onPress={() => navigation.navigate(RouteName.VOUCHER_ADDED_SCREEN)}
+          onPress={() => navigation.navigate(RouteName.TO_RECEIVE_SCREEN)}
         >
           <MaterialCommunityIcons
             name="pencil"
@@ -76,13 +75,10 @@ const AddVoucher = () => {
               <Text style={styles.totalVoucher}>2</Text>
             </View>
           </View>
-          <Button
-            mode="contained"
-            labelStyle={styles.addVoucherButtonText}
-            style={styles.addVoucherButtonContainer}
-          >
-            Add Voucher
-          </Button>
+          <View style={styles.voucherAddedContainer}>
+            <Text style={styles.discountText}>5% Discount</Text>
+            <Entypo name='cross' size={20} color={COLORS.background} />
+          </View>
         </View>
 
         <View style={styles.productDataContainer}>
@@ -159,9 +155,6 @@ const AddVoucher = () => {
             />
           </TouchableOpacity>
         </View>
-        <View style={styles.cardContain}>
-          <Text style={styles.cardText}>Card</Text>
-        </View>
       </View>
 
       <View style={styles.payContainer}>
@@ -173,89 +166,41 @@ const AddVoucher = () => {
           mode="contained"
           labelStyle={styles.payButtonText}
           style={styles.payButtonContainer}
-          onPress={addVoucher}
+          // contentStyle={{ paddingVertical: 3 }}
+          onPress={paymentProgress}
         >
           Pay
         </Button>
       </View>
 
       <Modal
-        animationType='fade'
+        animationType="fade"
         transparent={true}
         visible={modalVisible}
         onRequestClose={() => setModalVisible(false)}
       >
         <View style={styles.modalBackground}>
-          <View style={styles.addVoucherContainer}>
-            <View style={styles.avalibleVoucher}>
-              <Text style={styles.activeText}>Active Vouchers</Text>
-            </View>
-        
-            <View style={styles.voucher1}>
-              <View style={styles.voucherValidity}>
-                <Text style={styles.voucherText}>Voucher</Text>
-                <View style={styles.voucherTime}>
-                  <Text style={styles.timeText}>Valid Until 5.16.20</Text>
+          <View style={styles.paymentProgressContainer}>
+            <Text style={styles.DoneText}>Done!</Text>
+            <Text style={styles.waitText}>
+              You card has been successfully charged
+            </Text>
+
+            <Button
+              mode="contained"
+              labelStyle={styles.trackYourOrderButtonText}
+              style={styles.trackYourOrderButtonContainer}
+              onPress={() => setModalVisible(false)}
+            >
+              Track My Order
+            </Button>
+
+            <View style={styles.outsideContainer}>
+              <View style={styles.middleContainer}>
+                <View style={styles.innerContainer}>
+                  <Entypo name="check" size={14} color={COLORS.background} />
                 </View>
               </View>
-              <View style={styles.borderBottom} />
-
-              <View style={styles.giftContain}>
-                <FontAwesome5
-                  name="shopping-bag"
-                  size={20}
-                  color={COLORS.primary}
-                />
-                <Text style={styles.giftText}>First Purchase</Text>
-              </View>
-              <View style={styles.voucherDiscount}>
-                <Text style={styles.discountText}>
-                  5% off for your next order
-                </Text>
-                <TouchableOpacity
-                  style={styles.applyButtonContainer}
-                  onPress={() => setModalVisible(false)}
-                >
-                  <Text style={styles.applyButtonText}>Apply</Text>
-                </TouchableOpacity>
-              </View>
-
-              <View style={styles.circle1} />
-              <View style={styles.circle2} />
-              <View style={styles.circle3} />
-              <View style={styles.circle4} />
-            </View>
-
-         
-            <View style={styles.voucher1}>
-              <View style={styles.voucherValidity}>
-                <Text style={styles.voucherText}>Voucher</Text>
-                <View style={styles.voucherTime}>
-                  <Text style={styles.timeText}>Valid Until 6.20.20</Text>
-                </View>
-              </View>
-              <View style={styles.borderBottom} />
-
-              <View style={styles.giftContain}>
-                <FontAwesome6 name="gift" size={20} color={COLORS.primary} />
-                <Text style={styles.giftText}>Gift From Customer Care</Text>
-              </View>
-              <View style={styles.voucherDiscount}>
-                <Text style={styles.discountText}>
-                  15% off your next purchase
-                </Text>
-                <TouchableOpacity
-                  style={styles.applyButtonContainer}
-                  onPress={() => setModalVisible(false)}
-                >
-                  <Text style={styles.applyButtonText}>Apply</Text>
-                </TouchableOpacity>
-              </View>
-
-              <View style={styles.circle1} />
-              <View style={styles.circle2} />
-              <View style={styles.circle3} />
-              <View style={styles.circle4} />
             </View>
           </View>
         </View>
@@ -263,14 +208,13 @@ const AddVoucher = () => {
     </SafeAreaView>
   );
 };
-export default AddVoucher;
+export default YourCardBeenCharged;
 
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     padding: 20,
     backgroundColor: COLORS.background,
-    //opacity:0.1
   },
   paymentText: {
     fontSize: 28,
@@ -288,7 +232,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.errorContainer,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: COLORS.secondary,
+    borderColor: COLORS.errorContainer,
     marginTop: 15,
   },
   editIcon: {
@@ -312,7 +256,7 @@ const styles = StyleSheet.create({
     backgroundColor: COLORS.errorContainer,
     borderRadius: 10,
     borderWidth: 2,
-    borderColor: COLORS.secondary,
+    borderColor: COLORS.errorContainer,
     marginTop: 6,
     paddingHorizontal: 20,
   },
@@ -346,17 +290,21 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: '700',
   },
-  addVoucherButtonText: {
-    color: COLORS.primary,
-    fontSize: 13,
+  discountText: {
+    color: COLORS.background,
+    fontSize: 12,
     fontWeight: '400',
+    marginHorizontal: 10
+
   },
-  addVoucherButtonContainer: {
+  voucherAddedContainer: {
     borderRadius: 15,
-    backgroundColor: COLORS.background,
-    borderWidth: 1,
-    borderColor: COLORS.primary,
+    backgroundColor: COLORS.primary,
     paddingHorizontal: 10,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 4
   },
   productDataContainer: {
     marginTop: 20,
@@ -370,8 +318,8 @@ const styles = StyleSheet.create({
     borderWidth: 3,
     borderRadius: 25,
     borderColor: COLORS.background,
-    //shadowColor: COLORS.shadow,
-    elevation: 1,
+    shadowColor: COLORS.shadow,
+    elevation: 5,
   },
   productDiscription: {
     fontSize: 12,
@@ -397,7 +345,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     borderWidth: 2,
     borderColor: COLORS.background,
-    elevation: 1,
+    elevation: 5,
     marginLeft: 35,
     marginTop: -25,
   },
@@ -414,7 +362,7 @@ const styles = StyleSheet.create({
     marginBottom: 4,
   },
   standardContainer: {
-    marginTop: 6,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -477,7 +425,7 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
   expressContainer: {
-    marginTop: 6,
+    marginTop: 10,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',
@@ -487,12 +435,12 @@ const styles = StyleSheet.create({
     paddingHorizontal: 10,
   },
   orderDescription: {
-    marginTop: 6,
+    marginTop: 10,
     fontSize: 12,
     fontWeight: '400',
   },
   paymentMethodContainer: {
-    marginTop: 20,
+    marginTop: 30,
   },
   paymentMethodContain: {
     flexDirection: 'row',
@@ -503,20 +451,7 @@ const styles = StyleSheet.create({
     fontSize: 21,
     fontWeight: '700',
   },
-  cardContain: {
-    marginTop: 11,
-    height: 30,
-    width: 73,
-    backgroundColor: COLORS.primaryContainer,
-    alignItems: 'center',
-    justifyContent: 'center',
-    borderRadius: 10,
-  },
-  cardText: {
-    color: COLORS.primary,
-    fontSize: 15,
-    fontWeight: '700',
-  },
+
   editIcon1: {
     height: 30,
     width: 30,
@@ -563,146 +498,69 @@ const styles = StyleSheet.create({
   },
   modalBackground: {
     flex: 1,
-     
     backgroundColor: COLORS.onTertiary,
-    justifyContent: 'flex-end',
-    //opacity: 0.9,
-   // position:'static'
-    
+    justifyContent: 'center',
   },
-  addVoucherContainer: {
+  paymentProgressContainer: {
     backgroundColor: COLORS.background,
-    //paddingHorizontal: 20,
-    paddingBottom: 20,
-    borderTopEndRadius: 10,
-    borderTopStartRadius: 10,
-    //height:SIZES.height*0.5
-  },
-  avalibleVoucher: {
-    height: 80,
-    backgroundColor: COLORS.onSurface,
-    borderWidth: 2,
-    borderColor: COLORS.onSurface,
-  },
-  activeText: {
-    fontSize: 22,
-    fontWeight: '700',
-    paddingTop: 26,
-    paddingLeft: 20,
-  },
-  voucher1: {
-    height: 115,
-    borderColor: COLORS.primary,
-    borderWidth: 2,
     borderRadius: 10,
-    marginTop: 20,
-    marginHorizontal: 20,
-  },
-  voucherValidity: {
-    marginTop: 6,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingLeft: 20,
-    paddingRight: 10,
-  },
-  voucherText: {
-    fontSize: 18,
-    fontWeight: '700',
-    color: COLORS.primary,
-  },
-  voucherTime: {
-    backgroundColor: COLORS.errorContainer,
-    paddingVertical: 2,
-    paddingHorizontal: 5,
-    borderRadius: 3,
-  },
-  timeText: {
-    fontSize: 11,
-    fontWeight: '500',
-    textAlign: 'center',
-  },
-  borderBottom: {
-    marginTop: 3,
-    borderWidth: 1,
-    height: 1,
-    borderStyle: 'dashed',
-    borderColor: COLORS.primary,
-  },
-  giftContain: {
-    marginTop: 20,
-    flexDirection: 'row',
-    paddingLeft: 20,
-    justifyContent: 'flex-start',
-    alignItems: 'center',
-  },
-  giftText: {
-    fontSize: 17,
-    fontWeight: '700',
-    paddingLeft: 10,
-  },
-  voucherDiscount: {
-    paddingLeft: 20,
-    paddingRight: 10,
-    marginTop: 3,
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  discountText: {
-    fontSize: 12,
-    fontWeight: '600',
-  },
-  applyButtonText: {
-    fontSize: 12,
-    color: COLORS.background,
-    fontWeight: '500',
-    paddingHorizontal: 30,
-  },
-  applyButtonContainer: {
-    borderRadius: 8,
-    backgroundColor: COLORS.primary,
-    height: 24,
+    marginHorizontal: 14,
+    height: 194,
     justifyContent: 'center',
     alignItems: 'center',
   },
-  circle1: {
-    position: 'absolute',
-    height: 30,
-    width: 30,
-    borderColor: COLORS.primary,
-    borderWidth: 2,
-    borderRadius: 15,
-    backgroundColor: COLORS.background,
-    left: -17,
-    marginTop: 42,
-    // zIndex:1
+  DoneText: {
+    fontSize: 20,
+    fontWeight: '700',
+    marginTop: 60,
   },
-  circle2: {
-    position: 'absolute',
-    height: 32,
-    width: 32,
-    backgroundColor: COLORS.background,
-    left: -34,
-    marginTop: 41,
+
+  waitText: {
+    marginTop: 7,
+    fontSize: 13,
+    fontWeight: '600',
   },
-  circle3: {
+  outsideContainer: {
     position: 'absolute',
-    height: 30,
-    width: 30,
-    borderColor: COLORS.primary,
-    borderWidth: 2,
-    borderRadius: 15,
+    height: 80,
+    width: 80,
     backgroundColor: COLORS.background,
-    right: -17,
-    marginTop: 42,
+    borderRadius: 40,
+    justifyContent: 'center',
+    alignItems: 'center',
+    shadowColor: COLORS.shadow,
+    shadowRadius: 8,
+    elevation: 5,
+    marginBottom: 190,
+    // marginLeft: 150,
   },
-  circle4: {
-    position: 'absolute',
-    height: 32,
-    width: 32,
-    backgroundColor: COLORS.background,
-    right: -34,
-    marginTop: 41,
+  middleContainer: {
+    height: 50,
+    width: 50,
+    backgroundColor: COLORS.primary,
+    borderRadius: 25,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  innerContainer: {
+    height: 22,
+    width: 22,
+    backgroundColor: COLORS.primary,
+    borderRadius: 11,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  innerText: {
+    color: COLORS.background,
+  },
+  trackYourOrderButtonContainer: {
+    backgroundColor: COLORS.elevation.level4,
+    borderRadius: 10,
+    paddingHorizontal: 10,
+    marginVertical: 20,
+  },
+  trackYourOrderButtonText: {
+    fontSize: 16,
+    fontWeight: 300,
   },
 });

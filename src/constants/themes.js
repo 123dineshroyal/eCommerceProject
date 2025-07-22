@@ -12,7 +12,7 @@ export const COLORS = {
   secondaryContainer: 'rgb(224, 225, 249)',
   onSecondaryContainer: 'rgb(24, 26, 44)',
   tertiary: 'rgb(255, 87, 144)',
-  onTertiary: 'rgb(233, 233, 233)',
+  onTertiary: 'rgba(233,233,233,0.9)',
   tertiaryContainer: 'rgb(241, 174, 174)',
   onTertiaryContainer: 'rgb(45, 18, 39)',
   error: 'rgb(236,78,78)',
@@ -36,13 +36,18 @@ export const COLORS = {
     level0: 'transparent',
     level1: 'rgb(246, 243, 251)',
     level2: 'rgb(170, 195, 255)',
-    level3: 'rgb(244, 246, 254)',
+    level3: 'rgb(241, 244, 254)',
     level4: 'rgb(231, 232, 235)',
     level5: 'rgb(229, 228, 245)',
   },
   surfaceDisabled: 'rgba(27, 27, 31, 0.12)',
   onSurfaceDisabled: 'rgba(27, 27, 31, 0.38)',
   backdrop: 'rgba(0, 0, 0, 0.8)',
+
+  customColor1:'rgb(0, 59, 227)',
+  customColor2:'rgb(157,235,68)',
+  customColor3:'rgb(254,127,0)',
+  customColor4:'rgb(243,177,17)',
 };
 
 export const SIZES = {

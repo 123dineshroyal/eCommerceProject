@@ -30,7 +30,7 @@ const VoucherAdded = () => {
             Minh city
           </Text>
         </View>
-        <TouchableOpacity style={styles.editIcon}>
+        <TouchableOpacity style={styles.editIcon} onPress={() => navigation.navigate(RouteName.EDIT_SHIPPING_ADDRESS_SCREEN)}>
           <MaterialCommunityIcons
             name="pencil"
             size={20}
@@ -65,7 +65,7 @@ const VoucherAdded = () => {
           </View>
           <View style={styles.voucherAddedContainer}>
             <Text style={styles.discountText}>5% Discount</Text>
-            <Entypo name='cross' size={20} color={COLORS.background}/>
+            <Entypo name='cross' size={20} color={COLORS.background} />
           </View>
         </View>
 
@@ -157,8 +157,8 @@ const VoucherAdded = () => {
           mode="contained"
           labelStyle={styles.payButtonText}
           style={styles.payButtonContainer}
-          // contentStyle={{ paddingVertical: 3 }}
-         // onPress={() => navigation.navigate(RouteName.PRODUCT_SCREEN)}
+        // contentStyle={{ paddingVertical: 3 }}
+        // onPress={() => navigation.navigate(RouteName.PRODUCT_SCREEN)}
         >
           Pay
         </Button>
@@ -252,17 +252,17 @@ const styles = StyleSheet.create({
     color: COLORS.background,
     fontSize: 12,
     fontWeight: '400',
-    marginHorizontal:10
-    
+    marginHorizontal: 10
+
   },
   voucherAddedContainer: {
     borderRadius: 15,
     backgroundColor: COLORS.primary,
     paddingHorizontal: 10,
-    flexDirection:'row',
-    justifyContent:'space-between',
-    alignItems:'center',
-    paddingVertical:4
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    paddingVertical: 4
   },
   productDataContainer: {
     marginTop: 20,

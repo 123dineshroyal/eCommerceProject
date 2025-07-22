@@ -52,14 +52,44 @@ import CartEmptyShownFromPopular from '../Screens/cartEmptyShownFromPopular';
 import Payment from '../Screens/payment';
 import AddVoucher from '../Screens/addVoucher';
 import VoucherAdded from '../Screens/voucherAdded';
+import EditShippingAddress from '../Screens/editShippingAddress';
+import ChoosePaymentMethodCard1 from '../Screens/choosePaymentMethod1Card';
+import ChoosePaymentMethodCard2 from '../Screens/choosePaymentMethod2Card';
+import PaymentInProgress from '../Screens/paymentInProgress';
+import ClouldNotProceedPayment from '../Screens/couldn\'tProceedPayment';
+import YourCardBeenCharged from '../Screens/yourCardBeenCharged';
+import ToReceive from '../Screens/toReceive';
+import ReviewOption from '../Screens/reviewOption';
+import ProfileToReceiveNotification from '../Screens/profileToReceiveNotification';
+import ToReceiveProgress from '../Screens/toReceiveProgress';
+import ToReceiveAttemptIsNotSuccessful from '../Screens/toReceiveAttemptIsNotSuccessful';
+import DeliveryAttempNotification from '../Screens/deliveryAttemptNotification';
+import Delivered from '../Screens/Delivered';
+import MyActivity from '../Screens/myActivity';
+import History from '../Screens/history';
+import Review from '../Screens/review';
+import ReviewDone from '../Screens/reviewDone';
+import ChatStartingQuestion1 from '../Screens/chatStartingQuestion1';
 
 const Stack = createStackNavigator();
 
 const RootNavigator = () => {
+
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+
+
+
+
+
+
+
+
         
+
+        <Stack.Screen name={RouteName.CHAT_STARTING_QUESTION1} component={ChatStartingQuestion1} />
+
         <Stack.Screen name={RouteName.START_SCREEN} component={start} />
 
         <Stack.Screen
@@ -262,6 +292,45 @@ const RootNavigator = () => {
           name={RouteName.VOUCHER_ADDED_SCREEN}
           component={VoucherAdded}
         />
+
+        <Stack.Screen
+          name={RouteName.EDIT_SHIPPING_ADDRESS_SCREEN}
+          component={EditShippingAddress}
+        />
+
+        <Stack.Screen name={RouteName.CHOOSE_PAYMENT_METHOD_1_CARD_SCREEN} component={ChoosePaymentMethodCard1} />
+
+        <Stack.Screen name={RouteName.CHOOSE_PAYMENT_METHOD_2_CARD_SCREEN} component={ChoosePaymentMethodCard2} />
+
+        <Stack.Screen name={RouteName.PAYMENT_IN_PROGRESS_SCREEN} component={PaymentInProgress} />
+
+        <Stack.Screen name={RouteName.COULD_NOT_PROCEED_PAYMENT_SCREEN} component={ClouldNotProceedPayment} />
+
+        <Stack.Screen name={RouteName.YOUR_CARD_BEEN_CHARGED_SCREEN} component={YourCardBeenCharged} />
+
+        <Stack.Screen name={RouteName.TO_RECEIVE_SCREEN} component={ToReceive} />
+
+        <Stack.Screen name={RouteName.REVIEW_OPTION_SCREEN} component={ReviewOption} />
+
+        <Stack.Screen name={RouteName.TO_RECEIVE_PROGRESS_SCREEN} component={ToReceiveProgress} />
+
+        <Stack.Screen name={RouteName.TO_RECEIVE_ATTEMPT_IS_NOT_SUCCESSFUL_SCREEN} component={ToReceiveAttemptIsNotSuccessful} />
+
+        <Stack.Screen name={RouteName.DELIVERY_ATTEMPT_NOTIFICATION_SCREEN} component={DeliveryAttempNotification} />
+
+        <Stack.Screen name={RouteName.PROFILE_TO_RECEIVE_NOTIFICATION_SCREEN} component={ProfileToReceiveNotification} />
+
+        <Stack.Screen name={RouteName.DELIVERED_SCREEN} component={Delivered} />
+
+        <Stack.Screen name={RouteName.MY_ACTIVITY_SCREEN} component={MyActivity} />
+
+        <Stack.Screen name={RouteName.HISTORY_SCREEN} component={History} />
+
+        <Stack.Screen name={RouteName.REVIEW_SCREEN} component={Review} />
+
+        <Stack.Screen name={RouteName.REVIEW_DONE_SCREEN} component={ReviewDone} />
+
+
       </Stack.Navigator>
     </NavigationContainer>
   );

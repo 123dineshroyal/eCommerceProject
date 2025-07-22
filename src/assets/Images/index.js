@@ -127,6 +127,20 @@ const Image = {
   payment2: require('./payment2.png'),
   payment3: require('./payment3.png'),
   payment4: require('./payment4.png'),
+  card1: require('./card1.png'),
+  Visa1: require('./visa2.png'),
+  indicator: require('./indicator.png'),
+  receive1: require('./receive1.png'),
+  receive4: require('./receive4.png'),
+  receive5: require('./receive5.png'),
+  receive6: require('./receive6.png'),
+  receive7: require('./receive7.png'),
+  recive3:require('./recive3.png'),
+  recieve8:require('./recieve8.png'),
+  receive9:require('./receive9.png'),
+  menu1:require('./menu1.png'),
+  total:require('./total.png'),
+  bot:require('./bot.png'),
 };
 
 export default Image;
