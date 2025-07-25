@@ -521,7 +521,7 @@ const styles = StyleSheet.create({
         borderWidth: 2,
         borderColor: COLORS.background
     },
-      checkIcon1: {
+    checkIcon1: {
         height: 22,
         width: 22,
         backgroundColor: COLORS.primary,
@@ -529,7 +529,7 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         marginRight: 35,
-       
+
     },
     buttonContain: {
         marginTop: 9,

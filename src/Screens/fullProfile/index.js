@@ -161,8 +161,8 @@ const FullProfile = () => {
   const navigation = useNavigation();
 
   return (
-    <SafeAreaView>
-      <ScrollView>
+    <SafeAreaView style={styles.mainContainer}>
+      <ScrollView showsVerticalScrollIndicator={false}>
         <View style={styles.container}>
           <View style={styles.activityContainer}>
             <Image source={Images.profile1} style={styles.profileImage} />
@@ -592,7 +592,7 @@ const styles = StyleSheet.create({
   iconContainer: {
     height: 35,
     width: 35,
-    backgroundColor: COLORS.secondary,
+    backgroundColor: COLORS.primaryContainer,
     borderRadius: 17,
     justifyContent: 'center',
     alignItems: 'center',
@@ -600,7 +600,7 @@ const styles = StyleSheet.create({
   },
   iconImage: {
     height: 15,
-    width: 15,
+    width: 17,
   },
   userName: {
     marginTop: 22,

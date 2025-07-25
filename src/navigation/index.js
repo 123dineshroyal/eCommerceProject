@@ -70,6 +70,20 @@ import History from '../Screens/history';
 import Review from '../Screens/review';
 import ReviewDone from '../Screens/reviewDone';
 import ChatStartingQuestion1 from '../Screens/chatStartingQuestion1';
+import ProfileReward from '../Screens/profileReward';
+import MyVouchers from '../Screens/myVouchers';
+import RewardProgress from '../Screens/rewardProgress';
+import ProfileVoucherReminder from '../Screens/profileVoucherReminder';
+import SettingFull from '../Screens/settings';
+import SettingsProfile from '../Screens/settingsProfile';
+import SettingsAddCard from '../Screens/settingsAddCard';
+import PaymentMethodHistory from '../Screens/paymentMethodHistory';
+import ShippingAddress from '../Screens/shippingAddress';
+import About from '../Screens/about';
+import ChooseYourCountry from '../Screens/chooseYourCountry';
+import ChooseYourLanguage from '../Screens/chooseYourLanguage';
+import ChooseYourCurrency from '../Screens/chooseYourCurrency';
+import SizesTypes from '../Screens/sizesTypes';
 
 const Stack = createStackNavigator();
 
@@ -78,17 +92,6 @@ const RootNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
-
-
-
-
-
-
-
-
-        
-
-        <Stack.Screen name={RouteName.CHAT_STARTING_QUESTION1} component={ChatStartingQuestion1} />
 
         <Stack.Screen name={RouteName.START_SCREEN} component={start} />
 
@@ -161,6 +164,9 @@ const RootNavigator = () => {
           name={RouteName.STORY_DOTS_SCREEN}
           component={storyDots}
         /> */}
+
+        {/* <Stack.Screen name={RouteName.REWARD_PROGRESS_SCREEN} component={RewardProgress} /> */}
+
 
         <Stack.Screen name={RouteName.PROFILE_SCREEN} component={profile} />
 
@@ -235,10 +241,12 @@ const RootNavigator = () => {
           component={ProductSale}
         />
 
+
         <Stack.Screen
           name={RouteName.PRODUCT_FULL_SCREEN}
           component={ProductFull}
         />
+
 
         <Stack.Screen
           name={RouteName.PRODUCT_VARIATIONS_SCREEN}
@@ -330,6 +338,36 @@ const RootNavigator = () => {
 
         <Stack.Screen name={RouteName.REVIEW_DONE_SCREEN} component={ReviewDone} />
 
+
+        <Stack.Screen name={RouteName.PROFILE_REWARD_SREEN} component={ProfileReward} />
+
+        <Stack.Screen name={RouteName.MY_VOUCHERS_SCREEN} component={MyVouchers} />
+
+        <Stack.Screen name={RouteName.PROFILE_VOUCHER_REMINDER_SCREEN} component={ProfileVoucherReminder} />
+
+
+        <Stack.Screen name={RouteName.SETTINGS_SCREEN} component={SettingFull} />
+
+        <Stack.Screen name={RouteName.SETTINGS_PROFILE_SCREEN} component={SettingsProfile} />
+
+        <Stack.Screen name={RouteName.SETTINGS_ADD_CARD_SCREEN} component={SettingsAddCard} />
+
+        <Stack.Screen name={RouteName.PAYMENT_METHOD_HISTORY_SCREEN} component={PaymentMethodHistory} />
+
+        <Stack.Screen name={RouteName.SHIPPING_ADDRESS_SCREEN} component={ShippingAddress} />
+
+        <Stack.Screen name={RouteName.CHOOSE_YOUR_COUNTRY_SCREEN} component={ChooseYourCountry} />
+
+        <Stack.Screen name={RouteName.CHOOSE_YOUR_LANGUAGE_SCREEN} component={ChooseYourLanguage} />
+
+        <Stack.Screen name={RouteName.CHOOSE_YOUR_CURRENCY_SCREEN} component={ChooseYourCurrency} />
+
+        <Stack.Screen name={RouteName.SIZES_TYPES_SCREEN} component={SizesTypes} />
+
+        <Stack.Screen name={RouteName.ABOUT_SCREEN} component={About} />
+
+
+        <Stack.Screen name={RouteName.CHAT_STARTING_QUESTION1} component={ChatStartingQuestion1} />
 
       </Stack.Navigator>
     </NavigationContainer>

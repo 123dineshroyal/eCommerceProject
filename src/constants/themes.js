@@ -44,10 +44,13 @@ export const COLORS = {
   onSurfaceDisabled: 'rgba(27, 27, 31, 0.38)',
   backdrop: 'rgba(0, 0, 0, 0.8)',
 
-  customColor1:'rgb(0, 59, 227)',
-  customColor2:'rgb(157,235,68)',
-  customColor3:'rgb(254,127,0)',
-  customColor4:'rgb(243,177,17)',
+  customColor1: 'rgb(0, 59, 227)',
+  customColor2: 'rgb(157,235,68)',
+  customColor3: 'rgb(254,127,0)',
+  customColor4: 'rgb(243,177,17)',
+  customColor5: 'rgb(242,184,184)',
+  customColor6: 'rgb(217,116,116)',
+  customColor7: 'rgb(158,180,232)',
 };
 
 export const SIZES = {

@@ -68,7 +68,19 @@ export const RouteName = {
   REVIEW_SCREEN: 'Review_Screen',
   REVIEW_DONE_SCREEN: 'Review_Done_Screen',
   CHAT_STARTING_QUESTION1: 'Chat_Starting_Question1',
-
-
+  PROFILE_REWARD_SREEN: 'Profile_Reward_Screen',
+  MY_VOUCHERS_SCREEN: 'My_Vouchers_Screen',
+  REWARD_PROGRESS_SCREEN: 'Reward_Progress_Screen',
+  PROFILE_VOUCHER_REMINDER_SCREEN: 'Profile_Voucher_Reminder_Screen',
+  SETTINGS_SCREEN: 'Settings_Screen',
+  SETTINGS_PROFILE_SCREEN: 'Settings_Profile_Screen',
+  SETTINGS_ADD_CARD_SCREEN: 'Settings_Add_Card_Screen',
+  PAYMENT_METHOD_HISTORY_SCREEN: 'Payment_Method_History_Screen',
+  SHIPPING_ADDRESS_SCREEN: 'Shipping_Address_Screen',
+  ABOUT_SCREEN: 'About_Screen',
+  CHOOSE_YOUR_COUNTRY_SCREEN: 'Choose_Your_Country',
+  CHOOSE_YOUR_LANGUAGE_SCREEN: 'Choose_Your_Language_Screen',
+  CHOOSE_YOUR_CURRENCY_SCREEN: 'Choose_Your_Language_Currency_Screen',
+  SIZES_TYPES_SCREEN:'Sizes_Types_Screen',
   HOME_TAB: 'Home_Tab',
 };

@@ -141,6 +141,8 @@ const Image = {
   menu1:require('./menu1.png'),
   total:require('./total.png'),
   bot:require('./bot.png'),
+  icon3:require('./icon3.png'),
+  voucherbackground1:require('./voucherbackground1.png'),
 };
 
 export default Image;
