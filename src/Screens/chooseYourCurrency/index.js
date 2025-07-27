@@ -10,9 +10,13 @@ import {
 import { COLORS } from '../../constants/themes';
 import { useState } from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
 
 
 const ChooseYourCurrency = () => {
+
+    const navigation = useNavigation();
 
     const currency = ['$ USD', '€ EURO', '₫ VND', '₽ RUB'];
 
@@ -37,7 +41,9 @@ const ChooseYourCurrency = () => {
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Text style={styles.settingText}>Settings</Text>
-            <Text style={styles.currencyText}>Currency</Text>
+            <TouchableOpacity onPress={() => navigation.navigate(RouteName.SIZES_TYPES_SCREEN)}>
+                <Text style={styles.currencyText}>Currency</Text>
+            </TouchableOpacity>
 
             <View style={styles.currency}>
                 <FlatList

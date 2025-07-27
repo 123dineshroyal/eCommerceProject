@@ -14,6 +14,7 @@ import { useState } from 'react';
 import Feather from 'react-native-vector-icons/Feather';
 import Entypo from 'react-native-vector-icons/Entypo';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
+import { RouteName } from '../../navigation/RouteName';
 
 
 
@@ -35,7 +36,7 @@ const PaymentMethodHistory = () => {
                         <View style={styles.card2}>
                             <View style={styles.card1}>
                                 <Image source={Images.card1} style={styles.cardImage} />
-                                <TouchableOpacity style={styles.settingIcon}>
+                                <TouchableOpacity style={styles.settingIcon} onPress={() => navigation.navigate(RouteName.SHIPPING_ADDRESS_SCREEN)}>
                                     <Feather name="settings" size={20} color={COLORS.primary} />
                                 </TouchableOpacity>
                             </View>
@@ -152,7 +153,7 @@ const PaymentMethodHistory = () => {
                             <View style={styles.card2}>
                                 <View style={styles.card1}>
                                     <Image source={Images.card1} style={styles.cardImage} />
-                                    <TouchableOpacity style={styles.settingIcon}>
+                                    <TouchableOpacity style={styles.settingIcon} onPress={() => navigation.navigate(RouteName.SHIPPING_ADDRESS_SCREEN)}>
                                         <Feather
                                             name="settings"
                                             size={20}

@@ -46,7 +46,9 @@ const SettingsAddCard = () => {
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Text style={styles.settingText}>Settings</Text>
-            <Text style={styles.methodText}>Payment Methods</Text>
+            <TouchableOpacity onPress={() => navigation.navigate(RouteName.PAYMENT_METHOD_HISTORY_SCREEN)}>
+                <Text style={styles.methodText}>Payment Methods</Text>
+            </TouchableOpacity>
 
 
 

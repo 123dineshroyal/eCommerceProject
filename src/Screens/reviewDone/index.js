@@ -85,7 +85,7 @@ const ReviewDone = () => {
                     <Image source={Images.icon2} style={styles.iconImage} />
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate(RouteName.CHAT_STARTING_QUESTION1)}>
+                <TouchableOpacity style={styles.iconContainer} onPress={() => navigation.navigate(RouteName.PROFILE_REWARD_SREEN )}>
                     <SimpleLineIcons name="settings" size={18} color={COLORS.primary} />
                 </TouchableOpacity>
 

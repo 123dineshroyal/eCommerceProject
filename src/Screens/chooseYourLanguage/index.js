@@ -10,9 +10,13 @@ import {
 import { COLORS } from '../../constants/themes';
 import { useState } from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
 
 
 const ChooseYourLanguage = () => {
+
+    const navigation =  useNavigation();
 
     const languages = ['English', 'Français', 'Русский', 'Tiếng Việt'];
 
@@ -24,7 +28,7 @@ const ChooseYourLanguage = () => {
         return (
             <TouchableOpacity
                 style={[styles.item, isSelected && styles.selectedItem]}
-               onPress={() => setSelectedLanguage(item)}
+                onPress={() => setSelectedLanguage(item)}
             >
                 <Text style={styles.text}>{item}</Text>
                 <View style={[styles.circle, isSelected && styles.selectedCircle]} >
@@ -37,7 +41,9 @@ const ChooseYourLanguage = () => {
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Text style={styles.settingText}>Settings</Text>
-            <Text style={styles.languageText}>Language</Text>
+            <TouchableOpacity onPress={() => navigation.navigate(RouteName.CHOOSE_YOUR_CURRENCY_SCREEN)}>
+                <Text style={styles.languageText}>Language</Text>
+            </TouchableOpacity>
 
             <View style={styles.language}>
                 <FlatList

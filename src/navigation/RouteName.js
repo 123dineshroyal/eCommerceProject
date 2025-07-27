@@ -81,6 +81,17 @@ export const RouteName = {
   CHOOSE_YOUR_COUNTRY_SCREEN: 'Choose_Your_Country',
   CHOOSE_YOUR_LANGUAGE_SCREEN: 'Choose_Your_Language_Screen',
   CHOOSE_YOUR_CURRENCY_SCREEN: 'Choose_Your_Language_Currency_Screen',
-  SIZES_TYPES_SCREEN:'Sizes_Types_Screen',
+  SIZES_TYPES_SCREEN: 'Sizes_Types_Screen',
+  CHAT_CONNECTING_WITH_AN_AGENT_SCREEN: 'Chat_Connecting_With_An_Agent_Screen',
+  CHAT_AGENT_IS_TYPING_SCREEN: 'Chat_Agent_Is_Typing_Screen',
+  CHAT_HELLO_SCREEN: 'Chat_Hello_Screen',
+  CHAT_RESPONSE_SCREEN: 'Chat_Response_Screen',
+  CHAT_VOUCHER_SCREEN: 'Chat_Voucher_Screen',
+  CHAT_MESSAGING1_SCREEN:'Chat_Messaging1_Screen',
+  CHAT_MESSAGING2_SCREEN:'Chat_Messaging2_Screen',
+  CHAT_GO_THE_BOTTOM_SCREEN:'Chat_Go_To_The_Bottom_Screen',
+  CHAT_MESSAGING3_SCREEN:'Chat_Messaging3_Screen',
+  RATE_OUR_SERVICE_SCREEN:'Rate_Our_Service_Screen',
+
   HOME_TAB: 'Home_Tab',
 };

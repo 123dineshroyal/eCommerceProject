@@ -14,22 +14,38 @@ import { useNavigation } from '@react-navigation/native';
 import { useState } from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
 import { Button } from 'react-native-paper';
+import { RouteName } from '../../navigation/RouteName';
 
+const Issues = [
+    'Order Issues',
+    'Item Quality',
+    'Payment Issues',
+    'Technical Assistance',
+    'Other',
+]
 
+const orderIssues = [
+    'I did not recieve my parcel',
+    'I want to cancel my order',
+    'I want to return my order',
+    'Package was damaged',
+    'Other',
+]
 
 const ChatStartingQuestion1 = () => {
 
     const navigation = useNavigation();
 
-    const [modalVisible, setModalVisible] = useState(false);
     const [orderIssueModalVisible, setOrderIssueModalVisible] = useState(false);
     const [selectedOrderModalVisible, setSelectedOrderModalVisible] = useState(false);
 
+    const [selectedIssue, setSelectedIssue] = useState('Order Issues');
+    const [selectedOrderIssue, setSelectedOrderIssue] = useState('I did not recieve my parcel');
 
 
-    const ChatHandler = () => {
-        setModalVisible(true);
-    };
+
+
+
 
     const OrderIssueHandler = () => {
         setOrderIssueModalVisible(true);
@@ -58,7 +74,7 @@ const ChatStartingQuestion1 = () => {
 
             <View style={styles.bottomTab}>
                 <View style={styles.bottomTabContain}>
-                    <TouchableOpacity onPress={ChatHandler}>
+                    <TouchableOpacity>
                         <Text style={styles.messegeText}>Message</Text>
                     </TouchableOpacity>
                     <View style={styles.tabIcon}>
@@ -68,61 +84,55 @@ const ChatStartingQuestion1 = () => {
                 </View>
             </View>
 
+            <View style={styles.chatContainer2}>
+                <View style={styles.chatContain1}>
+                    <Text style={styles.chatText1}>
+                        What's your issue?
+                    </Text>
+                </View>
 
-            {/* Your Issue Modal */}
-            <Modal
-                animationType='slide'
-                transparent={true}
-                visible={modalVisible}
-                onRequestClose={() => setModalVisible(false)}
+                <View style={styles.issueContainer}>
 
-            >
-                <View style={styles.modalBackground}>
-                    <View style={styles.chatContainer1}>
-                        <View style={styles.chatContain1}>
-                            <Text style={styles.chatText1}>
-                                What's your issue?
-                            </Text>
-                        </View>
-
-                        <View style={styles.issueContainer}>
-                            <TouchableOpacity style={styles.orderIssueContain}>
-                                <View style={styles.checkIcon}>
+                    {
+                        Issues.map((issue, index) => (
+                            <TouchableOpacity
+                                key={index}
+                                style={[styles.orderIssue1,
+                                selectedIssue === issue && styles.orderIssueContain,
+                                ]}
+                                onPress={() => setSelectedIssue(issue)}
+                            >
+                                <View style={[styles.checkIcon2,
+                                selectedIssue === issue && styles.checkIcon,
+                                ]}>
                                     <Entypo name="check" size={14} color={COLORS.background} />
                                 </View>
-                                <Text style={styles.issueText}>Order Issues</Text>
+                                <Text
+                                    style={[styles.issueText1,
+                                    selectedIssue === issue && styles.issueText,
+                                    ]}
+                                >{issue}</Text>
                             </TouchableOpacity>
-                            <TouchableOpacity style={styles.orderIssue1}>
-                                <Text style={styles.issueText1}>Item Quality</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.orderIssue2}>
-                                <Text style={styles.issueText1}>Payment Issues</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.orderIssue3}>
-                                <Text style={styles.issueText1}>Technical Assistance</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.orderIssue4}>
-                                <Text style={styles.issueText1}>Other</Text>
-                            </TouchableOpacity>
+                        ))
+                    }
 
-                            <View style={styles.buttonContain}>
-                                <Button
-                                    mode="contained"
-                                    labelStyle={styles.nextButtonText1}
-                                    style={styles.nextButtonContainer1}
-                                    onPress={OrderIssueHandler}
-                                >
-                                    Next
-                                </Button>
-                                <TouchableOpacity style={styles.crossIcon} onPress={() => setModalVisible(false)}>
-                                    <Entypo name="cross" size={21} color={COLORS.background} />
-                                </TouchableOpacity>
-                            </View>
-                        </View>
+                    <View style={styles.buttonContain}>
+                        <Button
+                            mode="contained"
+                            labelStyle={styles.nextButtonText1}
+                            style={styles.nextButtonContainer1}
+                            onPress={OrderIssueHandler}
+                        >
+                            Next
+                        </Button>
+                        <TouchableOpacity style={styles.crossIcon}>
+                            <Entypo name="cross" size={21} color={COLORS.background} />
+                        </TouchableOpacity>
                     </View>
-
                 </View>
-            </Modal>
+            </View>
+
+
 
 
             {/* Order Issue Modal */}
@@ -142,24 +152,29 @@ const ChatStartingQuestion1 = () => {
                         </View>
 
                         <View style={styles.issueContainer}>
-                            <TouchableOpacity style={styles.orderIssueContain1}>
-                                <View style={styles.checkIcon}>
-                                    <Entypo name="check" size={14} color={COLORS.background} />
-                                </View>
-                                <Text style={styles.issueText}>I didn't recieve my parcel</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.orderIssue5}>
-                                <Text style={styles.issueText1}>I want to cancel my order</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.orderIssue5}>
-                                <Text style={styles.issueText1}>I want to return my order</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.orderIssue5}>
-                                <Text style={styles.issueText1}>Package was damaged</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.orderIssue4}>
-                                <Text style={styles.issueText1}>Other</Text>
-                            </TouchableOpacity>
+                            {
+                                orderIssues.map((issue, index) => (
+                                    <TouchableOpacity
+                                        key={index}
+                                        style={[styles.orderIssue5,
+                                        selectedOrderIssue === issue && styles.orderIssueContain1,
+                                        ]}
+                                        onPress={() => setSelectedOrderIssue(issue)}
+                                    >
+                                        <View style={[styles.checkIcon2,
+                                        selectedOrderIssue === issue && styles.checkIcon,
+                                        ]}>
+                                            <Entypo name="check" size={14} color={COLORS.background} />
+                                        </View>
+                                        <Text
+                                            style={[styles.issueText1,
+                                            selectedOrderIssue === issue && styles.issueText,
+                                            ]}
+                                        >{issue}</Text>
+                                    </TouchableOpacity>
+                                ))
+                            }
+
 
                             <View style={styles.buttonContain}>
                                 <Button
@@ -273,7 +288,7 @@ const ChatStartingQuestion1 = () => {
                                     mode="contained"
                                     labelStyle={styles.nextButtonText1}
                                     style={styles.nextButtonContainer1}
-                                //onPress={OrderIssueHandler}
+                                    onPress={() => navigation.navigate(RouteName.CHAT_CONNECTING_WITH_AN_AGENT_SCREEN)}
                                 >
                                     Next
                                 </Button>
@@ -391,7 +406,14 @@ const styles = StyleSheet.create({
     chatContainer1: {
         backgroundColor: COLORS.background,
         borderRadius: 15,
-        marginHorizontal: 14
+        marginHorizontal: 14,
+
+    },
+    chatContainer2: {
+        backgroundColor: COLORS.background,
+        borderRadius: 15,
+        marginHorizontal: 14,
+        marginBottom: 20,
     },
     chatContain1: {
         height: 80,
@@ -427,7 +449,7 @@ const styles = StyleSheet.create({
         justifyContent: 'flex-start',
         alignItems: 'center',
         borderRadius: 10,
-        width: SIZES.width * 0.35,
+        width: SIZES.width * 0.50,
         paddingHorizontal: 10
     },
     orderIssueContain1: {
@@ -447,50 +469,19 @@ const styles = StyleSheet.create({
         color: COLORS.background,
     },
     orderIssue1: {
+        flexDirection: 'row',
         marginTop: 7,
         borderRadius: 10,
         borderWidth: 2,
         borderColor: COLORS.primary,
         paddingHorizontal: 10,
         height: 40,
-        justifyContent: 'center',
+        justifyContent: 'flex-start',
         alignItems: 'center',
-        width: SIZES.width * .28
-    },
-    orderIssue2: {
-        marginTop: 7,
-        borderRadius: 10,
-        borderWidth: 2,
-        borderColor: COLORS.primary,
-        paddingHorizontal: 10,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: SIZES.width * .35
-    },
-    orderIssue3: {
-        marginTop: 7,
-        borderRadius: 10,
-        borderWidth: 2,
-        borderColor: COLORS.primary,
-        paddingHorizontal: 10,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: SIZES.width * .43
-    },
-    orderIssue4: {
-        marginTop: 7,
-        borderRadius: 10,
-        borderWidth: 2,
-        borderColor: COLORS.primary,
-        paddingHorizontal: 10,
-        height: 40,
-        justifyContent: 'center',
-        alignItems: 'center',
-        width: SIZES.width * .18
+        width: SIZES.width * .47
     },
     orderIssue5: {
+        flexDirection: 'row',
         marginTop: 7,
         borderRadius: 10,
         borderWidth: 2,
@@ -499,20 +490,29 @@ const styles = StyleSheet.create({
         height: 40,
         justifyContent: 'center',
         alignItems: 'center',
-        width: SIZES.width * 0.47
+        width: SIZES.width * 0.52
     },
     issueText1: {
-
         fontSize: 14,
         fontWeight: '500',
         color: COLORS.primary,
-
-
     },
     checkIcon: {
         height: 22,
         width: 22,
         backgroundColor: COLORS.primary,
+        borderRadius: 11,
+        justifyContent: 'center',
+        alignItems: 'center',
+        marginRight: 10,
+        // marginLeft: 10,
+        borderWidth: 2,
+        borderColor: COLORS.background
+    },
+    checkIcon2: {
+        height: 22,
+        width: 22,
+        backgroundColor: COLORS.background,
         borderRadius: 11,
         justifyContent: 'center',
         alignItems: 'center',

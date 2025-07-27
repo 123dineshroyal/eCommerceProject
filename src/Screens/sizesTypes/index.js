@@ -10,9 +10,13 @@ import {
 import { COLORS } from '../../constants/themes';
 import { useState } from 'react';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
 
 
 const SizesTypes = () => {
+
+    const navigation = useNavigation();
 
     const currency = ['US', 'EU', 'UK'];
 
@@ -37,7 +41,9 @@ const SizesTypes = () => {
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Text style={styles.settingText}>Settings</Text>
-            <Text style={styles.sizesText}>Sizes</Text>
+            <TouchableOpacity onPress={() => navigation.navigate(RouteName.ABOUT_SCREEN)}>
+                <Text style={styles.sizesText}>Sizes</Text>
+            </TouchableOpacity>
 
             <View style={styles.sizes}>
                 <FlatList

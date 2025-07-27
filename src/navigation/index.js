@@ -84,6 +84,16 @@ import ChooseYourCountry from '../Screens/chooseYourCountry';
 import ChooseYourLanguage from '../Screens/chooseYourLanguage';
 import ChooseYourCurrency from '../Screens/chooseYourCurrency';
 import SizesTypes from '../Screens/sizesTypes';
+import ChatConnectingWithAnAgent from '../Screens/chatConnectingWithAnAgent';
+import ChatAgentIsTyping from '../Screens/chatAgentIsTyping';
+import ChatHello from '../Screens/chatHello';
+import ChatResponse from '../Screens/chatResponse';
+import ChatVoucher from '../Screens/chatVoucher';
+import ChatMessaging1 from '../Screens/chatMessaging1';
+import ChatMessaging2 from '../Screens/chatMessaging2';
+import ChatGoToTheBottom from '../Screens/chatGoToTheBottom';
+import ChatMessaging3 from '../Screens/chatMessaging3';
+import RateOurService from '../Screens/rateOurService';
 
 const Stack = createStackNavigator();
 
@@ -92,6 +102,10 @@ const RootNavigator = () => {
   return (
     <NavigationContainer>
       <Stack.Navigator screenOptions={{ headerShown: false }}>
+
+
+
+
 
         <Stack.Screen name={RouteName.START_SCREEN} component={start} />
 
@@ -339,6 +353,7 @@ const RootNavigator = () => {
         <Stack.Screen name={RouteName.REVIEW_DONE_SCREEN} component={ReviewDone} />
 
 
+
         <Stack.Screen name={RouteName.PROFILE_REWARD_SREEN} component={ProfileReward} />
 
         <Stack.Screen name={RouteName.MY_VOUCHERS_SCREEN} component={MyVouchers} />
@@ -366,8 +381,30 @@ const RootNavigator = () => {
 
         <Stack.Screen name={RouteName.ABOUT_SCREEN} component={About} />
 
-
         <Stack.Screen name={RouteName.CHAT_STARTING_QUESTION1} component={ChatStartingQuestion1} />
+
+        <Stack.Screen name={RouteName.CHAT_CONNECTING_WITH_AN_AGENT_SCREEN} component={ChatConnectingWithAnAgent} />
+
+        <Stack.Screen name={RouteName.CHAT_AGENT_IS_TYPING_SCREEN} component={ChatAgentIsTyping} />
+
+        <Stack.Screen name={RouteName.CHAT_HELLO_SCREEN} component={ChatHello} />
+
+        <Stack.Screen name={RouteName.CHAT_RESPONSE_SCREEN} component={ChatResponse} />
+
+        <Stack.Screen name={RouteName.CHAT_VOUCHER_SCREEN} component={ChatVoucher} />
+
+        <Stack.Screen name={RouteName.CHAT_MESSAGING1_SCREEN} component={ChatMessaging1} />
+
+        <Stack.Screen name={RouteName.CHAT_MESSAGING2_SCREEN} component={ChatMessaging2} />
+
+        <Stack.Screen name={RouteName.CHAT_GO_THE_BOTTOM_SCREEN} component={ChatGoToTheBottom} />
+
+        <Stack.Screen name={RouteName.CHAT_MESSAGING3_SCREEN} component={ChatMessaging3} />
+
+        <Stack.Screen name={RouteName.RATE_OUR_SERVICE_SCREEN} component={RateOurService} />
+
+
+
 
       </Stack.Navigator>
     </NavigationContainer>

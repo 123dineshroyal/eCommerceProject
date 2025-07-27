@@ -12,10 +12,14 @@ import { COLORS } from '../../constants/themes';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { Button } from 'react-native-paper';
 import { useState } from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
 
 
 
 const ShippingAddress = () => {
+
+    const navigation = useNavigation();
 
     const [address, setAddress] = useState('Romina');
     const [city, setCity] = useState('Banglore');
@@ -90,7 +94,7 @@ const ShippingAddress = () => {
             <Button
                 mode="contained"
                 labelStyle={styles.saveChangesButtonText}
-                //onPress={() => setEditCardModalVisible(false)}
+                onPress={() => navigation.navigate(RouteName.CHOOSE_YOUR_COUNTRY_SCREEN)}
                 style={styles.saveChangesButtonContainer}
             >
                 Save Changes

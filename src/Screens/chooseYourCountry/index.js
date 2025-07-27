@@ -3,13 +3,19 @@ import {
     Text,
     StyleSheet,
     SafeAreaView,
-    ScrollView
+    ScrollView,
+    TouchableOpacity
 } from 'react-native';
 import { COLORS } from '../../constants/themes';
 import Entypo from 'react-native-vector-icons/Entypo';
+import { useNavigation } from '@react-navigation/native';
+import { RouteName } from '../../navigation/RouteName';
 
 
 const ChooseYourCountry = () => {
+
+    const navigation = useNavigation();
+
     return (
         <SafeAreaView style={styles.mainContainer}>
             <Text style={styles.settingText}>Settings</Text>
@@ -18,9 +24,9 @@ const ChooseYourCountry = () => {
             <ScrollView showsVerticalScrollIndicator={false}>
                 <View style={styles.selectedCountryName}>
                     <Text style={styles.indiaText}>India</Text>
-                    <View style={styles.checkIcon}>
+                    <TouchableOpacity style={styles.checkIcon} onPress={() => navigation.navigate(RouteName.CHOOSE_YOUR_LANGUAGE_SCREEN)}>
                         <Entypo name="check" size={14} color={COLORS.background} />
-                    </View>
+                    </TouchableOpacity>
                 </View>
 
                 <View>
